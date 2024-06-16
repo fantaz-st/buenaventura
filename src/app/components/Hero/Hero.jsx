@@ -63,6 +63,7 @@ const Hero = () => {
     },
     { scope: containerRef }
   );
+
   return (
     <div className={classes.container} ref={containerRef}>
       <div className={classes.title} ref={titleRef}>
@@ -74,7 +75,7 @@ const Hero = () => {
         </div>
       )}
       <div className={classes.background} ref={backgroundRef}>
-        <video ref={videoRef} width='100%' height='100%' autoPlay muted loop>
+        <video ref={videoRef} autoPlay muted loop>
           <source src='felix37.mp4' type='video/mp4' />
           Your browser does not support the video tag.
         </video>
