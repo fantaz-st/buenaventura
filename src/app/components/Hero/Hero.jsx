@@ -5,7 +5,6 @@ import SplitType from "split-type";
 import { useRef, useState, useEffect } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import VideoPlayer from "../VideoPlayer/VideoPlayer";
 
 gsap.registerPlugin(useGSAP);
 const Hero = () => {
@@ -60,7 +59,7 @@ const Hero = () => {
       gsap.set(containerRef.current, { autoAlpha: 1 });
       gsap.set(backgroundRef.current, { clipPath: "inset(0% 0% 0% 0%)" });
 
-      tl.from(backgroundRef.current, { clipPath: "inset(100% 0% 0% 0%)", duration: 1, ease: "power3.out" }).from(mySplitText.chars, { yPercent: 100, rotationX: -90, transformOrigin: "0% 50% -50", ease: "power3.out", stagger: 0.06, duration: 1.5 });
+      tl.from(backgroundRef.current, { clipPath: "inset(100% 0% 0% 0%)", duration: 1, ease: "power3.out" }).from(mySplitText.chars, { yPercent: 100, rotationX: -90, transformOrigin: "0% 50% -50", ease: "power3.out", stagger: 0.06, duration: 1.5 }, "-0.25");
     },
     { scope: containerRef }
   );
@@ -70,7 +69,7 @@ const Hero = () => {
         <h1>BUENAVENTURA</h1>
       </div>
       {loadingPercentage < 100 && (
-        <div style={{ position: "absolute", bottom: "0%", left: "0%", transform: "translate(0%, 0%)", zIndex: 3 }}>
+        <div style={{ position: "absolute", bottom: "0%", right: "0%", transform: "translate(0%, 0%)", zIndex: 3 }}>
           <p style={{ fontSize: "1rem", fontWeight: 500, color: "#fff" }}>Loading: {loadingPercentage}%</p>
         </div>
       )}
