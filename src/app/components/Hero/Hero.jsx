@@ -7,6 +7,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(useGSAP);
+
 const Hero = () => {
   const containerRef = useRef();
   const titleRef = useRef();
@@ -17,6 +18,7 @@ const Hero = () => {
 
   useEffect(() => {
     const videoElement = videoRef.current;
+    console.log(loadingPercentage);
 
     const updateProgress = () => {
       if (videoElement.buffered.length > 0) {
@@ -30,39 +32,48 @@ const Hero = () => {
     };
 
     const handleCanPlayThrough = () => {
-      setLoadingPercentage(100);
-    };
+      const bufferedEnd = videoElement.buffered.end(0);
+      const duration = videoElement.duration;
 
-    const handleLoadedData = () => {
-      if (videoElement.readyState >= 2) {
+      if (bufferedEnd === duration) {
         setLoadingPercentage(100);
+        console.log("Video is fully loaded");
+
+        // Trigger animations here after the video is fully buffered
+        const tl = gsap.timeline();
+        const mySplitText = new SplitType(titleRef.current, { types: "chars" });
+
+        gsap.set(titleRef.current, { perspective: 600 });
+        gsap.set(containerRef.current, { autoAlpha: 1 });
+        gsap.set(backgroundRef.current, { clipPath: "inset(0% 0% 0% 0%)" });
+
+        tl.from(backgroundRef.current, {
+          clipPath: "inset(100% 0% 0% 0%)",
+          duration: 1,
+          ease: "power3.out",
+        }).from(
+          mySplitText.chars,
+          {
+            yPercent: 100,
+            rotationX: -90,
+            transformOrigin: "0% 50% -50",
+            ease: "power3.out",
+            stagger: 0.06,
+            duration: 1.5,
+          },
+          "-0.25"
+        );
       }
     };
 
     videoElement.addEventListener("progress", updateProgress);
     videoElement.addEventListener("canplaythrough", handleCanPlayThrough);
-    videoElement.addEventListener("loadeddata", handleLoadedData);
 
     return () => {
       videoElement.removeEventListener("progress", updateProgress);
       videoElement.removeEventListener("canplaythrough", handleCanPlayThrough);
-      videoElement.removeEventListener("loadeddata", handleLoadedData);
     };
   }, []);
-
-  useGSAP(
-    () => {
-      const tl = gsap.timeline();
-      const mySplitText = new SplitType(titleRef.current, { types: "chars" });
-
-      gsap.set(titleRef.current, { perspective: 600 });
-      gsap.set(containerRef.current, { autoAlpha: 1 });
-      gsap.set(backgroundRef.current, { clipPath: "inset(0% 0% 0% 0%)" });
-
-      tl.from(backgroundRef.current, { clipPath: "inset(100% 0% 0% 0%)", duration: 1, ease: "power3.out" }).from(mySplitText.chars, { yPercent: 100, rotationX: -90, transformOrigin: "0% 50% -50", ease: "power3.out", stagger: 0.06, duration: 1.5 }, "-0.25");
-    },
-    { scope: containerRef }
-  );
 
   return (
     <div className={classes.container} ref={containerRef}>
@@ -70,7 +81,15 @@ const Hero = () => {
         <h1>BUENAVENTURA</h1>
       </div>
       {loadingPercentage < 100 && (
-        <div style={{ position: "absolute", bottom: "0%", right: "0%", transform: "translate(0%, 0%)", zIndex: 3 }}>
+        <div
+          style={{
+            position: "absolute",
+            bottom: "0%",
+            right: "0%",
+            transform: "translate(0%, 0%)",
+            zIndex: 3,
+          }}
+        >
           <p style={{ fontSize: "1rem", fontWeight: 500, color: "#fff" }}>Loading: {loadingPercentage}%</p>
         </div>
       )}
