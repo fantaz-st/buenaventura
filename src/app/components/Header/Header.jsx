@@ -29,7 +29,7 @@ const Header = () => {
   return (
     <div className={classes.container} ref={headerContainerRef}>
       <div className={classes.logo} ref={logoRef}>
-        LOGO
+        REBELDE BOATS
       </div>
       <div className={classes.menu}>MENU</div>
     </div>
