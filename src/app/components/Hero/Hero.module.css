@@ -4,7 +4,9 @@
   align-items: center;
   visibility: hidden;
 
-  height: 100vh;
+  height: 100dvh; /* Use dynamic viewport height */
+  min-height: 100svh; /* Ensure it adapts to small viewport */
+
   width: 100vw;
 
   position: relative;
