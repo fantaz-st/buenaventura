@@ -5,8 +5,10 @@ import SplitType from "split-type";
 import { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { CustomEase } from "gsap/all";
 
 gsap.registerPlugin(useGSAP);
+gsap.registerPlugin(CustomEase);
 
 const Hero = () => {
   const containerRef = useRef();
@@ -16,6 +18,8 @@ const Hero = () => {
 
   useGSAP(
     () => {
+      CustomEase.create("hop", "M0,0 C0.29,0 0.348,0.05 0.422,0.134 0.494,0.217 0.484,0.355 0.5,0.5 0.518,0.662 0.515,0.793 0.596,0.876 0.701,0.983 0.72,0.987 1,1");
+
       const videoElement = videoRef.current;
 
       if (!videoElement) {
@@ -33,26 +37,27 @@ const Hero = () => {
             const tl = gsap.timeline();
             const mySplitText = new SplitType(titleRef.current, { types: "chars" });
 
-            // gsap.set(titleRef.current, { perspective: 1000 });
             gsap.set(containerRef.current, { autoAlpha: 1 });
             gsap.set(backgroundRef.current, { clipPath: "inset(0% 0% 0% 0%)" });
 
             tl.from(backgroundRef.current, {
               clipPath: "inset(100% 0% 0% 0%)",
-              duration: 0.75,
-              ease: "power2.in",
+              duration: 1.5,
+              ease: "hop",
               delay: 0.5,
             }).from(
               mySplitText.chars,
               {
-                yPercent: 85,
-                rotationX: -80,
-                duration: 1.05,
+                yPercent: 100,
+                rotationX: -90,
+                duration: 1,
                 ease: "power2.out",
                 stagger: 0.02,
-                transformOrigin: "center 5% -80px",
+
+                // transformOrigin: "center 5% -80px",
+                transformOrigin: "center center -200px",
               },
-              "1"
+              "-=0.5"
             );
 
             clearInterval(checkInterval); // Stop checking once fully loaded
