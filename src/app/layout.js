@@ -3,7 +3,7 @@ import "./reset.css";
 import "./globals.css";
 
 import { ReactLenis } from "lenis/react";
-import Header from "./Componentz/Header/Header";
+import Header from "./Components/Header/Header";
 
 const nunito = Nunito_Sans({
   variable: "--font-nunito-sans",
