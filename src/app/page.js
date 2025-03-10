@@ -7,7 +7,6 @@ export default function Home() {
       <main className={classes.main}>
         <Hero />
       </main>
-      {/* <footer className={styles.footer}>hi footer</footer> */}
     </div>
   );
 }
