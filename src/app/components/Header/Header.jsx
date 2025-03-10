@@ -1,38 +1,73 @@
 "use client";
-import { useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 import classes from "./Header.module.css";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-
-gsap.registerPlugin(useGSAP);
 
 const Header = () => {
-  const headerContainerRef = useRef();
-  const logoRef = useRef();
+  const [isScrolledUp, setIsScrolledUp] = useState(false);
+  const [prevScrollY, setPrevScrollY] = useState(0);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const headerRef = useRef(null);
 
-  useGSAP(
-    () => {
-      gsap.set(headerContainerRef.current, {
-        yPercent: -100,
-      });
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
 
-      gsap.to(headerContainerRef.current, {
-        yPercent: 0,
-        autoAlpha: 1,
-        duration: 1,
-        delay: 0.5,
-      });
-    },
-    { scope: headerContainerRef }
-  );
+      if (currentScrollY < prevScrollY) {
+        setIsScrolledUp(true);
+      } else {
+        setIsScrolledUp(false);
+      }
+      setPrevScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [prevScrollY]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsScrolledUp(true);
+    }, 2000);
+  }, []);
 
   return (
-    <div className={classes.container} ref={headerContainerRef}>
-      <div className={classes.logo} ref={logoRef}>
-        REBELDE BOATS
+    <header className={` ${classes.header} ${isScrolledUp ? classes.show : classes.show}`} ref={headerRef}>
+      <div className={`container-xxl ${classes.container}`}>
+        <div className={classes.logo}>
+          <h2>
+            <span>R</span>BD
+          </h2>
+          {/* <Image src='/images/white-11th-imsc.svg' height={80} width={237} className={classes.logoImg}  alt='Logo' /> */}
+        </div>
+        <nav className={`${classes.nav} ${isMobileMenuOpen && classes.open}`}>
+          <div className={classes.wrapper}>
+            {["Welcome", "Organizers", "Topics", "Dates", "Committee", "Venue", "Registration", "Instructions for Authors"].map((item) => (
+              <div key={item} className={classes.navItem}>
+                <a href={`#${item.toLowerCase().replace(/ /g, "-")}`}>
+                  <span>{item}</span>
+                </a>
+              </div>
+            ))}
+          </div>
+        </nav>
+        <button className={classes.submitButton}>
+          <p>Submit Paper</p>
+          <div className={classes.spans}>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </button>
+        <div className={classes.hamburger} onClick={() => setIsMobileMenuOpen((prev) => !prev)}>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </div>
-      <div className={classes.menu}>MENU</div>
-    </div>
+    </header>
   );
 };
 

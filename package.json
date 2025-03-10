@@ -1,5 +1,5 @@
 {
-  "name": "practise-gsap-1",
+  "name": "rebelde",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,16 +9,17 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@gsap/react": "^2.1.1",
-    "gsap": "^3.12.5",
-    "lenis": "^1.1.3",
-    "next": "14.2.4",
-    "react": "^18",
-    "react-dom": "^18",
+    "@gsap/react": "^2.1.2",
+    "gsap": "^3.12.7",
+    "lenis": "^1.2.3",
+    "next": "15.2.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "split-type": "^0.3.4"
   },
   "devDependencies": {
-    "eslint": "^8",
-    "eslint-config-next": "14.2.4"
+    "@eslint/eslintrc": "^3",
+    "eslint": "^9",
+    "eslint-config-next": "15.2.1"
   }
 }

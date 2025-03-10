@@ -1,12 +1,13 @@
-import styles from "./page.module.css";
-import Hero from "./components/Hero/Hero";
-import Header from "./components/Header/Header";
+import classes from "./page.module.css";
+import Hero from "./Components/Hero2/Hero";
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <Header />
-      <Hero />
-    </main>
+    <div className={classes.page}>
+      <main className={classes.main}>
+        <Hero />
+      </main>
+      {/* <footer className={styles.footer}>hi footer</footer> */}
+    </div>
   );
 }
