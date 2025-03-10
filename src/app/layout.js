@@ -13,7 +13,7 @@ const tienne = Tienne({ subsets: ["latin"], weight: "400", style: "normal", vari
 
 export const metadata = {
   title: "REBELDE",
-  description: "by FANTAZ",
+  description: "done by FANTAZ",
 };
 
 export default function RootLayout({ children }) {
