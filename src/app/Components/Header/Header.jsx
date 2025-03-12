@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import AnimatedLink from "../AnimatedLink/AnimatedLink";
 import classes from "./Header.module.css";
 import Button from "../Button/Button";
+import Link from "next/link";
 
 const Header = () => {
   const [isScrolledUp, setIsScrolledUp] = useState(true);
@@ -36,11 +37,11 @@ const Header = () => {
     <header className={`${classes.header} ${isScrolledUp ? classes.show : classes.hide}`} ref={headerRef}>
       <div className={`container-xxl ${classes.container}`}>
         <div className={classes.logo}>
-          <a href='/' aria-label='Rebelde boats home'>
+          <Link href='/' aria-label='Rebelde boats home'>
             <h2>
               <span>R</span>BD
             </h2>
-          </a>
+          </Link>
         </div>
         <nav className={`${classes.nav} ${isMobileMenuOpen && classes.open}`}>
           <div className={classes.wrapper}>
