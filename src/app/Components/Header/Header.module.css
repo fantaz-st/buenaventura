@@ -1,11 +1,12 @@
 .header {
   position: fixed;
-  top: 0%;
+  top: 0;
   width: 100%;
   background: transparent;
   color: #fff;
   z-index: 10;
   transition: transform 0.3s ease;
+  padding: 1rem 0;
 }
 
 .show {
@@ -13,8 +14,8 @@
 }
 
 .hide {
-  transition-delay: 0.2s;
   transform: translateY(-100%);
+  transition-delay: 0.2s;
 }
 
 .container {
@@ -22,19 +23,9 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  margin: 0 auto;
   width: 100%;
+  margin: 0 auto;
 }
-
-/*  .logo {
-    display: flex;
-    align-items: center;
-    position: relative;
-  }
-  .logoImg {
-    height: 80px;
-    width: 237px;
-  } */
 
 .logo h2 {
   color: #fff;
@@ -42,12 +33,9 @@
 
 .logo h2 span {
   display: inline-block;
-
-  -webkit-transform: matrix(-1, 0, 0, 1, 0, 0);
-  -moz-transform: matrix(-1, 0, 0, 1, 0, 0);
-  -o-transform: matrix(-1, 0, 0, 1, 0, 0);
-  transform: matrix(-1, 0, 0, 1, 0, 0);
+  transform: scaleX(-1);
 }
+
 .nav {
   display: flex;
   align-items: center;
@@ -59,69 +47,10 @@
 }
 
 .navItem a {
-  color: white;
+  color: var(--fntz-white);
   text-decoration: none;
   font-size: 1rem;
-  padding: 5px 10px;
-  background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 25%, rgba(18, 48, 174, 1) 55%, rgba(148, 72, 197, 1)) no-repeat right bottom / 0 100%;
-  transition: background-size 250ms;
-}
-.navItem a:where(:hover, :focus-visible) {
-  background-size: 100% 100%;
-  background-position-x: left;
-}
-.navItem a span {
-  mix-blend-mode: difference;
-}
-
-.submitButton {
-  background: #0070f3;
-  color: white;
-  border: none;
-  /* padding: 1rem 1.25rem; */
-  cursor: pointer;
-  transition: background 0.3s ease;
-  font-size: 1rem;
-  position: relative;
-}
-
-.submitButton p {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.submitButton .spans {
-  display: flex;
-  flex-direction: column;
-  width: 200px;
-}
-
-.submitButton:hover {
-  background: #005bb5;
-}
-
-.submitButton .spans span {
-  height: 10px;
-  width: 100%;
-
-  transition: background-size 250ms ease-out;
-}
-
-.submitButton .spans span:nth-child(even) {
-  background: linear-gradient(90deg, rgba(0, 0, 0, 1) 25%, rgba(18, 48, 174, 1) 55%, rgba(148, 72, 197, 1)) no-repeat right bottom / 0 100%;
-}
-.submitButton .spans span:nth-child(odd) {
-  background: linear-gradient(-90deg, rgba(0, 0, 0, 1) 25%, rgba(18, 48, 174, 1) 55%, rgba(148, 72, 197, 1)) no-repeat left bottom / 0 100%;
-}
-
-.submitButton:where(:hover, :focus-visible) .spans span:nth-child(even) {
-  background-size: 100% 100%;
-  background-position-x: left;
-}
-.submitButton:where(:hover, :focus-visible) .spans span:nth-child(odd) {
-  background-size: 100% 100%;
-  background-position-x: right;
+  /* padding: 5px 10px; */
 }
 
 .hamburger {
@@ -140,7 +69,6 @@
 @media (max-width: 768px) {
   .nav {
     position: absolute;
-
     top: 100%;
     left: 0;
     width: 100vw;
@@ -151,54 +79,45 @@
     padding: 4rem 1rem 2rem;
   }
 
+  .open {
+    opacity: 1;
+  }
+
   .open .wrapper {
     display: flex;
     flex-direction: column;
-    flex-wrap: nowrap;
     justify-content: flex-start;
     align-items: stretch;
-    align-content: stretch;
-    position: relative;
     height: 100%;
     width: 100%;
     gap: 1rem;
   }
 
-  .submitButton {
-    display: none;
-  }
-  .logoImg {
-    width: 120px;
-    height: 40px;
-  }
-
-  .open {
-    opacity: 1;
-  }
   .navItem {
-    overflow: hidden;
     position: relative;
-    line-height: 100%;
-    height: 2.1rem;
-    width: 100%;
     text-align: center;
+    width: 100%;
   }
 
   .navItem a {
-    transform: translateY(100%);
-    transition: all 0.45s ease-out;
-    /* transition-delay: 0.2s; */
     position: absolute;
-    font-size: 1.85rem;
     top: 0;
     left: 0;
     width: 100%;
+    font-size: 1.85rem;
+    transform: translateY(100%);
+    transition: transform 0.45s ease-out;
   }
 
   .open .navItem a {
-    transform: translateY(0%);
+    transform: translateY(0);
   }
+
   .hamburger {
     display: flex;
+  }
+
+  .submitButton {
+    display: none;
   }
 }

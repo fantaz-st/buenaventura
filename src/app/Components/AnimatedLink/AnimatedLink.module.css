@@ -1,0 +1,35 @@
+.linkButton {
+  position: relative;
+  display: inline-block;
+  font-size: 1rem;
+  color: inherit;
+  text-decoration: none;
+  overflow: hidden;
+  transition: transform 0.2s;
+  /* padding: 0.8em 1.2em; */
+  min-width: 80px;
+}
+
+.linkButton::after {
+  content: attr(data-after);
+  position: absolute;
+  left: 0;
+  display: inline-block;
+  transform: translateY(100%);
+  transition: inherit;
+  padding: inherit;
+}
+
+.linkButton span {
+  display: inline-block;
+  transform: translateY(0);
+  transition: inherit;
+}
+
+.linkButton:hover span {
+  transform: translateY(-100%);
+}
+
+.linkButton:hover::after {
+  transform: translateY(0);
+}

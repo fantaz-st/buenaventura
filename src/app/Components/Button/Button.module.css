@@ -1,0 +1,50 @@
+.button {
+  position: relative;
+  padding: 0;
+  overflow: hidden;
+  transition: transform 0.2s;
+  display: block;
+  cursor: pointer;
+}
+.button::after {
+  content: attr(data-after);
+  display: inline-block;
+  transform: translateY(100%);
+  position: absolute;
+  left: 0;
+  transition: inherit;
+}
+.button > p {
+  display: inline-block;
+  transform: translateY(0%);
+  transition: inherit;
+}
+.button:hover > p {
+  transform: translateY(-100%);
+}
+.button:hover::after {
+  transform: translateY(0%);
+}
+
+.button {
+  font-size: var(--fntz-font-size);
+  border: none;
+  border-radius: 999px;
+}
+.button::after,
+.button p {
+  padding: 0.8em 1.2em;
+  min-width: 80px;
+}
+
+.button.gold {
+  background-color: var(--fntz-gold-light);
+  color: var(--fntz-white);
+}
+.button.gold:hover {
+  background-color: var(--fntz-gold);
+}
+.button.blue {
+  background-color: var(--fntz-dark-blue);
+  color: var(--fntz-white);
+}

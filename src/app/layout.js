@@ -9,7 +9,7 @@ const nunito = Nunito_Sans({
   variable: "--font-nunito-sans",
   subsets: ["latin"],
 });
-const tienne = Tienne({ subsets: ["latin"], weight: "400", style: "normal", variable: "--font-tienne" });
+const tienne = Tienne({ subsets: ["latin"], weight: ["400", "700"], style: "normal", variable: "--font-tienne" });
 
 export const metadata = {
   title: "REBELDE",

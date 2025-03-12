@@ -5,11 +5,11 @@ body {
 
   --fntz-blue-60: #0060df;
   --fntz-blue-70: #003eaa;
-  --fntz-gray-20: #ededf0;
-  --fntz-light-gray: #f0f0f4;
+  --fntz-dark-blue: #072434;
+
+  --fntz-gold: #c29716;
+  --fntz-gold-light: #fbb019;
   --fntz-white: #ffffff;
-  --fntz-transition: all 0.15s cubic-bezier(0.07, 0.95, 0, 1);
-  --fntz-borders: 1px solid #ededf0;
   --fntz-primary-text: #072434;
   --fntz-secondary-text: #5e707b;
   --fntz-font-size: 18px;
@@ -38,7 +38,7 @@ h1 {
 .container-xxl {
   width: 100%;
   margin: 0 auto;
-  padding: 0 16px;
+  /* padding: 0 16px; */
 }
 
 @media (min-width: 576px) {
