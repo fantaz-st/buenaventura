@@ -6,13 +6,13 @@ import { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { CustomEase } from "gsap/all";
+import Button from "../Button/Button";
 
 gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(CustomEase);
 
 const Hero = () => {
   const containerRef = useRef();
-  const titleRef = useRef();
   const videoRef = useRef(null);
   const backgroundRef = useRef(null);
 
@@ -29,43 +29,49 @@ const Hero = () => {
 
       const checkVideoLoaded = () => {
         if (videoElement.readyState >= 3) {
-          // ReadyState 3 means "can play" and ReadyState 4 means "can play through"
           const bufferedEnd = videoElement.buffered.end(0);
           const duration = videoElement.duration;
 
           if (bufferedEnd === duration) {
             const tl = gsap.timeline();
-            const mySplitText = new SplitType(titleRef.current, { types: "chars" });
+            const mySplitText = new SplitType(`.${classes.title}`, { types: "chars" });
 
-            gsap.set(containerRef.current, { autoAlpha: 1 });
-            gsap.set(backgroundRef.current, { clipPath: "inset(0% 0% 0% 0%)" });
+            gsap.set(containerRef.current, { visibility: "visible" });
 
             tl.from(backgroundRef.current, {
               clipPath: "inset(100% 0% 0% 0%)",
               duration: 1.5,
               ease: "hop",
               delay: 0.5,
-            }).from(
-              mySplitText.chars,
-              {
-                yPercent: 100,
-                rotationX: -90,
-                duration: 1,
-                ease: "power2.out",
-                stagger: 0.02,
+            })
+              .from(
+                mySplitText.chars,
+                {
+                  yPercent: 100,
+                  rotationX: -90,
+                  duration: 1,
+                  ease: "power2.out",
+                  stagger: 0.02,
+                  transformOrigin: "center center -200px",
+                },
+                "+=0.5"
+              )
+              .fromTo(
+                `.${classes.title_framed}`,
+                { clipPath: "inset(0% 50% 0% 50%)" },
+                {
+                  clipPath: "inset(0% 0% 0% 0%)",
+                  duration: 1.2,
+                  ease: "power4.out",
+                }
+              )
+              .fromTo(`.${classes.rest}`, { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power2.out" }, "-=1");
 
-                // transformOrigin: "center 5% -80px",
-                transformOrigin: "center center -200px",
-              },
-              "-=0.5"
-            );
-
-            clearInterval(checkInterval); // Stop checking once fully loaded
+            clearInterval(checkInterval);
           }
         }
       };
 
-      // Check every 100ms until the video is fully buffered
       const checkInterval = setInterval(checkVideoLoaded, 100);
 
       return () => {
@@ -77,9 +83,15 @@ const Hero = () => {
 
   return (
     <div className={classes.container} ref={containerRef}>
-      <div className={classes.title} ref={titleRef}>
-        <h1>BUENAVENTURA</h1>
-        {/* <h1>AROCK</h1> */}
+      <div className={classes.inner}>
+        <div className={classes.text}>
+          <h1 className={classes.title}>BEYOND THE SHORE</h1>
+          <h1 className={classes.title_framed}>PRESTIGE + BOLD</h1>
+        </div>
+        <div className={classes.rest}>
+          <p className={classes.description}>Experience the Adriatic like never before with private boat tours, island-hopping adventures, and seamless transfers designed for true explorers.</p>
+          <Button>Explore our Tours</Button>
+        </div>
       </div>
       <div className={classes.background} ref={backgroundRef}>
         <video ref={videoRef} autoPlay muted loop playsInline>

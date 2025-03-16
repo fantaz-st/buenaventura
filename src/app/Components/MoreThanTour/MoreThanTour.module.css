@@ -1,0 +1,40 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100dvh; /* Use dynamic viewport height */
+  min-height: 100svh; /* Ensure it adapts to small viewport */
+
+  width: 100vw;
+
+  position: relative;
+  overflow: visible;
+  background-color: #193064;
+  text-align: center;
+}
+
+.text h1 {
+  color: var(--fntz-white);
+  font-size: 100px;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.rotated {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: inline-block;
+  background: var(--fntz-white);
+  color: #193064 !important;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.5;
+  padding: 0 10px 15px 10px;
+  border: 10px solid #193064;
+  text-transform: uppercase;
+  z-index: 9;
+  transform: translate(-50%, -50%) rotate(4deg);
+  /* transform: rotate(4deg); */
+}

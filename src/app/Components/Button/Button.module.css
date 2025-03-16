@@ -1,50 +1,57 @@
-.button {
+.btn {
+  color: #000;
+  text-decoration: none;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5vw;
+  background-color: #fff;
+  transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1), background-color 0.5s cubic-bezier(0.19, 1, 0.22, 1);
   position: relative;
-  padding: 0;
+  z-index: 50;
+}
+
+.btn:hover {
+  background-color: #f0e9e4;
+  transform: scale(1.1);
+}
+
+.btn .btnText {
+  font-size: 1.25rem;
+  line-height: 1.25;
+  letter-spacing: -0.03em;
+  display: inline-block;
+  position: relative;
   overflow: hidden;
-  transition: transform 0.2s;
-  display: block;
-  cursor: pointer;
-}
-.button::after {
-  content: attr(data-after);
-  display: inline-block;
-  transform: translateY(100%);
-  position: absolute;
-  left: 0;
-  transition: inherit;
-}
-.button > p {
-  display: inline-block;
-  transform: translateY(0%);
-  transition: inherit;
-}
-.button:hover > p {
-  transform: translateY(-100%);
-}
-.button:hover::after {
-  transform: translateY(0%);
+  will-change: transform;
+  text-shadow: 0px 1.2em 0px #000;
 }
 
-.button {
-  font-size: var(--fntz-font-size);
-  border: none;
-  border-radius: 999px;
-}
-.button::after,
-.button p {
-  padding: 0.8em 1.2em;
-  min-width: 80px;
+.btnDark {
+  color: #fff;
+  text-decoration: none;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5vw;
+  background-color: #000;
+  transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1), background-color 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  position: relative;
+  z-index: 50;
 }
 
-.button.gold {
-  background-color: var(--fntz-gold-light);
-  color: var(--fntz-white);
+.btnDark:hover {
+  background-color: #000;
+  transform: scale(1.1);
 }
-.button.gold:hover {
-  background-color: var(--fntz-gold);
-}
-.button.blue {
-  background-color: var(--fntz-dark-blue);
-  color: var(--fntz-white);
+
+.btnDark .btnText {
+  font-size: 1.25rem;
+  line-height: 1.25;
+  letter-spacing: -0.03em;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  will-change: transform;
+  text-shadow: 0px 1.2em 0px #fff;
 }

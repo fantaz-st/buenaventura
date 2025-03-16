@@ -1,5 +1,5 @@
 body {
-  font-family: var(--font-nunito-sans), sans-serif;
+  font-family: var(--font-antonio), sans-serif;
   color: var(--fntz-primary-text);
   background-color: var(--fntz-white);
 
@@ -18,7 +18,8 @@ body {
 h1,
 h2,
 h3 {
-  font-family: var(--font-tienne), serif;
+  /* font-family: var(--font-tienne), serif; */
+  font-family: var(--font-antonio), sans-serif;
 }
 
 p,

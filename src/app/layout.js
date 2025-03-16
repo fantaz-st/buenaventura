@@ -1,4 +1,4 @@
-import { Tienne, Nunito_Sans } from "next/font/google";
+import { Tienne, Nunito_Sans, Antonio } from "next/font/google";
 import "./reset.css";
 import "./globals.css";
 
@@ -10,6 +10,7 @@ const nunito = Nunito_Sans({
   subsets: ["latin"],
 });
 const tienne = Tienne({ subsets: ["latin"], weight: ["400", "700"], style: "normal", variable: "--font-tienne" });
+const antonio = Antonio({ subsets: ["latin"], weight: ["400", "700"], style: "normal", variable: "--font-antonio" });
 
 export const metadata = {
   title: "REBELDE",
@@ -19,7 +20,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang='en'>
-      <body className={`${tienne.variable} ${nunito.variable}`}>
+      <body className={`/* ${tienne.variable}  */${nunito.variable} ${antonio.variable}`}>
         <ReactLenis root>
           <Header />
           {children}
