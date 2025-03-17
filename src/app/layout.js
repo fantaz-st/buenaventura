@@ -20,7 +20,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang='en'>
-      <body className={`/* ${tienne.variable}  */${nunito.variable} ${antonio.variable}`}>
+      <body className={`${tienne.variable} ${nunito.variable} ${antonio.variable}`}>
         <ReactLenis root>
           <Header />
           {children}

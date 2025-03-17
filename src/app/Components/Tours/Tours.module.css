@@ -1,39 +1,94 @@
 .container {
   display: flex;
-  justify-content: center;
   align-items: center;
-
-  height: 100dvh; /* Use dynamic viewport height */
-  min-height: 100svh; /* Ensure it adapts to small viewport */
-
+  height: 100dvh;
   width: 100vw;
-
   position: relative;
-  overflow: visible;
+  overflow: hidden;
   background-color: #2998cf;
+}
+
+.scrollContent {
+  display: flex;
+  align-items: center;
+  gap: 10vw;
+  width: max-content;
+}
+
+.text {
+  flex-shrink: 0;
+  width: 60vw;
+  text-align: left;
   text-align: center;
 }
 
 .text h1 {
   color: var(--fntz-white);
-  font-size: 100px;
   text-transform: uppercase;
   line-height: 1;
 }
+/* .rotated {
+  background-color: var(--middle-brown);
+  outline-offset: 0px;
+  perspective: none;
+  perspective-origin: 0%;
+  transform-origin: 0%;
+  color: var(--milk);
+  border: 0 solid #000;
+  outline: 0.5vw solid #faeade;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  margin-top: 0;
+  margin-bottom: 2vw;
+  padding: 0;
+  display: flex;
+  position: relative;
+  top: auto;
+  overflow: hidden;
+  transform: rotate(-3deg);
+} */
 
 .rotated {
   display: inline-block;
   background: var(--fntz-white);
-  color: #193064 !important;
-  font-size: 1.5rem;
+  color: #2998cf !important;
+  /* color: #193064 !important; */
   font-weight: 700;
   line-height: 1.5;
   padding: 0 10px 15px 10px;
-  border: 10px solid #193064;
+  border: 10px solid #2998cf;
   text-transform: uppercase;
   transform: rotate(-4deg);
 }
 
+.cards {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 10vw;
+  width: max-content;
+  padding-right: 10vw;
+}
+
 .card {
-  display: block;
+  width: 50vw;
+  height: 35vw;
+  position: relative;
+  transform: rotate(-8deg);
+}
+
+.card:nth-child(2) {
+  transform: rotate(8deg);
+}
+
+.card h3 {
+  position: absolute;
+  bottom: 10%;
+  left: 10%;
+  z-index: 2;
+  color: var(--fntz-white);
+}
+
+.image {
+  object-fit: cover;
 }

@@ -16,19 +16,22 @@ body {
 }
 
 h1,
-h2,
-h3 {
+h2 {
   /* font-family: var(--font-tienne), serif; */
   font-family: var(--font-antonio), sans-serif;
 }
 
 p,
-span {
+span,
+h3 {
   font-family: var(--font-nunito-sans), sans-serif;
 }
 
 h1 {
-  font-size: 2.5rem;
+  font-size: 6.25vw;
+}
+h3 {
+  font-size: 24px;
 }
 
 .container,
@@ -51,7 +54,7 @@ h1 {
 
 @media (min-width: 768px) {
   h1 {
-    font-size: 1.95rem;
+    font-size: 6.25vw;
   }
   .container,
   .container-md {
@@ -74,11 +77,20 @@ h1 {
   .container-xl {
     max-width: 1140px;
   }
+  h1 {
+    font-size: 13vw;
+  }
 }
 
 @media (min-width: 1400px) {
   .container,
   .container-xxl {
     max-width: 1320px;
+  }
+  h1 {
+    font-size: 6.25vw;
+  }
+  h3 {
+    font-size: 3.1vw;
   }
 }

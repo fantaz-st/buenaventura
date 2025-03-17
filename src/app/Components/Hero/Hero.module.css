@@ -48,7 +48,6 @@
 }
 
 .text h1 {
-  font-size: 120px;
   line-height: 1;
   font-weight: 800;
   text-transform: uppercase;
@@ -59,7 +58,6 @@
   display: inline-block;
   background: #2998cf;
   color: #fff;
-  font-size: 1.5rem;
   font-weight: 700;
   line-height: 1.5;
   padding: 0 10px 15px 10px;

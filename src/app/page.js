@@ -10,6 +10,7 @@ export default function Home() {
         <Hero />
         <MoreThanTour />
         <Tours />
+        <div style={{ height: "100vh" }}></div>
       </main>
     </div>
   );
