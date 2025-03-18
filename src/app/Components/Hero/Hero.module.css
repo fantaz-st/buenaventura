@@ -2,12 +2,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* Remove visibility: hidden; */
-  /* Or comment it out: */
-  /* visibility: hidden; */
 
-  opacity: 0; /* Start invisible */
-  transition: none; /* GSAP will handle transitions */
+  /* Start invisible, GSAP will fade it in */
+  opacity: 0;
+  visibility: hidden;
 
   height: 100dvh;
   min-height: 100svh;
@@ -17,41 +15,40 @@
   overflow: visible;
 }
 
+/* The hero content container */
 .inner {
   height: 100%;
   width: 100%;
 
   display: flex;
   flex-direction: column;
-  flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
-  align-content: stretch;
   text-align: center;
   z-index: 3;
   gap: 2rem;
 }
 
+/* Text & button area */
 .rest {
   display: flex;
   flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: center;
   align-items: center;
-  align-content: stretch;
   text-align: center;
   z-index: 3;
   gap: 2rem;
 }
+
+/* Large Title */
 .title {
   margin: 0;
-
   overflow: hidden;
   z-index: 9;
   user-select: none;
-  perspective: 500px;
+  perspective: 500px; /* for 3D text animation */
 }
 
+/* Title styling */
 .text h1 {
   line-height: 1;
   font-weight: 800;
@@ -59,6 +56,7 @@
   color: #fff;
 }
 
+/* Rotated framed text */
 .title_framed {
   display: inline-block;
   background: var(--fntz-blue-lite);
@@ -72,12 +70,13 @@
   transform: rotate(-4deg);
 }
 
+/* Description paragraph */
 .description {
-  /* margin-top: 3rem; */
   max-width: 35vw;
   color: var(--fntz-white);
 }
 
+/* Background container (where clipPath animation happens) */
 .background {
   position: absolute;
   top: 0;
@@ -89,16 +88,13 @@
   clip-path: inset(0% 0% 0% 0%);
 }
 
-.container video {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Ensures the video covers the container without stretching */
-  transform: translate(-50%, -50%);
+/* ReactPlayer will fill this entire container */
+.background > div {
+  width: 100% !important;
+  height: 100% !important;
 }
 
+/* Optional if you want a slight dark overlay */
 .backdrop {
   position: absolute;
   top: 0;
@@ -106,9 +102,10 @@
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.1);
-  z-index: 1;
+  z-index: 2;
 }
 
+/* Loader overlay */
 .loader {
   position: fixed;
   top: 0;
@@ -128,6 +125,18 @@
   font-size: 1.5rem;
   font-weight: bold;
   text-transform: uppercase;
+}
+
+.theVideo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+}
+
+.background video {
+  object-fit: cover;
 }
 
 @media (max-width: 767px) {
