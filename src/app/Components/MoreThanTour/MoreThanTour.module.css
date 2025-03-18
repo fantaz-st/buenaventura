@@ -36,3 +36,10 @@
   transform: translate(-50%, -50%) rotate(4deg);
   /* transform: rotate(4deg); */
 }
+
+@media (max-width: 767px) {
+  .container {
+    height: 70dvh;
+    min-height: 70dvh;
+  }
+}

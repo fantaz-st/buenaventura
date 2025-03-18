@@ -3,37 +3,41 @@ body {
   color: var(--fntz-primary-text);
   background-color: var(--fntz-white);
 
-  --fntz-blue-60: #0060df;
-  --fntz-blue-70: #003eaa;
-  --fntz-dark-blue: #072434;
+  --fntz-blue-lite: #2998cf;
+  --fntz-blue-dark: #003eaa;
 
   --fntz-gold: #c29716;
   --fntz-gold-light: #fbb019;
   --fntz-white: #ffffff;
   --fntz-primary-text: #072434;
   --fntz-secondary-text: #5e707b;
-  --fntz-font-size: 18px;
+  --fntz-font-size: 16px;
 }
 
 h1,
-h2 {
-  /* font-family: var(--font-tienne), serif; */
+h2,
+h3 {
   font-family: var(--font-antonio), sans-serif;
 }
 
 p,
-span,
-h3 {
+span {
   font-family: var(--font-nunito-sans), sans-serif;
+  font-size: var(--fntz-font-size);
 }
 
+/* Default font sizes */
 h1 {
-  font-size: 6.25vw;
+  font-size: 13vw;
 }
 h3 {
   font-size: 24px;
 }
+h4 {
+  font-size: 30px;
+}
 
+/* Responsive Containers */
 .container,
 .container-sm,
 .container-md,
@@ -42,9 +46,9 @@ h3 {
 .container-xxl {
   width: 100%;
   margin: 0 auto;
-  /* padding: 0 16px; */
 }
 
+/* Small screens (mobile) */
 @media (min-width: 576px) {
   .container,
   .container-sm {
@@ -52,9 +56,10 @@ h3 {
   }
 }
 
+/* Medium screens (tablets, 768px - 991px) */
 @media (min-width: 768px) {
   h1 {
-    font-size: 6.25vw;
+    font-size: 13vw;
   }
   .container,
   .container-md {
@@ -62,9 +67,10 @@ h3 {
   }
 }
 
+/* Large screens (992px - 1199px) */
 @media (min-width: 992px) {
   h1 {
-    font-size: 2.5rem;
+    font-size: 7.8vw;
   }
   .container,
   .container-lg {
@@ -72,20 +78,26 @@ h3 {
   }
 }
 
+/* Extra-large screens (1200px - 1399px) */
 @media (min-width: 1200px) {
   .container,
   .container-xl {
     max-width: 1140px;
   }
   h1 {
-    font-size: 13vw;
+    font-size: 7.8vw;
   }
 }
 
+/* Ultra-wide screens (1400px+) */
 @media (min-width: 1400px) {
   .container,
   .container-xxl {
     max-width: 1320px;
+  }
+  p,
+  span {
+    font-size: 1.04vw;
   }
   h1 {
     font-size: 6.25vw;

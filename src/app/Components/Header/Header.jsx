@@ -6,7 +6,7 @@ import Button from "../Button/Button";
 import Link from "next/link";
 
 const Header = () => {
-  const [isScrolledUp, setIsScrolledUp] = useState(true);
+  const [isScrolledUp, setIsScrolledUp] = useState(false);
   const [prevScrollY, setPrevScrollY] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const headerRef = useRef(null);

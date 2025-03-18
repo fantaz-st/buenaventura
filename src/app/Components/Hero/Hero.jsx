@@ -2,7 +2,7 @@
 
 import classes from "./Hero.module.css";
 import SplitType from "split-type";
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { CustomEase } from "gsap/all";

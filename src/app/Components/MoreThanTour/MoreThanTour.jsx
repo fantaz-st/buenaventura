@@ -58,11 +58,12 @@ const MoreThanTour = () => {
           <br />a luxury experience with
           <br />
           <br />
-          premium comfort, and
-          <br /> unbeatable value
+          comfort, and unbeatable
+          <br />
+          value
         </h1>
         <h1 ref={rotatedTextRef} className={classes.rotated}>
-          exclusive routes
+          premium
         </h1>
       </div>
     </div>
