@@ -98,15 +98,42 @@ const Tours = () => {
         </div>
         <div className={classes.cards}>
           <div className={classes.card}>
-            <Image alt='Blue Lagoon and the Shipwreck tour photo' src='/assets/images/tours/lagoon.jpg' fill className={classes.image} />
+            <Image
+              alt='Blue Lagoon and the Shipwreck tour photo'
+              src='/assets/images/tours/lagoon.jpg'
+              fill
+              className={classes.image}
+              sizes='
+              (max-width: 767px) 100vw,
+              50vw
+            '
+            />
             <h3>Blue Lagoon and the Shipwreck</h3>
           </div>
           <div className={classes.card}>
-            <Image alt='Blue cave and Five Islands tour photo' src='/assets/images/tours/cave.jpg' fill className={classes.image} />
+            <Image
+              alt='Blue cave and Five Islands tour photo'
+              src='/assets/images/tours/cave.jpg'
+              fill
+              className={classes.image}
+              sizes='
+              (max-width: 767px) 100vw,
+              50vw
+            '
+            />
             <h3>Blue cave and Five Islands</h3>
           </div>
           <div className={classes.card}>
-            <Image alt='Rebelde private luxurious bespoke boat tour photo' src='/assets/images/tours/private.jpg' fill className={classes.image} />
+            <Image
+              alt='Rebelde private luxurious bespoke boat tour photo'
+              src='/assets/images/tours/private.jpg'
+              fill
+              className={classes.image}
+              sizes='
+    (max-width: 767px) 100vw,
+    50vw
+  '
+            />
             <h3>Private bespoke tour</h3>
           </div>
         </div>

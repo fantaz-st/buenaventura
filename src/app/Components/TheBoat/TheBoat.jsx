@@ -44,7 +44,7 @@ const TheBoat = () => {
         </div>
       </div>
 
-      <Image src='/assets/images/theboat.jpg' alt='Rebelde boats about the boat photo' fill className={classes.image} />
+      <Image src='/assets/images/theboat.jpg' alt='Rebelde boats about the boat photo' fill className={classes.image} sizes='100vw' />
     </div>
   );
 };
