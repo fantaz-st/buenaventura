@@ -73,7 +73,7 @@ const Hero = () => {
         </div>
       </div>
       <div className={classes.background} ref={backgroundRef}>
-        <video ref={videoRef} autoPlay muted loop playsInline poster='/video-poster.png' preload='auto'>
+        <video ref={videoRef} autoPlay muted loop playsInline poster='/video-poster.webp' preload='auto'>
           <source src='felix37.mp4?v=1' type='video/mp4' />
           Your browser does not support the video tag.
         </video>
