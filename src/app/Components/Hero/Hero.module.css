@@ -3,16 +3,13 @@
   justify-content: center;
   align-items: center;
 
-  /* Start invisible, GSAP will fade it in */
-  opacity: 0;
-  visibility: hidden;
-
   height: 100dvh;
   min-height: 100svh;
   width: 100vw;
 
   position: relative;
   overflow: visible;
+  background-color: var(--fntz-blue-lite);
 }
 
 /* The hero content container */
@@ -25,8 +22,10 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  z-index: 3;
+  z-index: 11;
   gap: 2rem;
+  visibility: hidden;
+  opacity: 0;
 }
 
 /* Text & button area */
@@ -45,10 +44,9 @@
   overflow: hidden;
   z-index: 9;
   user-select: none;
-  perspective: 500px; /* for 3D text animation */
+  perspective: 500px; /* for 3D text anim */
 }
 
-/* Title styling */
 .text h1 {
   line-height: 1;
   font-weight: 800;
@@ -56,7 +54,6 @@
   color: #fff;
 }
 
-/* Rotated framed text */
 .title_framed {
   display: inline-block;
   background: var(--fntz-blue-lite);
@@ -70,63 +67,30 @@
   transform: rotate(-4deg);
 }
 
-/* Description paragraph */
 .description {
   max-width: 35vw;
   color: var(--fntz-white);
 }
 
-/* Background container (where clipPath animation happens) */
+/* Background container with clip-path animation */
 .background {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  z-index: 5; /* This is ABOVE .loading */
   overflow: hidden;
-  z-index: 1;
-  clip-path: inset(0% 0% 0% 0%);
+  clip-path: inset(100% 0% 0% 0%);
 }
 
-/* ReactPlayer will fill this entire container */
+/* Force ReactPlayer to fill .background */
 .background > div {
   width: 100% !important;
   height: 100% !important;
 }
 
-/* Optional if you want a slight dark overlay */
-.backdrop {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.1);
-  z-index: 2;
-}
-
-/* Loader overlay */
-.loader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: #000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  transition: opacity 0.5s ease-in-out;
-}
-
-.loaderText {
-  color: #fff;
-  font-size: 1.5rem;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
+/* The <video> inside ReactPlayer */
 .theVideo {
   position: absolute;
   top: 50%;
@@ -139,6 +103,20 @@
   object-fit: cover;
 }
 
+/* The "Loading..." text, 
+   placed behind the background (z-index: 2) so the video
+   slides in above it.
+*/
+.loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  color: #fff;
+}
+
+/* @media rules for responsiveness */
 @media (max-width: 767px) {
   .description {
     max-width: 100%;

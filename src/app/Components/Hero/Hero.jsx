@@ -1,69 +1,67 @@
 "use client";
 
-import { useRef } from "react";
-import ReactPlayer from "react-player/lazy";
+import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { CustomEase } from "gsap/all";
 import SplitType from "split-type";
 import Button from "../Button/Button";
 import classes from "./Hero.module.css";
+import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(CustomEase);
 
 const Hero = () => {
   const containerRef = useRef(null);
   const loaderRef = useRef(null);
+  const videoRef = useRef(null);
   const backgroundRef = useRef(null);
 
-  const handlePlayerReady = () => {
-    gsap.to(loaderRef.current, {
-      opacity: 0,
-      duration: 0.5,
-      ease: "power2.out",
-      onComplete: () => {
-        loaderRef.current.style.display = "none";
-      },
-    });
+  useGSAP(
+    () => {
+      CustomEase.create("hop", "M0,0 C0.29,0 0.348,0.05 0.422,0.134 0.494,0.217 0.484,0.355 0.5,0.5 0.518,0.662 0.515,0.793 0.596,0.876 0.701,0.983 0.72,0.987 1,1");
 
-    gsap.set(containerRef.current, { visibility: "visible", opacity: 1 });
+      gsap.set(`.${classes.inner}`, { autoAlpha: 1 });
 
-    const tl = gsap.timeline();
-    const mySplitText = new SplitType(`.${classes.title}`, { types: "chars" });
+      // 1) Handler for canplaythrough
+      // Hero Animations
+      const tl = gsap.timeline();
+      const mySplitText = new SplitType(`.${classes.title}`, { types: "chars" });
 
-    CustomEase.create("hop", "M0,0 C0.29,0 0.348,0.05 0.422,0.134 0.494,0.217 0.484,0.355 0.5,0.5 0.518,0.662 0.515,0.793 0.596,0.876 0.701,0.983 0.72,0.987 1,1");
-
-    tl.from(backgroundRef.current, {
-      clipPath: "inset(100% 0% 0% 0%)",
-      duration: 1.5,
-      ease: "hop",
-      delay: 0.5,
-    })
-      .from(
-        mySplitText.chars,
+      tl.fromTo(
+        backgroundRef.current,
         {
-          yPercent: 100,
-          rotationX: -90,
-          duration: 1,
-          ease: "power2.out",
-          stagger: 0.02,
-          transformOrigin: "center center -200px",
+          clipPath: "inset(100% 0% 0% 0%)",
         },
-        "+=0.5"
+        { clipPath: "inset(0% 0% 0% 0%)", duration: 1.5, ease: "hop", delay: 0.5 }
       )
-      .fromTo(
-        `.${classes.title_framed}`,
-        { clipPath: "inset(0% 50% 0% 50%)" },
-        {
-          clipPath: "inset(0% 0% 0% 0%)",
-          duration: 1.2,
-          ease: "power4.out",
-        }
-      )
-      .fromTo(`.${classes.rest}`, { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power2.out" }, "-=1");
-  };
+        .from(
+          mySplitText.chars,
+          {
+            yPercent: 100,
+            rotationX: -90,
+            duration: 1,
+            ease: "power2.out",
+            stagger: 0.02,
+            transformOrigin: "center center -200px",
+          },
+          "+=0.5"
+        )
+        .fromTo(
+          `.${classes.title_framed}`,
+          { clipPath: "inset(0% 50% 0% 50%)" },
+          {
+            clipPath: "inset(0% 0% 0% 0%)",
+            duration: 1.2,
+            ease: "power4.out",
+          }
+        )
+        .fromTo(`.${classes.rest}`, { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power2.out" }, "-=1");
+    },
+    { scope: containerRef }
+  );
 
   return (
-    <div className={classes.container} ref={containerRef} style={{ opacity: 0, visibility: "hidden" }}>
+    <div className={classes.container} ref={containerRef}>
       <div className={classes.inner}>
         <div className={classes.text}>
           <h1 className={classes.title}>BEYOND THE SHORE</h1>
@@ -74,34 +72,15 @@ const Hero = () => {
           <Button>Explore our Tours</Button>
         </div>
       </div>
-
       <div className={classes.background} ref={backgroundRef}>
-        <ReactPlayer
-          url='felix37.mp4?v=1'
-          playing
-          loop
-          muted
-          width='100%'
-          height='100%'
-          // Use onReady to signal that the player is ready
-          onReady={handlePlayerReady}
-          playsinline
-          className={classes.theVideo}
-          config={{
-            file: {
-              attributes: {
-                poster: "/video-poster.png",
-                preload: "auto",
-              },
-            },
-          }}
-        />
+        <video ref={videoRef} autoPlay muted loop playsInline poster='/video-poster.png' preload='auto'>
+          <source src='felix37.mp4?v=1' type='video/mp4' />
+          Your browser does not support the video tag.
+        </video>
       </div>
 
-      <div className={classes.backdrop}></div>
-
-      <div className={classes.loader} ref={loaderRef}>
-        <span className={classes.loaderText}>Loading...</span>
+      <div className={classes.loading} ref={loaderRef}>
+        <h1>Loading...</h1>
       </div>
     </div>
   );
