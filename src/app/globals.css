@@ -1,7 +1,9 @@
-body {
-  font-family: var(--font-antonio), sans-serif;
-  color: var(--fntz-primary-text);
-  background-color: var(--fntz-white);
+:root {
+  --color-bg: #010101;
+  --color-bg-lighter: #131313;
+  --color-text-dark: #111111;
+  --color-text-lite: #ffffff;
+  --color-accent: #e43414;
 
   --fntz-blue-lite: #2998cf;
   --fntz-blue-dark: #003eaa;
@@ -9,100 +11,98 @@ body {
   --fntz-gold: #c29716;
   --fntz-gold-light: #fbb019;
   --fntz-white: #ffffff;
-  --fntz-primary-text: #072434;
-  --fntz-secondary-text: #5e707b;
-  --fntz-font-size: 16px;
+  --fntz-gray: #f9f7f4;
+  --fntz-black: #131211;
+
+  --fs-h1: 7.5vw;
+  --fs-h2: 1.5rem;
+  --fs-h3: 3vw;
+  --fs-p: 3vw;
+  --fs-small: 0.875rem;
 }
 
-h1,
+/* Tablets */
+@media (min-width: 600px) {
+  :root {
+    --fs-h1: 3.75vw;
+    --fs-h2: 2rem;
+    --fs-h3: 1.25vw;
+    --fs-p: 3vw;
+    --fs-small: 0.9375rem;
+  }
+}
+
+/* Laptops */
+@media (min-width: 900px) {
+  :root {
+    --fs-h1: 3.75vw;
+    --fs-h2: 2.5vw;
+    --fs-h3: 1.25vw;
+    --fs-p: 3vw;
+    --fs-small: 1rem;
+  }
+}
+
+/* Desktops */
+@media (min-width: 1200px) {
+  :root {
+    --fs-h1: 3.75vw;
+    --fs-h2: 2.5vw;
+    --fs-h3: 1.25vw;
+    --fs-p: 1vw;
+    --fs-small: 1.0625rem;
+  }
+}
+
+/* Apply fonts */
+body {
+  font-family: var(--font-inter), sans-serif;
+  font-size: var(--fs-p);
+  background-color: var(--fntz-white);
+  color: var(--color-text-lite);
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* Large headings use Space Grotesk */
+h1 {
+  font-family: var(--font-inter), sans-serif;
+  font-size: var(--fs-h1);
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+/* Smaller headings use inter */
 h2,
 h3 {
-  font-family: var(--font-antonio), sans-serif;
+  font-family: var(--font-inter), sans-serif;
+  font-weight: 400;
 }
 
-p,
-span {
-  font-family: var(--font-nunito-sans), sans-serif;
-  font-size: var(--fntz-font-size);
+h2 {
+  font-size: var(--fs-h2);
+  line-height: 1.2;
 }
 
-/* Default font sizes */
-h1 {
-  font-size: 13vw;
-}
 h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 30px;
+  font-size: var(--fs-h3);
+  line-height: 1.3;
 }
 
-/* Responsive Containers */
-.container,
-.container-sm,
-.container-md,
-.container-lg,
-.container-xl,
-.container-xxl {
-  width: 100%;
-  margin: 0 auto;
+p {
+  font-family: var(--font-inter), sans-serif;
+  font-size: var(--fs-p);
+  line-height: 1.6;
+  font-weight: 400;
 }
 
-/* Small screens (mobile) */
-@media (min-width: 576px) {
-  .container,
-  .container-sm {
-    max-width: 540px;
-  }
+small {
+  font-size: var(--fs-small);
+  line-height: 1.4;
+  font-family: var(--font-inter), sans-serif;
 }
 
-/* Medium screens (tablets, 768px - 991px) */
-@media (min-width: 768px) {
-  h1 {
-    font-size: 13vw;
-  }
-  .container,
-  .container-md {
-    max-width: 720px;
-  }
-}
-
-/* Large screens (992px - 1199px) */
-@media (min-width: 992px) {
-  h1 {
-    font-size: 7.8vw;
-  }
-  .container,
-  .container-lg {
-    max-width: 960px;
-  }
-}
-
-/* Extra-large screens (1200px - 1399px) */
-@media (min-width: 1200px) {
-  .container,
-  .container-xl {
-    max-width: 1140px;
-  }
-  h1 {
-    font-size: 7.8vw;
-  }
-}
-
-/* Ultra-wide screens (1400px+) */
-@media (min-width: 1400px) {
-  .container,
-  .container-xxl {
-    max-width: 1320px;
-  }
-  p,
-  span {
-    font-size: 1.04vw;
-  }
-  h1 {
-    font-size: 6.25vw;
-  }
-  h3 {
-    font-size: 3.1vw;
-  }
+.swiper-button-disabled {
+  opacity: 0.2;
+  pointer-events: none;
 }
