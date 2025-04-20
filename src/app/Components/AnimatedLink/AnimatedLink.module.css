@@ -7,7 +7,7 @@
   overflow: hidden;
   transition: transform 0.2s;
   /* padding: 0.8em 1.2em; */
-  min-width: 80px;
+  /* min-width: 80px; */
 }
 
 .linkButton::after {

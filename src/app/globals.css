@@ -4,15 +4,9 @@
   --color-text-dark: #111111;
   --color-text-lite: #ffffff;
   --color-accent: #e43414;
-
-  --fntz-blue-lite: #2998cf;
-  --fntz-blue-dark: #003eaa;
-
-  --fntz-gold: #c29716;
-  --fntz-gold-light: #fbb019;
-  --fntz-white: #ffffff;
-  --fntz-gray: #f9f7f4;
-  --fntz-black: #131211;
+  --color-white: #ffffff;
+  --color-gray: #f9f7f4;
+  --color-black: #131211;
 
   --fs-h1: 7.5vw;
   --fs-h2: 1.5rem;
@@ -58,7 +52,7 @@
 body {
   font-family: var(--font-inter), sans-serif;
   font-size: var(--fs-p);
-  background-color: var(--fntz-white);
+  background-color: var(--color-white);
   color: var(--color-text-lite);
   line-height: 1.6;
   font-weight: 400;

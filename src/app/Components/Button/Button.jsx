@@ -17,8 +17,8 @@ const Button = ({ variant = "lite", children }) => {
     buttonRef.current.addEventListener("mouseenter", () => {
       gsap.to(letters, {
         yPercent: -120,
-        stagger: { amount: 0.075 },
-        duration: 0.5,
+        stagger: { amount: 0.09 },
+        duration: 0.35,
         ease: "power4.out",
       });
     });
@@ -26,8 +26,8 @@ const Button = ({ variant = "lite", children }) => {
     buttonRef.current.addEventListener("mouseleave", () => {
       gsap.to(letters, {
         yPercent: 0,
-        stagger: { amount: 0.075 },
-        duration: 0.5,
+        stagger: { amount: 0.09 },
+        duration: 0.35,
       });
     });
   }, []);

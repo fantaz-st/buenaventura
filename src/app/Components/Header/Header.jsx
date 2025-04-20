@@ -2,8 +2,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import AnimatedLink from "../AnimatedLink/AnimatedLink";
 import classes from "./Header.module.css";
-import Button from "../Button/Button";
 import Link from "next/link";
+import TheButton from "../TheButton/TheButton";
 
 const Header = () => {
   const [isScrolledUp, setIsScrolledUp] = useState(false);
@@ -38,21 +38,26 @@ const Header = () => {
       <div className={`container-xxl ${classes.container}`}>
         <div className={classes.logo}>
           <Link href='/' aria-label='Rebelde boats home'>
-            <h2>
+            <h3>
               <span>R</span>BD
-            </h2>
+            </h3>
           </Link>
         </div>
         <nav className={`${classes.nav} ${isMobileMenuOpen && classes.open}`}>
           <div className={classes.wrapper}>
-            {["Home", "Gallery", "Contact"].map((item) => (
+            {["Home", "Our Boat", "Our Tours", "FAQ", "Contact"].map((item) => (
               <div key={item} className={classes.navItem}>
                 <AnimatedLink href={`#${item.toLowerCase().replace(/ /g, "-")}`}>{item}</AnimatedLink>
               </div>
             ))}
+            <a href='#' style={{ color: "var(--color-black)" }}>
+              EN
+            </a>
           </div>
         </nav>
-        <Button>Contact us</Button>
+        <div className={classes.contact}>
+          <TheButton variant='dark'>Contact Us</TheButton>
+        </div>
         <div className={classes.hamburger} onClick={() => setIsMobileMenuOpen((prev) => !prev)}>
           <span></span>
           <span></span>

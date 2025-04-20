@@ -1,0 +1,6 @@
+.largeBg {
+  /* background-image: url("/assets/tall-bg.png");
+  background-size: cover;
+  background-position: center; */
+  background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(198, 214, 215, 1) 100%);
+}

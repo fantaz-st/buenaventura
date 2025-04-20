@@ -1,19 +1,21 @@
 "use client";
 
 import { useRef } from "react";
+import dynamic from "next/dynamic";
 import gsap from "gsap";
 import { CustomEase } from "gsap/all";
 import SplitType from "split-type";
-import Button from "../Button/Button";
-import classes from "./Hero.module.css";
 import { useGSAP } from "@gsap/react";
+import TheButton from "../TheButton/TheButton";
+import classes from "./Hero.module.css";
+
+const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
 
 gsap.registerPlugin(CustomEase);
 
 const Hero = () => {
   const containerRef = useRef(null);
   const loaderRef = useRef(null);
-  const videoRef = useRef(null);
   const backgroundRef = useRef(null);
 
   useGSAP(
@@ -22,8 +24,6 @@ const Hero = () => {
 
       gsap.set(`.${classes.inner}`, { autoAlpha: 1 });
 
-      // 1) Handler for canplaythrough
-      // Hero Animations
       const tl = gsap.timeline();
       const mySplitText = new SplitType(`.${classes.title}`, { types: "chars" });
 
@@ -61,22 +61,28 @@ const Hero = () => {
   );
 
   return (
-    <div className={classes.container} ref={containerRef}>
+    <div className={classes.container} ref={containerRef} id='hero'>
       <div className={classes.inner}>
         <div className={classes.text}>
-          <h1 className={classes.title}>BEYOND THE SHORE</h1>
-          <h1 className={classes.title_framed}>PRESTIGE + BOLD</h1>
+          <h1 className={classes.title}>
+            Private.
+            <br />
+            Premium.
+            <br />
+            Unforgettable.
+          </h1>
         </div>
         <div className={classes.rest}>
-          <p className={classes.description}>Experience the Adriatic like never before...</p>
-          <Button>Explore our Tours</Button>
+          <p className={classes.description}>Discover the Adriatic in style aboard REBELDE — your personal luxury boat tour in Croatia.</p>
+          <div className={classes.buttons}>
+            <TheButton variant='dark'>Book Now</TheButton>
+            <TheButton variant='lite'>Play Video</TheButton>
+          </div>
         </div>
       </div>
+
       <div className={classes.background} ref={backgroundRef}>
-        <video ref={videoRef} autoPlay muted loop playsInline poster='/video-poster.webp' preload='auto'>
-          <source src='felix37.mp4?v=1' type='video/mp4' />
-          Your browser does not support the video tag.
-        </video>
+        <ReactPlayer url='/felix37.mp4?v=1' playing muted loop playsinline width='100%' height='100%' className={classes.theVideo} />
       </div>
 
       <div className={classes.loading} ref={loaderRef}>
