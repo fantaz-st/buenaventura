@@ -103,3 +103,39 @@
     max-width: 100%;
   }
 }
+
+/* modal styles */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+.modalContent {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+  background: #000;
+  padding: 1rem;
+  border-radius: 8px;
+}
+.closeButton {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 2rem;
+  color: #fff;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+.fullVideo {
+  width: 100%;
+  height: auto;
+}

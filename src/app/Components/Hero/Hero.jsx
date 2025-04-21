@@ -1,41 +1,33 @@
 "use client";
 
-import { useRef } from "react";
-import dynamic from "next/dynamic";
+import { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { CustomEase } from "gsap/all";
 import SplitType from "split-type";
 import { useGSAP } from "@gsap/react";
+import Hls from "hls.js";
 import TheButton from "../TheButton/TheButton";
 import classes from "./Hero.module.css";
 
-const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
-
 gsap.registerPlugin(CustomEase);
 
-const Hero = () => {
+export default function Hero() {
   const containerRef = useRef(null);
-  const loaderRef = useRef(null);
   const backgroundRef = useRef(null);
+  const videoRef = useRef(null);
 
+  // GSAP intro animation
   useGSAP(
     () => {
       CustomEase.create("hop", "M0,0 C0.29,0 0.348,0.05 0.422,0.134 0.494,0.217 0.484,0.355 0.5,0.5 0.518,0.662 0.515,0.793 0.596,0.876 0.701,0.983 0.72,0.987 1,1");
-
       gsap.set(`.${classes.inner}`, { autoAlpha: 1 });
 
       const tl = gsap.timeline();
-      const mySplitText = new SplitType(`.${classes.title}`, { types: "chars" });
+      const split = new SplitType(`.${classes.title}`, { types: "chars" });
 
-      tl.fromTo(
-        backgroundRef.current,
-        {
-          clipPath: "inset(100% 0% 0% 0%)",
-        },
-        { clipPath: "inset(0% 0% 0% 0%)", duration: 1.5, ease: "hop", delay: 0.5 }
-      )
+      tl.fromTo(backgroundRef.current, { clipPath: "inset(100% 0 0 0)" }, { clipPath: "inset(0 0 0 0)", duration: 1.5, ease: "hop", delay: 0.5 })
         .from(
-          mySplitText.chars,
+          split.chars,
           {
             yPercent: 100,
             rotationX: -90,
@@ -46,19 +38,29 @@ const Hero = () => {
           },
           "+=0.5"
         )
-        .fromTo(
-          `.${classes.title_framed}`,
-          { clipPath: "inset(0% 50% 0% 50%)" },
-          {
-            clipPath: "inset(0% 0% 0% 0%)",
-            duration: 1.2,
-            ease: "power4.out",
-          }
-        )
+        .fromTo(`.${classes.title_framed}`, { clipPath: "inset(0% 50% 0% 50%)" }, { clipPath: "inset(0 0 0 0)", duration: 1.2, ease: "power4.out" })
         .fromTo(`.${classes.rest}`, { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power2.out" }, "-=1");
     },
     { scope: containerRef }
   );
+
+  // HLS setup: load the master playlist on mount
+  useEffect(() => {
+    const video = videoRef.current;
+    const src = "/videos/hls/master.m3u8";
+
+    if (Hls.isSupported()) {
+      const hls = new Hls();
+      hls.loadSource(src);
+      hls.attachMedia(video);
+      return () => {
+        hls.destroy();
+      };
+    } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
+      // Safari, iOS native HLS support
+      video.src = src;
+    }
+  }, []);
 
   return (
     <div className={classes.container} ref={containerRef} id='hero'>
@@ -82,14 +84,8 @@ const Hero = () => {
       </div>
 
       <div className={classes.background} ref={backgroundRef}>
-        <ReactPlayer url='/felix37.mp4?v=1' playing muted loop playsinline width='100%' height='100%' className={classes.theVideo} />
-      </div>
-
-      <div className={classes.loading} ref={loaderRef}>
-        <h1>Loading...</h1>
+        <video ref={videoRef} className={classes.theVideo} poster='/video-poster.webp' preload='metadata' playsInline muted autoPlay loop width='100%' height='100%' />
       </div>
     </div>
   );
-};
-
-export default Hero;
+}

@@ -16,6 +16,10 @@ const VideoCard = ({ tour }) => {
         </div>
       </div>
       <div className={classes.grab}></div>
+      <div className={classes.description}>
+        <p>{tour.description1}</p>
+        <p>{tour.description2}</p>
+      </div>
     </div>
   );
 };
