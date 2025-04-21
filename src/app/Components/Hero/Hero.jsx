@@ -1,3 +1,4 @@
+// components/Hero.js
 "use client";
 
 import { useRef, useEffect } from "react";
@@ -16,12 +17,11 @@ export default function Hero() {
   const backgroundRef = useRef(null);
   const videoRef = useRef(null);
 
-  // GSAP intro animation
+  // GSAP intro animation (unchanged)
   useGSAP(
     () => {
       CustomEase.create("hop", "M0,0 C0.29,0 0.348,0.05 0.422,0.134 0.494,0.217 0.484,0.355 0.5,0.5 0.518,0.662 0.515,0.793 0.596,0.876 0.701,0.983 0.72,0.987 1,1");
       gsap.set(`.${classes.inner}`, { autoAlpha: 1 });
-
       const tl = gsap.timeline();
       const split = new SplitType(`.${classes.title}`, { types: "chars" });
 
@@ -44,21 +44,36 @@ export default function Hero() {
     { scope: containerRef }
   );
 
-  // HLS setup: load the master playlist on mount
+  // HLS.js setup
   useEffect(() => {
     const video = videoRef.current;
+    if (!video) return;
     const src = "/videos/hls/master.m3u8";
 
+    console.log("HLS.js supported?", Hls.isSupported());
+
     if (Hls.isSupported()) {
-      const hls = new Hls();
+      const hls = new Hls({ debug: true });
+      hls.on(Hls.Events.ERROR, (event, data) => {
+        console.error("HLS.js error:", data);
+      });
+      hls.on(Hls.Events.MANIFEST_PARSED, () => {
+        console.log("HLS manifest parsed, starting playback");
+        video.play().catch((e) => console.warn("video.play() failed:", e));
+      });
       hls.loadSource(src);
       hls.attachMedia(video);
       return () => {
         hls.destroy();
       };
     } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
-      // Safari, iOS native HLS support
+      console.log("Native HLS – assigning src directly");
       video.src = src;
+      video.addEventListener("loadedmetadata", () => {
+        video.play().catch((e) => console.warn("video.play() failed:", e));
+      });
+    } else {
+      console.error("No HLS support in this browser");
     }
   }, []);
 
@@ -84,7 +99,11 @@ export default function Hero() {
       </div>
 
       <div className={classes.background} ref={backgroundRef}>
-        <video ref={videoRef} className={classes.theVideo} poster='/video-poster.webp' preload='metadata' playsInline muted autoPlay loop width='100%' height='100%' />
+        <video ref={videoRef} className={classes.theVideo} poster='/video-poster.webp' preload='metadata' playsInline muted autoPlay loop controls width='100%' height='100%'>
+          {/* Native HLS fallback for Safari/iOS */}
+          <source src='/videos/hls/master.m3u8' type='application/vnd.apple.mpegurl' />
+          Your browser does not support HLS.
+        </video>
       </div>
     </div>
   );
