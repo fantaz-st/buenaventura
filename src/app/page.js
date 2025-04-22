@@ -5,6 +5,7 @@ import Tours from "./Components/Tours/Tours";
 import WhatsAppButton from "./Components/WhatsAppButton/WhatsAppButton";
 
 import classes from "./page.module.css";
+import HomeFAQ from "./Components/HomeFAQ/HomeFAQ";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
             <Image src={"/assets/tall-bg.png"} alt='Tall background' fill style={{ objectFit: "cover" }} className={classes.tallBg} priority />
           </section>
         </div>
+        <HomeFAQ />
         <WhatsAppButton />
       </main>
     </div>

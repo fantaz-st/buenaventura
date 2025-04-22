@@ -1,22 +1,22 @@
 .btn {
-  text-decoration: none;
-  position: relative;
-  display: flex;
+  display: inline-flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   border-radius: 4rem;
   border: none;
-  padding-left: var(--space-small-s4);
-  padding-right: var(--space-small-s4);
-  padding-top: var(--space-small-s2);
-  padding-bottom: var(--space-small-s2);
+  padding: var(--space-small-s2) var(--space-small-s4);
   font-weight: 500;
-  transition: background-color 0.3s;
-
   cursor: pointer;
+
   min-height: 56px;
   min-width: 160px;
+  width: auto;
+  max-width: 100%;
+
+  flex: 0 0 auto;
+  text-decoration: none;
+  transition: background-color 0.3s;
 }
 
 .btn.dark {

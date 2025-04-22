@@ -1,12 +1,36 @@
 import classes from "./TheButton.module.css";
 
-const TheButton = ({ variant = "lite", children, size = "medium" }) => {
+{
+  /* <TheButton href="/tours" variant="dark">
+  View Tours
+</TheButton>
+ */
+}
+
+{
+  /* <TheButton as="button" onClick={() => alert("Clicked!")}>
+  Book Now
+</TheButton> */
+}
+
+const TheButton = ({ as = "a", variant = "lite", children, size = "medium", href = "#", onClick, type = "button", target, rel, ...restProps }) => {
   const variantClass = variant === "dark" ? classes.dark : classes.lite;
-  const sizeClass = classes[size] || ""; // expects size values like 'small', 'medium', 'large' to match class names
+  const sizeClass = classes[size] || "";
+  const classNames = `${classes.btn} ${variantClass}`;
+
+  const content = <span className={`${classes.btnText} ${sizeClass}`}>{children}</span>;
+
+  if (as === "button") {
+    return (
+      <button type={type} onClick={onClick} className={classNames} {...restProps}>
+        {content}
+      </button>
+    );
+  }
 
   return (
-    <a href='#' className={`${classes.btn} ${variantClass}`}>
-      <span className={`${classes.btnText} ${sizeClass}`}>{children}</span>
+    <a href={href} onClick={onClick} target={target} rel={rel} className={classNames} {...restProps}>
+      {content}
     </a>
   );
 };
