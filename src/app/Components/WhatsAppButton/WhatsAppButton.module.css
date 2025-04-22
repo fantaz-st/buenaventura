@@ -16,8 +16,14 @@
   position: fixed;
   bottom: 1rem;
   right: 1rem;
+  opacity: 0;
+  pointer-events: none;
 }
 
+.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
 .container:hover {
   background-color: #128c7e;
   color: #fff;

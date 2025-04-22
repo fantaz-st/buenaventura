@@ -6,6 +6,7 @@ import WhatsAppButton from "./Components/WhatsAppButton/WhatsAppButton";
 
 import classes from "./page.module.css";
 import HomeFAQ from "./Components/HomeFAQ/HomeFAQ";
+import Testimonials from "./Components/Testimonials/Testimonials";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
           </section>
         </div>
         <HomeFAQ />
+        <Testimonials />
         <WhatsAppButton />
       </main>
     </div>

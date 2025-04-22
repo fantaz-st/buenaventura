@@ -5,7 +5,7 @@
   justify-content: center;
   border-radius: 4rem;
   border: none;
-  padding: var(--space-small-s2) var(--space-small-s4);
+  padding: 0.5rem 1.5rem;
   font-weight: 500;
   cursor: pointer;
 

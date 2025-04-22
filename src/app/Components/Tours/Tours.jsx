@@ -44,7 +44,7 @@ const Tours = () => {
           breakpoints={{
             1600: { slidesPerView: 2.2, spaceBetween: 100 },
 
-            360: { slidesPerView: 1.2, spaceBetween: 10 },
+            360: { slidesPerView: 1.1, spaceBetween: 10 },
           }}
           centeredSlides={true}
           className={classes.swiper}

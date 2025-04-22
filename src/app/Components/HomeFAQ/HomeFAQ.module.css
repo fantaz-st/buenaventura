@@ -13,9 +13,11 @@
   text-align: center;
 }
 
-.inner > h1 {
+.heading {
   color: var(--color-black);
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
+  transform: translateY(100%);
+  opacity: 0;
 }
 
 .list {
