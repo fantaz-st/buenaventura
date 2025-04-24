@@ -1,8 +1,9 @@
 .container {
   position: relative;
   width: 100vw;
-  height: 100dvh;
-  min-height: 100svh;
+  height: 100vh;
+  /*  height: 100dvh;
+  min-height: 100svh; */
   overflow: hidden;
   background-color: var(--color-black, #000);
   display: flex;

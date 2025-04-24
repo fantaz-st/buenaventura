@@ -142,4 +142,7 @@
     display: flex;
     gap: 1rem;
   }
+  .bottom .stars {
+    display: flex;
+  }
 }
