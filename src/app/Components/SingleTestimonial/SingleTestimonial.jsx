@@ -18,7 +18,7 @@ const SingleTestimonial = ({ t }) => {
         </div>
 
         <h2 className={classes.title}>{t.title}</h2>
-        <p className={classes.text}>"{t.text}"</p>
+        <p className={classes.text}>&quot;{t.text}&quot;</p>
         <div className={classes.bottom}>
           <p className={classes.name}>{t.name}</p>
 
