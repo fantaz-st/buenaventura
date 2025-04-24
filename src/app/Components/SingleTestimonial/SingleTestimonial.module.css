@@ -1,0 +1,129 @@
+.testimonial {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 100%;
+  aspect-ratio: 4/5;
+}
+
+.imageWrapper {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+.image {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.footerContent {
+  position: absolute;
+  border-radius: 20px;
+  padding: 1rem 2rem;
+  transition: transform 0.5s var(--overlay-ease), background-color 0.5s var(--overlay-ease), padding 0.5s var(--overlay-ease), margin 0.5s var(--overlay-ease);
+  transform: translateY(calc(100% - 120px));
+  bottom: 0;
+}
+
+.footerOverlay {
+  background-color: var(--color-white);
+  height: 100%;
+  width: 100%;
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.76s var(--overlay-ease);
+  z-index: -1;
+  transform: translateY(100%);
+  margin: 0;
+  padding: 0;
+}
+
+.stars {
+  display: inline-flex;
+  gap: 0.25rem;
+  border-radius: 0.75rem;
+
+  /* use a translucent white so the backdrop-filter can show through */
+  background-color: rgba(255, 255, 255, 0.3);
+
+  /* blur whatever’s behind this box */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  padding: 0.2rem;
+}
+
+.star {
+  width: 0.75rem;
+  height: 0.75rem;
+  color: var(--color-white);
+  transition: color 0.5s var(--overlay-ease);
+}
+
+/* typography */
+.title {
+  font-size: 1.7rem;
+  font-weight: 600;
+  margin: 0.5rem 0 2rem;
+  color: var(--color-white);
+  transition: color 0.5s var(--overlay-ease);
+}
+.text {
+  font-size: 0.875rem;
+  margin: 0 0 0.75rem;
+  color: #6f6e6c;
+}
+.name {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0;
+  color: #6f6e6c;
+}
+
+.testimonial:hover .footerContent {
+  transform: translateY(0);
+  color: var(--color-black);
+  margin: 2rem;
+}
+.testimonial:hover .star {
+  color: var(--color-black);
+}
+
+.testimonial:hover .title {
+  color: var(--color-black);
+}
+.testimonial:hover .footerOverlay {
+  transform: translateY(0);
+}
+
+@media (max-width: 640px) {
+  .testimonial {
+    /* allow the footer to poke out below the fixed‐ratio box */
+    overflow: visible;
+  }
+
+  .footerContent {
+    /* stop absolutely positioning & translating it */
+    position: relative !important;
+    transform: none !important;
+    bottom: auto !important;
+
+    /* give it a little breathing room */
+    margin-top: 1rem;
+  }
+
+  /* you don’t need the overlay shadow down here */
+  .footerOverlay {
+    display: none;
+  }
+}

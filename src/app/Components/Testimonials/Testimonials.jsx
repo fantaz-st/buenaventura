@@ -7,7 +7,7 @@ import { useGSAP } from "@gsap/react";
 import testimonials from "@/app/settings/testimonials";
 import TheButton from "../TheButton/TheButton";
 import classes from "./Testimonials.module.css";
-import Testimonial from "../Testimonial/Testimonial";
+import SingleTestimonial from "../SingleTestimonial/SingleTestimonial";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -25,7 +25,7 @@ export default function Testimonials() {
           ease: "power2.out",
           scrollTrigger: {
             trigger: heading,
-            start: "top 80%", // when top of heading hits 80% down the viewport
+            start: "top 80%",
             toggleActions: "play none none none",
           },
         });
@@ -57,7 +57,7 @@ export default function Testimonials() {
         <div className={classes.testimonials}>
           {testimonials.map((t) => (
             <div key={t.id} className={classes.testimonialWrap}>
-              <Testimonial t={t} />
+              <SingleTestimonial t={t} />
             </div>
           ))}
         </div>
