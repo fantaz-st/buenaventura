@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./VideoCard.module.css";
-import TheButton from "../TheButton/TheButton";
+import TheButton from "../../TheButton/TheButton";
 
 const VideoCard = ({ tour }) => {
   return (

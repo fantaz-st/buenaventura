@@ -1,9 +1,9 @@
-import classes from "./SingleTestimonial.module.css";
+import classes from "./TestimonialCard.module.css";
 import Image from "next/image";
 
-const SingleTestimonial = ({ t }) => {
+const TestimonialCard = ({ t }) => {
   return (
-    <figure className={classes.testimonial} tabIndex={0} aria-label={`Testimonial by ${t.name}: ${t.title}`}>
+    <figure className={classes.testimonial} aria-label={`Testimonial by ${t.name}: ${t.title}`}>
       <div className={classes.imageContainer}>
         <Image src={t.image} alt={t.name} fill className={classes.image} />
       </div>
@@ -37,4 +37,4 @@ const SingleTestimonial = ({ t }) => {
   );
 };
 
-export default SingleTestimonial;
+export default TestimonialCard;

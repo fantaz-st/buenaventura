@@ -7,7 +7,7 @@ import { useGSAP } from "@gsap/react";
 import testimonials from "@/app/settings/testimonials";
 import TheButton from "../TheButton/TheButton";
 import classes from "./Testimonials.module.css";
-import SingleTestimonial from "../SingleTestimonial/SingleTestimonial";
+import TestimonialCard from "../Cards/TestimonialCard/TestimonialCard";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -57,7 +57,7 @@ export default function Testimonials() {
         <div className={classes.testimonials}>
           {testimonials.map((t) => (
             <div key={t.id} className={classes.testimonialWrap}>
-              <SingleTestimonial t={t} />
+              <TestimonialCard t={t} />
             </div>
           ))}
         </div>

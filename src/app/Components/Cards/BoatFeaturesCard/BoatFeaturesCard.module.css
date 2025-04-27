@@ -1,0 +1,106 @@
+.feature {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 100%;
+  aspect-ratio: 4/5;
+}
+.imageWrapper {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+.image {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.footerContent {
+  position: absolute;
+  border-radius: 20px;
+  padding: 1rem 2rem;
+  transition: transform 0.5s var(--overlay-ease), margin 0.5s var(--overlay-ease);
+  transform: translateY(calc(100% - 80px));
+  bottom: 0;
+  text-align: left;
+}
+
+.footerOverlay {
+  background-color: var(--color-white);
+  height: 100%;
+  width: 100%;
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.5s var(--overlay-ease);
+  will-change: transform;
+  z-index: -1;
+  transform: translateY(100%);
+  margin: 0;
+  padding: 0;
+}
+
+.title {
+  font-size: 1.7rem;
+  font-weight: 600;
+  margin: 0.5rem 0 2rem;
+  color: var(--color-white);
+  transition: color 0.5s var(--overlay-ease);
+}
+.subTitle {
+  font-size: 0.875rem;
+  margin: 0 0 0.75rem;
+  color: #6f6e6c;
+}
+
+.feature:hover .footerContent {
+  transform: translateY(0);
+  margin: 2rem;
+}
+
+.feature:hover .title {
+  color: var(--color-black);
+}
+.feature:hover .footerOverlay {
+  transform: translateY(0);
+}
+
+@media (max-width: 640px) {
+  .feature {
+    aspect-ratio: auto;
+    overflow: visible;
+    display: block;
+  }
+
+  /* 2) Re-create the 4/5 ratio just for the image */
+  .imageWrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+  }
+
+  .footerContent {
+    background-color: transparent;
+    position: static !important;
+    transform: none !important;
+    padding: 1rem;
+  }
+
+  .footerOverlay {
+    display: none;
+  }
+
+  .title,
+  .subTitle {
+    color: var(--color-white);
+  }
+}
