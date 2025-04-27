@@ -10,8 +10,7 @@
 .title {
   color: var(--color-white);
   margin-bottom: 1rem;
-  font-weight: 700;
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 600;
 }
 
 .subTitle {
@@ -29,7 +28,7 @@
   display: flex;
   gap: 1.5rem;
   background-color: #fff;
-  border-radius: 9999;
+  border-radius: 9999px;
   padding: 4px;
 }
 
@@ -57,7 +56,7 @@
 }
 
 .arrow svg {
-  width: 40%; /* icon scales with button */
+  width: 40%;
   height: 40%;
   fill: currentColor;
 }
@@ -74,4 +73,10 @@
 }
 
 @media (max-width: 768px) {
+  .container {
+    padding: 6rem 0 9rem;
+  }
+  .swiper {
+    padding: 0 1rem;
+  }
 }

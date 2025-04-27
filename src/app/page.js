@@ -1,13 +1,13 @@
 import Image from "next/image";
-import AboutUs from "./Components/AboutUs/AboutUs";
-import Hero from "./Components/Hero/Hero";
-import Tours from "./Components/Tours/Tours";
+import AboutUs from "./HomeSections/AboutUs/AboutUs";
+import Hero from "./HomeSections/Hero/Hero";
+import Tours from "./HomeSections/Tours/Tours";
 import WhatsAppButton from "./Components/WhatsAppButton/WhatsAppButton";
 
 import classes from "./page.module.css";
-import HomeFAQ from "./Components/HomeFAQ/HomeFAQ";
-import Testimonials from "./Components/Testimonials/Testimonials";
-import BoatSection from "./Components/BoatSection/BoatSection";
+import HomeFAQ from "./HomeSections/HomeFAQ/HomeFAQ";
+import Testimonials from "./HomeSections/Testimonials/Testimonials";
+import BoatSection from "./HomeSections/BoatSection/BoatSection";
 
 export default function Home() {
   return (
@@ -18,8 +18,8 @@ export default function Home() {
           <AboutUs />
           <BoatSection />
           <Tours />
-          <section style={{ height: "140vh", width: "auto", position: "relative" }}>
-            <Image src={"/assets/tall-bg.png"} alt='Tall background' fill style={{ objectFit: "cover" }} className={classes.tallBg} priority />
+          <section className={classes.largeImage}>
+            <Image src={"/assets/tall-bg.png"} alt='Tall background' fill style={{ objectFit: "contain" }} className={classes.tallBg} priority />
           </section>
         </div>
         <HomeFAQ />

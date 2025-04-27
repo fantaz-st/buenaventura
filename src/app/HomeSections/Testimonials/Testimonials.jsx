@@ -5,9 +5,9 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { useGSAP } from "@gsap/react";
 import testimonials from "@/app/settings/testimonials";
-import TheButton from "../TheButton/TheButton";
+import TheButton from "../../Components/TheButton/TheButton";
 import classes from "./Testimonials.module.css";
-import TestimonialCard from "../Cards/TestimonialCard/TestimonialCard";
+import TestimonialCard from "../../Components/Cards/TestimonialCard/TestimonialCard";
 
 gsap.registerPlugin(ScrollTrigger);
 

@@ -107,13 +107,18 @@
 }
 
 @media (max-width: 640px) {
+  .feature:hover * {
+    /* ← wild-card is enough */
+    transform: none !important;
+    margin: 0 !important;
+    color: inherit !important;
+  }
   .testimonial {
     aspect-ratio: auto;
     overflow: visible;
     display: block;
   }
 
-  /* 2) Re-create the 4/5 ratio just for the image */
   .imageContainer {
     position: relative;
     width: 100%;

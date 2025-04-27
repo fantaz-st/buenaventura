@@ -9,12 +9,15 @@
   align-items: center;
   background-color: #f9f7f4;
   border-radius: 20px;
-  padding: 4rem 0;
+  padding: 8rem 0 10rem;
+
   text-align: center;
 }
 
 .heading {
   color: var(--color-black);
+  font-weight: 600;
+
   margin-bottom: 3rem;
   transform: translateY(100%);
   opacity: 0;
@@ -111,6 +114,9 @@
 @media only screen and (max-width: 640px) {
   .container {
     padding: 1rem;
+  }
+  .inner {
+    padding: 5rem 0 8rem;
   }
   .list {
     padding: 0 1rem;

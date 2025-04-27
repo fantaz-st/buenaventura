@@ -76,6 +76,7 @@
   z-index: 9;
   user-select: none;
   perspective: 500px; /* for 3D text anim */
+  font-weight: 600;
 }
 
 .text h1 {

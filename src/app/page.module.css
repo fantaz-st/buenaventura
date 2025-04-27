@@ -4,3 +4,15 @@
   background-position: center; */
   background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(198, 214, 215, 1) 100%);
 }
+
+.largeImage {
+  height: 140vh;
+  width: 100%;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .largeImage {
+    height: 80vh;
+  }
+}

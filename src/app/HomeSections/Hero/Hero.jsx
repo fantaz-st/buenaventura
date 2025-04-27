@@ -7,7 +7,7 @@ import { CustomEase } from "gsap/all";
 import SplitType from "split-type";
 import { useGSAP } from "@gsap/react";
 import Hls from "hls.js";
-import TheButton from "../TheButton/TheButton";
+import TheButton from "../../Components/TheButton/TheButton";
 import classes from "./Hero.module.css";
 
 gsap.registerPlugin(CustomEase);

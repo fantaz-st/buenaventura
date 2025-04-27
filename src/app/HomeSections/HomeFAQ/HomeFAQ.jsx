@@ -4,7 +4,7 @@ import { useState, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { useGSAP } from "@gsap/react";
-import TheButton from "../TheButton/TheButton";
+import TheButton from "../../Components/TheButton/TheButton";
 import classes from "./HomeFAQ.module.css";
 import faqs from "@/app/settings/faqs";
 

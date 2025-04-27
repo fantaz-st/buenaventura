@@ -1,16 +1,17 @@
 "use client";
 
 import classes from "./BoatSection.module.css";
-import boatImages from "@/app/settings/boatImages";
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
-import BoatFeaturesCard from "../Cards/BoatFeaturesCard/BoatFeaturesCard";
+import BoatFeaturesCard from "../../Components/Cards/BoatFeaturesCard/BoatFeaturesCard";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
+import boatFeatures from "@/app/settings/boatFeatures";
 
 import "swiper/css";
+
 gsap.registerPlugin(ScrollTrigger);
 
 const Chevron = () => {
@@ -72,9 +73,9 @@ const BoatSection = () => {
         grabCursor
         className={classes.swiper}
       >
-        {boatImages.map((img) => (
-          <SwiperSlide key={img.id}>
-            <BoatFeaturesCard image={img} />
+        {boatFeatures.map((feature) => (
+          <SwiperSlide key={feature.id}>
+            <BoatFeaturesCard feature={feature} />
           </SwiperSlide>
         ))}
       </Swiper>

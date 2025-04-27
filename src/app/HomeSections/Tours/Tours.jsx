@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import classes from "./Tours.module.css";
 import slides from "../../settings/slides";
-import VideoCard from "../Cards/VideoCard/VideoCard";
+import VideoCard from "../../Components/Cards/VideoCard/VideoCard";
 
 import "swiper/css";
 

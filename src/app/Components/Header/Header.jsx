@@ -49,9 +49,11 @@ export default function Header() {
       <div className={containerClasses}>
         <div className={classes.logo}>
           <Link href='/' aria-label='Rebelde boats home'>
-            <h3>
-              <span>R</span>BD
-            </h3>
+            <h1>
+              Rebelde
+              <br />
+              boats
+            </h1>
           </Link>
         </div>
         <nav className={classes.nav}>
