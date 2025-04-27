@@ -31,7 +31,7 @@ const BoatSection = () => {
   return (
     <section className={classes.container} ref={container}>
       <h1 className={classes.title}>Meet Buenaventura</h1>
-      <p className={classes.subTitle}>Our boat blends performance and elegance. Spacious, safe, and equipped for everything from sunbathing to snorkeling, it's designed for those who value style and comfort.</p>
+      <p className={classes.subTitle}>Our boat blends performance and elegance. Spacious, safe, and equipped for everything from sunbathing to snorkeling, it&apos;s designed for those who value style and comfort.</p>
 
       <Swiper
         modules={[Navigation]}
