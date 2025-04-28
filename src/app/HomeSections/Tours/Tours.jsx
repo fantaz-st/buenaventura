@@ -9,6 +9,7 @@ import slides from "../../settings/slides";
 import VideoCard from "../../Components/Cards/VideoCard/VideoCard";
 
 import "swiper/css";
+import SectionTitle from "@/app/Components/SectionTitle/SectionTitle";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,13 +22,11 @@ const Tours = () => {
 
   return (
     <div ref={sectionRef} className={classes.container} data-header='dark'>
-      <div className={classes.text}>
-        <h1>
-          Tailored Journeys.
-          <br />
-          Island by Island.
-        </h1>
-      </div>
+      <SectionTitle>
+        Tailored Journeys.
+        <br />
+        Island by Island.
+      </SectionTitle>
 
       <div className={classes.nav}>
         {slides.map((slide, index) => (
@@ -43,7 +42,14 @@ const Tours = () => {
           onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
           breakpoints={{
             1600: { slidesPerView: 2.2, spaceBetween: 100 },
-
+            1200: {
+              slidesPerView: 2.2,
+              spaceBetween: 50,
+            },
+            768: {
+              slidesPerView: 2.2,
+              spaceBetween: 40,
+            },
             360: { slidesPerView: 1.1, spaceBetween: 10 },
           }}
           centeredSlides={true}

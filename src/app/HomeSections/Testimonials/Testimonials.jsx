@@ -8,6 +8,7 @@ import testimonials from "@/app/settings/testimonials";
 import TheButton from "../../Components/TheButton/TheButton";
 import classes from "./Testimonials.module.css";
 import TestimonialCard from "../../Components/Cards/TestimonialCard/TestimonialCard";
+import SectionTitle from "@/app/Components/SectionTitle/SectionTitle";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -52,7 +53,8 @@ export default function Testimonials() {
   return (
     <section className={classes.container} ref={containerRef}>
       <div className={classes.inner}>
-        <h1 className={classes.heading}>Loved by those who believe adventure is mandatory.</h1>
+        <SectionTitle>Loved by those who believe adventure is mandatory.</SectionTitle>
+        {/* <h1 className={classes.heading}>Loved by those who believe adventure is mandatory.</h1> */}
 
         <div className={classes.testimonials}>
           {testimonials.map((t) => (

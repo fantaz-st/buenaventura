@@ -7,6 +7,7 @@ import { useGSAP } from "@gsap/react";
 import TheButton from "../../Components/TheButton/TheButton";
 import classes from "./HomeFAQ.module.css";
 import faqs from "@/app/settings/faqs";
+import SectionTitle from "@/app/Components/SectionTitle/SectionTitle";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,7 +17,7 @@ export default function HomeFAQ() {
   const iconRefs = useRef({});
   const containerRef = useRef(null);
 
-  useGSAP(
+  /*   useGSAP(
     () => {
       const heading = containerRef.current.querySelector(`.${classes.heading}`);
       gsap.to(heading, {
@@ -32,7 +33,7 @@ export default function HomeFAQ() {
       });
     },
     { scope: containerRef }
-  );
+  ); */
 
   const toggle = (id) => {
     const isOpening = openIndex !== id;
@@ -74,7 +75,8 @@ export default function HomeFAQ() {
   return (
     <div className={classes.container}>
       <div className={classes.inner} ref={containerRef}>
-        <h1 className={classes.heading}>Frequently Asked Questions</h1>
+        {/* <h1 className={classes.heading}>Frequently Asked Questions</h1> */}
+        <SectionTitle>Frequently Asked Questions</SectionTitle>
         <ul className={classes.list}>
           {faqs.home.map((faq) => (
             <li key={faq.id} className={classes.item}>
