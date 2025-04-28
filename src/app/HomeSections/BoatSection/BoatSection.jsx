@@ -37,7 +37,7 @@ const BoatSection = () => {
         title='Built for Good Living.'
         subTitle={
           <>
-            Comfort you can sink into. Performance that carries you farther. Space designed for shared smiles, spontaneous dives, and long, slow lunches under the sun. <i>Buenaventura</i> isn't just a boat — it's your floating sanctuary.
+            Comfort you can sink into. Performance that carries you farther. Space designed for shared smiles, spontaneous dives, and long, slow lunches under the sun. <i>Buenaventura</i> isn&apos;t just a boat — it&apos;s your floating sanctuary.
           </>
         }
       />
