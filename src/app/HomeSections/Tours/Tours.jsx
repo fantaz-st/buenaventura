@@ -10,6 +10,7 @@ import VideoCard from "../../Components/Cards/VideoCard/VideoCard";
 
 import "swiper/css";
 import SectionTitle from "@/app/Components/SectionTitle/SectionTitle";
+import SectionHeader from "@/app/Components/SectionHeader/SectionHeader";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -22,11 +23,17 @@ const Tours = () => {
 
   return (
     <div ref={sectionRef} className={classes.container} data-header='dark'>
-      <SectionTitle>
-        Tailored Journeys.
-        <br />
-        Island by Island.
-      </SectionTitle>
+      <SectionHeader
+        title={
+          <>
+            Tailored Journeys.
+            <br />
+            Island by Island.
+          </>
+        }
+        subTitle='No two days on the Adriatic should ever be the same. Choose your path — hidden coves, sunlit harbors, secret beaches. We design each journey around you, your pace, your spirit.'
+        color='black'
+      />
 
       <div className={classes.nav}>
         {slides.map((slide, index) => (

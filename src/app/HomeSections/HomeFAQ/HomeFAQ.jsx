@@ -7,7 +7,7 @@ import { useGSAP } from "@gsap/react";
 import TheButton from "../../Components/TheButton/TheButton";
 import classes from "./HomeFAQ.module.css";
 import faqs from "@/app/settings/faqs";
-import SectionTitle from "@/app/Components/SectionTitle/SectionTitle";
+import SectionHeader from "@/app/Components/SectionHeader/SectionHeader";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,23 +17,27 @@ export default function HomeFAQ() {
   const iconRefs = useRef({});
   const containerRef = useRef(null);
 
-  /*   useGSAP(
+  useGSAP(
     () => {
-      const heading = containerRef.current.querySelector(`.${classes.heading}`);
-      gsap.to(heading, {
-        y: "0%",
+      const items = gsap.utils.toArray(`.${classes.item}`);
+
+      gsap.set(items, { y: 40, opacity: 0 });
+
+      gsap.to(items, {
+        y: 0,
         opacity: 1,
-        duration: 0.8,
+        duration: 0.6,
+        stagger: 0.15,
         ease: "power2.out",
         scrollTrigger: {
-          trigger: heading,
-          start: "top 80%", // when top of heading hits 80% down the viewport
-          toggleActions: "play none none none",
+          trigger: containerRef.current,
+          start: "top 50%",
+          once: true,
         },
       });
     },
     { scope: containerRef }
-  ); */
+  );
 
   const toggle = (id) => {
     const isOpening = openIndex !== id;
@@ -75,8 +79,7 @@ export default function HomeFAQ() {
   return (
     <div className={classes.container}>
       <div className={classes.inner} ref={containerRef}>
-        {/* <h1 className={classes.heading}>Frequently Asked Questions</h1> */}
-        <SectionTitle>Frequently Asked Questions</SectionTitle>
+        <SectionHeader title='Before You Set Sail.' subTitle="Wondering what to pack? When to arrive? What's included? We're here to keep it simple — because your only job should be to enjoy the ride." color='black' />
         <ul className={classes.list}>
           {faqs.home.map((faq) => (
             <li key={faq.id} className={classes.item}>

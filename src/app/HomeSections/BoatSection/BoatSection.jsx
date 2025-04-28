@@ -9,9 +9,9 @@ import BoatFeaturesCard from "../../Components/Cards/BoatFeaturesCard/BoatFeatur
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import boatFeatures from "@/app/settings/boatFeatures";
+import SectionHeader from "@/app/Components/SectionHeader/SectionHeader";
 
 import "swiper/css";
-import SectionTitle from "@/app/Components/SectionTitle/SectionTitle";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -32,15 +32,18 @@ const BoatSection = () => {
 
   return (
     <section className={classes.container} ref={container}>
-      <SectionTitle color='white' style={{ marginBottom: "2rem" }}>
-        Meet Buenaventura
-      </SectionTitle>
-      {/* <h1 className={classes.title}>Meet Buenaventura</h1> */}
-      <p className={classes.subTitle}>Our boat blends performance and elegance. Spacious, safe, and equipped for everything from sunbathing to snorkeling, it&apos;s designed for those who value style and comfort.</p>
+      <SectionHeader
+        color='white'
+        title='Built for Good Living.'
+        subTitle={
+          <>
+            Comfort you can sink into. Performance that carries you farther. Space designed for shared smiles, spontaneous dives, and long, slow lunches under the sun. <i>Buenaventura</i> isn't just a boat — it's your floating sanctuary.
+          </>
+        }
+      />
 
       <Swiper
         modules={[Navigation]}
-        // wire up the custom buttons
         navigation={{
           prevEl: `.${classes.left}`,
           nextEl: `.${classes.right}`,

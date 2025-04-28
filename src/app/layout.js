@@ -5,6 +5,7 @@ import "@fancyapps/ui/dist/fancybox/fancybox.css";
 
 import { ReactLenis } from "lenis/react";
 import Header from "./Components/Header/Header";
+import Footer from "./Components/Footer/Footer";
 
 const inter = Inter({ subsets: ["latin"], style: "normal", variable: "--font-inter" });
 
@@ -20,6 +21,7 @@ export default function RootLayout({ children }) {
         <ReactLenis root>
           <Header />
           {children}
+          <Footer />
         </ReactLenis>
       </body>
     </html>

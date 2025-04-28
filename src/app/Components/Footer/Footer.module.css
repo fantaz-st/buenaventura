@@ -1,0 +1,40 @@
+.container {
+  padding: 0rem 8rem 1rem;
+}
+
+.inner {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: stretch;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+}
+.navItem,
+.logo h1,
+.company p,
+.madeBy p {
+  color: var(--color-black);
+}
+
+.logo h1 {
+  font-size: 1.5rem;
+}
+
+@media only screen and (max-width: 640px) {
+  .container {
+    padding: 1rem 1rem 2rem;
+  }
+  .inner {
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+  .madeBy {
+    margin-top: 2rem;
+  }
+}

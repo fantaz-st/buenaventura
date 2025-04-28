@@ -45,9 +45,11 @@ const AboutUs = () => {
     <div className={classes.container} ref={scrollContainerRef} data-header='dark'>
       <div className={classes.inner}>
         <h2 ref={scrollTextRef}>
-          {/* At REBELDE Boats, */}We believe the sea brings people closer — to each other and to themselves.
+          We believe in living fully — feeling the salt in your hair, the sun on your face, and good company by your side.
           <br />
-          Our tours are made for slowing down, being present, and sharing moments that stay with you.
+          We craft experiences where the sea is a companion, not a destination.
+          <br />
+          For laughter that carries over open water, and days you never want to end.
           <br />
           Every journey is personal.
           <br />

@@ -8,7 +8,7 @@ import testimonials from "@/app/settings/testimonials";
 import TheButton from "../../Components/TheButton/TheButton";
 import classes from "./Testimonials.module.css";
 import TestimonialCard from "../../Components/Cards/TestimonialCard/TestimonialCard";
-import SectionTitle from "@/app/Components/SectionTitle/SectionTitle";
+import SectionHeader from "@/app/Components/SectionHeader/SectionHeader";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,35 +17,23 @@ export default function Testimonials() {
 
   useGSAP(
     () => {
-      const ctx = gsap.context(() => {
-        const heading = containerRef.current.querySelector(`.${classes.heading}`);
-        gsap.to(heading, {
-          y: "0%",
-          opacity: 1,
-          duration: 0.8,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: heading,
-            start: "top 80%",
-            toggleActions: "play none none none",
-          },
-        });
+      gsap.utils.toArray(`.${classes.testimonialWrap}`, containerRef.current).forEach((card) => {
+        card.style.overflow = "hidden";
+        const img = card.querySelector(".cardImg");
+        const R = 20;
 
-        gsap.utils.toArray(`.${classes.testimonialWrap}`).forEach((card) => {
-          gsap.from(card, {
-            scale: 0.95,
-            opacity: 0,
-            duration: 0.6,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: card,
-              start: "top 85%",
-            },
-          });
-        });
-      }, containerRef);
+        const tl = gsap
+          .timeline({ paused: true })
+          .fromTo(card, { clipPath: `inset(20% 20% 20% 20% round ${R}px)`, scale: 1.2 }, { clipPath: `inset(0% 0% 0% 0%   round ${R}px)`, scale: 1, duration: 1.2, ease: "power2.out" }, 0)
+          .fromTo(img, { scale: 1.3, transformOrigin: "center" }, { scale: 1, duration: 1.2, ease: "power3.out" }, 0);
 
-      return () => ctx.revert();
+        ScrollTrigger.create({
+          trigger: card,
+          start: "top 70%",
+          animation: tl,
+          // toggleActions: "restart reverse restart reverse",
+        });
+      });
     },
     { scope: containerRef }
   );
@@ -53,8 +41,7 @@ export default function Testimonials() {
   return (
     <section className={classes.container} ref={containerRef}>
       <div className={classes.inner}>
-        <SectionTitle>Loved by those who believe adventure is mandatory.</SectionTitle>
-        {/* <h1 className={classes.heading}>Loved by those who believe adventure is mandatory.</h1> */}
+        <SectionHeader title='Good Times Travel Far.' subTitle="When the journey is unforgettable, the stories last forever. Here's how our guests describe their time aboard Buenaventura: joyful, effortless, unforgettable." />
 
         <div className={classes.testimonials}>
           {testimonials.map((t) => (
