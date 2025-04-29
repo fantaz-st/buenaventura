@@ -1,16 +1,10 @@
-:root {
-  --black: #000;
-  --white: #fff;
-  --accent: rgb(0 110 255);
-}
-
 /* -------------- BASE LAYOUT -------------- */
 .container {
   position: relative;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  background: var(--black); /* safety colour */
+  background: var(--color-black); /* safety colour */
 }
 
 /* -------------- VIDEO -------------------- */
@@ -22,7 +16,7 @@
   min-height: 100%;
   transform: translate(-50%, -50%);
   object-fit: cover;
-  background: var(--black);
+  background: var(--color-black);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -35,7 +29,7 @@
 .loader {
   position: absolute;
   inset: 0;
-  background: var(--black);
+  background: var(--color-black);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -51,7 +45,7 @@
   font-family: sans-serif;
   font-size: 1.25rem;
   letter-spacing: 0.1em;
-  color: var(--white);
+  color: var(--color-white);
 }
 
 /* -------------- TEXT CONTENT ------------- */
@@ -65,7 +59,7 @@
   flex-direction: column;
   justify-content: flex-end;
   gap: 2rem;
-  color: var(--white);
+  color: var(--color-white);
   visibility: hidden;
   opacity: 0;
 }
