@@ -9,9 +9,9 @@ import BoatFeaturesCard from "../../Components/Cards/BoatFeaturesCard/BoatFeatur
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import boatFeatures from "@/app/settings/boatFeatures";
-import SectionHeader from "@/app/Components/SectionHeader/SectionHeader";
 
 import "swiper/css";
+import SplitType from "split-type";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -26,21 +26,54 @@ const Chevron = () => {
 };
 
 const BoatSection = () => {
-  const container = useRef(null);
+  const containerRef = useRef(null);
 
-  useGSAP(() => {}, { scope: container });
+  useGSAP(
+    () => {
+      const splitTitle = new SplitType(`.${classes.title}`, { types: "words", tagName: "span" });
+      const splitSub = new SplitType(`.${classes.subTitle}`, { types: "lines", tagName: "span" });
+
+      gsap.set(splitTitle.words, { yPercent: 100, opacity: 0 });
+      gsap.set(splitSub.lines, { yPercent: 100, opacity: 0 });
+
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top 80%",
+            once: true,
+          },
+        })
+        .to(splitTitle.words, {
+          yPercent: 0,
+          opacity: 1,
+          duration: 0.8,
+          stagger: 0.075,
+          ease: "power2.out",
+        })
+        .to(
+          splitSub.lines,
+          {
+            yPercent: 0,
+            opacity: 1,
+            duration: 0.6,
+            stagger: 0.15,
+            ease: "power2.out",
+          },
+          "-=0.6"
+        );
+    },
+    { scope: containerRef }
+  );
 
   return (
-    <section className={classes.container} ref={container}>
-      <SectionHeader
-        color='white'
-        title='Built for Good Living.'
-        subTitle={
-          <>
-            Comfort you can sink into. Performance that carries you farther. Space designed for shared smiles, spontaneous dives, and long, slow lunches under the sun. <i>Buenaventura</i> isn&apos;t just a boat — it&apos;s your floating sanctuary.
-          </>
-        }
-      />
+    <section className={classes.container} ref={containerRef}>
+      <div className={classes.header}>
+        <h1 className={classes.title}>Built for Good Living.</h1>
+        <p className={classes.subTitle}>
+          Comfort you can sink into. Performance that carries you farther. Space designed for shared smiles, spontaneous dives, and long, slow lunches under the sun. <i>Buenaventura</i> isn&apos;t just a boat — it&apos;s your floating sanctuary.
+        </p>
+      </div>
 
       <Swiper
         modules={[Navigation]}

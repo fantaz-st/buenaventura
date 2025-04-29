@@ -9,8 +9,7 @@ import slides from "../../settings/slides";
 import VideoCard from "../../Components/Cards/VideoCard/VideoCard";
 
 import "swiper/css";
-import SectionTitle from "@/app/Components/SectionTitle/SectionTitle";
-import SectionHeader from "@/app/Components/SectionHeader/SectionHeader";
+import SplitType from "split-type";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -19,21 +18,54 @@ const Tours = () => {
   const swiperRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
-  useGSAP(() => {}, { scope: sectionRef });
+  useGSAP(
+    () => {
+      const splitTitle = new SplitType(`.${classes.title}`, { types: "words", tagName: "span" });
+      const splitSub = new SplitType(`.${classes.subTitle}`, { types: "lines", tagName: "span" });
+
+      gsap.set(splitTitle.words, { yPercent: 100, opacity: 0 });
+      gsap.set(splitSub.lines, { yPercent: 100, opacity: 0 });
+
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 80%",
+            once: true,
+          },
+        })
+        .to(splitTitle.words, {
+          yPercent: 0,
+          opacity: 1,
+          duration: 0.8,
+          stagger: 0.075,
+          ease: "power2.out",
+        })
+        .to(
+          splitSub.lines,
+          {
+            yPercent: 0,
+            opacity: 1,
+            duration: 0.6,
+            stagger: 0.15,
+            ease: "power2.out",
+          },
+          "-=0.6"
+        );
+    },
+    { scope: sectionRef }
+  );
 
   return (
     <div ref={sectionRef} className={classes.container} data-header='dark'>
-      <SectionHeader
-        title={
-          <>
-            Tailored Journeys.
-            <br />
-            Island by Island.
-          </>
-        }
-        subTitle='No two days on the Adriatic should ever be the same. Choose your path — hidden coves, sunlit harbors, secret beaches. We design each journey around you, your pace, your spirit.'
-        color='black'
-      />
+      <div className={classes.header}>
+        <h1 className={classes.title}>
+          Tailored Journeys.
+          <br />
+          Island by Island.
+        </h1>
+        <p className={classes.subTitle}>No two days on the Adriatic should ever be the same. Choose your path — hidden coves, sunlit harbors, secret beaches. We design each journey around you, your pace, your spirit.</p>
+      </div>
 
       <div className={classes.nav}>
         {slides.map((slide, index) => (

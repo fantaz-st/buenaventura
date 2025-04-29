@@ -13,14 +13,26 @@
 
   text-align: center;
 }
-
-.heading {
-  color: var(--color-black);
-  font-weight: 600;
-
+.title {
   margin-bottom: 3rem;
-  transform: translateY(100%);
-  opacity: 0;
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.1;
+}
+.subTitle {
+  max-width: 65ch;
+  margin: 0 auto 4rem;
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  text-align: center;
+  padding: 0 1rem;
+  line-height: 1.5;
+}
+.subTitle span {
+  line-height: 1.5;
+}
+.title,
+.subTitle {
+  color: var(--color-black);
 }
 
 .list {
