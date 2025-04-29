@@ -75,7 +75,7 @@ export default function Testimonials() {
       <div className={classes.inner}>
         <div className={classes.header}>
           <h1 className={classes.title}>Good Times Travel Far.</h1>
-          <p className={classes.subTitle}>When the journey is unforgettable, the stories last forever. Here's how our guests describe their time aboard Buenaventura: joyful, effortless, unforgettable.</p>
+          <p className={classes.subTitle}>When the journey is unforgettable, the stories last forever. Here&apos;s how our guests describe their time aboard Buenaventura: joyful, effortless, unforgettable.</p>
         </div>
         <div className={classes.testimonials}>
           {testimonials.map((t) => (

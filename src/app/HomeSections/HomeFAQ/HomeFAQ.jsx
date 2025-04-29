@@ -127,7 +127,7 @@ export default function HomeFAQ() {
       <div className={classes.inner} ref={containerRef}>
         <div className={classes.header}>
           <h1 className={classes.title}>Before You Set Sail.</h1>
-          <p className={classes.subTitle}>Wondering what to pack? When to arrive? What's included? We're here to keep it simple — because your only job should be to enjoy the ride.</p>
+          <p className={classes.subTitle}>Wondering what to pack? When to arrive? What&apos;s included? We&apos;re here to keep it simple — because your only job should be to enjoy the ride.</p>
         </div>
         <ul className={classes.list}>{renderedFaqs}</ul>
         <div className={classes.buttonWrap}>
