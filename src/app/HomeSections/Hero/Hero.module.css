@@ -1,7 +1,7 @@
 .container {
   position: relative;
   width: 100vw;
-  height: 100dvh;
+  height: 100vh;
   overflow: hidden;
   background-color: var(--color-black, #000);
   display: flex;
@@ -113,6 +113,9 @@
 
 /* Responsive tweaks */
 @media (max-width: 767px) {
+  .container {
+    height: 100svh;
+  }
   .inner {
     padding: 1rem 0 6rem 1rem;
   }
