@@ -95,8 +95,4 @@
   .inner {
     padding: 1.5rem;
   }
-  .buttons {
-    flex-direction: column;
-    gap: 1.25rem;
-  }
 }
