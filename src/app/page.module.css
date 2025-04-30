@@ -3,17 +3,12 @@
 }
 
 .largeImage {
-  height: 100vh;
-  width: 100vw;
   position: relative;
+  /* height: 100%; */
+  width: 100vw;
+  aspect-ratio: 16/9;
 }
 
 .image {
   object-fit: cover;
-}
-
-@media (max-width: 768px) {
-  .largeImage {
-    height: 80vh;
-  }
 }

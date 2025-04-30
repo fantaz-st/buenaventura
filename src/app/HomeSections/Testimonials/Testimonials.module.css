@@ -58,6 +58,7 @@
   display: block;
 }
 .testimonialWrap {
+  scroll-snap-align: center;
   display: block;
 }
 

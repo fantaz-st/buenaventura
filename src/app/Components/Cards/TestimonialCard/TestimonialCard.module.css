@@ -13,6 +13,8 @@
   height: 100%;
   width: 100%;
   position: relative;
+  overflow: hidden;
+  border-radius: 20px;
 }
 .image {
   object-fit: cover;
@@ -123,6 +125,8 @@
     position: relative;
     width: 100%;
     aspect-ratio: 4 / 5;
+    overflow: hidden;
+    border-radius: 20px;
     overflow: hidden;
   }
 
