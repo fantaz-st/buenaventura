@@ -91,7 +91,10 @@
 }
 
 /* -------------- SPIN ON SMALL ------------- */
-@media (max-width: 768px) {
+@media (max-width: 640px) {
+  .container {
+    height: 100svh;
+  }
   .inner {
     padding: 1.5rem;
   }
