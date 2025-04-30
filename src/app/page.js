@@ -14,12 +14,12 @@ export default function Home() {
     <div className={classes.page}>
       <main className={classes.main}>
         <Hero />
-        <div className={classes.largeBg}>
-          <AboutUs />
-          <BoatSection />
+        <AboutUs />
+        <BoatSection />
+        <div className={classes.gradient}>
           <Tours />
           <section className={classes.largeImage}>
-            <Image src={"/assets/tall-bg.png"} alt='Tall background' fill style={{ objectFit: "contain" }} className={classes.tallBg} priority />
+            <Image src={"/assets/tall-bg.png"} alt='Tall background' fill className={classes.image} priority />
           </section>
         </div>
         <HomeFAQ />

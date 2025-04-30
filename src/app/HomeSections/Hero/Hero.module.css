@@ -35,10 +35,10 @@
   justify-content: center;
   clip-path: inset(0 0 0 0); /* start fully visible */
   z-index: 2;
-  background-image: url("/loader.png");
+  /*  background-image: url("/loader.png");
   background-position: 50%;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; */
 }
 
 .loadingText {
