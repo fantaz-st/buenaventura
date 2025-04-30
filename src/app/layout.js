@@ -1,11 +1,12 @@
+import Header from "./Components/Header/Header";
+import Footer from "./Components/Footer/Footer";
 import { Inter } from "next/font/google";
+import { ReactLenis } from "lenis/react";
 import "./reset.css";
 import "./globals.css";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
 
-import { ReactLenis } from "lenis/react";
-import Header from "./Components/Header/Header";
-import Footer from "./Components/Footer/Footer";
+import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({ subsets: ["latin"], style: "normal", variable: "--font-inter" });
 
@@ -21,6 +22,7 @@ export default function RootLayout({ children }) {
         <ReactLenis root>
           <Header />
           {children}
+          <Analytics />
           <Footer />
         </ReactLenis>
       </body>
