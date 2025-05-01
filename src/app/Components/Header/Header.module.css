@@ -126,6 +126,7 @@
   }
   .container {
     border-radius: 0;
+    padding: 1rem;
   }
   .hamburger {
     display: flex;
@@ -156,5 +157,23 @@
   }
   .contact {
     display: none;
+  }
+}
+
+.logoDesktop {
+  display: block;
+}
+
+.logoMobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .logoDesktop {
+    display: none;
+  }
+
+  .logoMobile {
+    display: block;
   }
 }

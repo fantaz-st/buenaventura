@@ -5,6 +5,7 @@ import AnimatedLink from "../AnimatedLink/AnimatedLink";
 import Link from "next/link";
 import TheButton from "../TheButton/TheButton";
 import classes from "./Header.module.css";
+import Image from "next/image";
 
 const LANGUAGES = [
   { code: "en", label: "English" },
@@ -49,11 +50,8 @@ export default function Header() {
       <div className={containerClasses}>
         <div className={classes.logo}>
           <Link href='/' aria-label='Rebelde boats home'>
-            <h1>
-              Rebelde
-              <br />
-              boats
-            </h1>
+            <Image src={opaque ? "/logo/break-vect-blue.svg" : "/logo/break-vect-white.svg"} height={77} width={160} alt='Rebelde boats logo' className={classes.logoDesktop} />
+            <Image src={opaque ? "/logo/break-vect-blue-mobile.svg" : "/logo/break-vect-white-mobile.svg"} height={40} width={178} alt='Rebelde boats mobile logo' className={classes.logoMobile} />
           </Link>
         </div>
         <nav className={classes.nav}>

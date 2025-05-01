@@ -1,6 +1,7 @@
 import Link from "next/link";
 import classes from "./Footer.module.css";
 import AnimatedLink from "../AnimatedLink/AnimatedLink";
+import Image from "next/image";
 
 const Footer = () => {
   return (
@@ -9,11 +10,7 @@ const Footer = () => {
         <div className={classes.company}>
           <div className={classes.logo}>
             <Link href='/' aria-label='Rebelde boats home'>
-              <h1>
-                Rebelde
-                <br />
-                boats
-              </h1>
+              <Image src='/logo/break-vect-white.svg' height={77} width={160} alt='Rebelde boats logo' className={classes.logoDesktop} />
             </Link>
           </div>
           <p>REBELDE d.o.o.</p>
