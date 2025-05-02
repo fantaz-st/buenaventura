@@ -38,7 +38,7 @@
 .list {
   width: 100%;
   max-width: 720px;
-  margin: 0 auto;
+  margin: 0 auto 5rem;
   padding: 0 2rem;
   list-style: none;
   display: flex;
@@ -132,5 +132,6 @@
   }
   .list {
     padding: 0 1rem;
+    margin: 0 auto 3rem;
   }
 }
