@@ -1,13 +1,13 @@
 import Image from "next/image";
-import AboutUs from "./HomeSections/AboutUs/AboutUs";
-import Hero from "./HomeSections/Hero/Hero";
-import Tours from "./HomeSections/Tours/Tours";
-import WhatsAppButton from "./Components/WhatsAppButton/WhatsAppButton";
+import AboutUs from "../HomeSections/AboutUs/AboutUs";
+import Hero from "../HomeSections/Hero/Hero";
+import Tours from "../HomeSections/Tours/Tours";
+import WhatsAppButton from "../Components/WhatsAppButton/WhatsAppButton";
 
 import classes from "./page.module.css";
-import HomeFAQ from "./HomeSections/HomeFAQ/HomeFAQ";
-import Testimonials from "./HomeSections/Testimonials/Testimonials";
-import BoatSection from "./HomeSections/BoatSection/BoatSection";
+import HomeFAQ from "../HomeSections/HomeFAQ/HomeFAQ";
+import Testimonials from "../HomeSections/Testimonials/Testimonials";
+import BoatSection from "../HomeSections/BoatSection/BoatSection";
 
 export default function Home() {
   return (

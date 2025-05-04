@@ -1,5 +1,5 @@
-import Header from "./Components/Header/Header";
-import Footer from "./Components/Footer/Footer";
+import Header from "../Components/Header/Header";
+import Footer from "../Components/Footer/Footer";
 import { Inter } from "next/font/google";
 import { ReactLenis } from "lenis/react";
 import "./reset.css";

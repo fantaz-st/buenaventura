@@ -1,0 +1,84 @@
+.feature {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 100%;
+  aspect-ratio: 1/1.5;
+}
+
+.feature::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: 0 16px 40px -20px rgba(0, 0, 0, 0.25);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.feature:hover::before,
+.feature:focus-visible::before {
+  opacity: 1;
+}
+
+/* ── NEW: subtle readability gradient ──────────────────── */
+.feature::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  /* transparent → 35 % black over the bottom 60 % */
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 60%);
+}
+.imageWrapper {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+.image {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.title {
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: 600;
+  font-size: 2.25rem;
+  color: var(--color-white);
+  width: 100%;
+  padding: 0 2rem;
+  transition: color 0.5s var(--overlay-ease);
+  z-index: 1;
+}
+.subTitle {
+  font-size: 0.875rem;
+  margin: 0 0 0.75rem;
+  color: #6f6e6c;
+}
+
+@media (max-width: 640px) {
+  .feature {
+    aspect-ratio: auto;
+    display: block;
+  }
+
+  .imageWrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+  }
+
+  .title {
+    color: var(--color-white);
+    font-size: 2.25rem;
+  }
+}
