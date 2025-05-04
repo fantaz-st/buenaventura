@@ -8,6 +8,7 @@ import classes from "./page.module.css";
 import HomeFAQ from "../HomeSections/HomeFAQ/HomeFAQ";
 import Testimonials from "../HomeSections/Testimonials/Testimonials";
 import BoatSection from "../HomeSections/BoatSection/BoatSection";
+import MiniContact from "@/HomeSections/MiniContact/MiniContact";
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
         </div>
         <HomeFAQ />
         <Testimonials />
+        <MiniContact />
         <WhatsAppButton />
       </main>
     </div>
