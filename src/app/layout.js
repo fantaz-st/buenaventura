@@ -44,18 +44,31 @@ export default function RootLayout({ children }) {
   return (
     <html lang='en'>
       <head>
-        {/* Favicons for light/dark mode */}
+        {/* <!-- Favicon for Google Search --> */}
+        <link rel='icon' href='/favicons/favicon.ico' />
+
+        {/* <!-- Optional SVG favicon --> */}
+        <link rel='icon' type='image/svg+xml' href='/favicons/favicon.svg' />
+
+        {/* <!-- Dark/light theme favicons --> */}
         <link rel='icon' type='image/png' href='/favicons/favicon-light.png' media='(prefers-color-scheme: light)' />
         <link rel='icon' type='image/png' href='/favicons/favicon-dark.png' media='(prefers-color-scheme: dark)' />
-        <link rel='icon' type='image/png' sizes='32x32' href='/favicons/favicon-32x32.png' />
+
+        {/* <!-- PNG favicons --> */}
         <link rel='icon' type='image/png' sizes='16x16' href='/favicons/favicon-16x16.png' />
+        <link rel='icon' type='image/png' sizes='32x32' href='/favicons/favicon-32x32.png' />
+        <link rel='icon' type='image/png' sizes='48x48' href='/favicons/favicon-48x48.png' />
+        <link rel='icon' type='image/png' sizes='96x96' href='/favicons/favicon-96x96.png' />
         <link rel='icon' type='image/png' sizes='192x192' href='/favicons/favicon-192x192.png' />
         <link rel='icon' type='image/png' sizes='512x512' href='/favicons/favicon-512x512.png' />
+
+        {/* <!-- Apple-specific --> */}
         <link rel='apple-touch-icon' sizes='180x180' href='/favicons/apple-touch-icon.png' />
-        <link rel='shortcut icon' href='/favicons/favicon.ico' />
+        <meta name='apple-mobile-web-app-title' content='Rebelde Boats' />
+
+        {/* <!-- PWA --> */}
         <link rel='manifest' href='/favicons/site.webmanifest' />
-        <meta name='msapplication-TileColor' content='#2b5797' />
-        <meta name='msapplication-config' content='/favicons/browserconfig.xml' />
+        <meta name='theme-color' content='#ffffff' />
       </head>
       <body className={inter.variable}>
         <ReactLenis root>
