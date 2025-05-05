@@ -69,6 +69,7 @@ export default function RootLayout({ children }) {
         {/* <!-- PWA --> */}
         <link rel='manifest' href='/favicons/site.webmanifest' />
         <meta name='theme-color' content='#ffffff' />
+        <link rel='preload' as='image' href='/logo/break-vect-white-mobile.svg' type='image/svg+xml' />
       </head>
       <body className={inter.variable}>
         <ReactLenis root>
