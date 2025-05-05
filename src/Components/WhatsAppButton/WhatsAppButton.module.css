@@ -44,7 +44,7 @@
 }
 
 @media screen and (max-width: 545px) {
-  .container span {
+  .container p {
     display: none;
   }
 

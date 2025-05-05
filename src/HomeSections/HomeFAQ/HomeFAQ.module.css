@@ -9,7 +9,7 @@
   align-items: center;
   background-color: #f9f7f4;
   border-radius: 20px;
-  padding: 8rem 0 10rem;
+  padding: 6rem 0;
 
   text-align: center;
 }
@@ -125,7 +125,7 @@
     padding: 1rem;
   }
   .inner {
-    padding: 5rem 0 8rem;
+    padding: 5rem 0;
   }
   .list {
     padding: 0 1rem;

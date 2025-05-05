@@ -1,6 +1,6 @@
 .container {
   width: 100%;
-  padding: 10rem 6rem 12rem;
+  padding: 6rem 0 8rem;
 }
 .inner {
   display: flex;
@@ -63,7 +63,7 @@
 
 @media only screen and (max-width: 640px) {
   .container {
-    padding: 6rem 0 9rem;
+    padding: 6rem 0;
   }
   .inner {
     padding: 0 1rem;
