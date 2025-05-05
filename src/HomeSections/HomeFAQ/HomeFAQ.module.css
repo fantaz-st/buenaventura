@@ -22,7 +22,6 @@
 .subTitle {
   max-width: 65ch;
   margin: 0 auto 4rem;
-  font-size: clamp(1rem, 2.5vw, 1.25rem);
   text-align: center;
   padding: 0 1rem;
   line-height: 1.5;
@@ -75,7 +74,6 @@
 }
 
 .question {
-  font-size: 1rem;
   font-weight: 500;
   color: var(--color-black);
   margin: 0;
@@ -111,7 +109,6 @@
 .answer {
   margin: 0;
   padding: 1rem 1.5rem;
-  font-size: 1rem;
   line-height: 1.6;
   color: #6f6e6c;
   background-color: #fff;

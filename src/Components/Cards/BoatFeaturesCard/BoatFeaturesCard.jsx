@@ -7,7 +7,7 @@ const BoatFeaturesCard = ({ feature }) => {
       <div className={classes.imageWrapper}>
         <Image src={feature.src} alt={feature.alt} fill className={classes.image} />
       </div>
-      <h1 className={classes.title}>{feature.title}</h1>
+      <h3 className={classes.title}>{feature.title}</h3>
     </figure>
   );
 };

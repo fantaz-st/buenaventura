@@ -2,8 +2,7 @@
 
 import { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
-import { CustomEase } from "gsap/all";
-import SplitType from "split-type";
+import { CustomEase, SplitText } from "gsap/all";
 import TheButton from "../../Components/TheButton/TheButton";
 import classes from "./Hero.module.css";
 
@@ -20,46 +19,47 @@ export default function Hero() {
     const loader = loaderRef.current;
     if (!video || !loader) return;
 
-    /* 1. wait for video to be ready */
     const onReady = () => {
       video.classList.add(classes.videoVisible);
 
-      /* 2. build GSAP intro once video is in place ------------- */
       CustomEase.create("hop", "M0,0 C0.29,0 0.348,0.05 0.422,0.134 0.494,0.217 0.484,0.355 0.5,0.5 0.518,0.662 0.515,0.793 0.596,0.876 0.701,0.983 0.72,0.987 1,1");
 
       gsap.set(`.${classes.inner}`, { autoAlpha: 1 });
 
-      const split = new SplitType(`.${classes.title}`, { types: "chars" });
+      const split = new SplitText(`.${classes.title}`, {
+        type: "lines",
+        mask: "lines",
+        linesClass: "line++",
+        lineThreshold: 0.1,
+      });
+
+      const lines = split.lines;
+      gsap.set(lines, { y: "100%" });
 
       gsap
         .timeline({
-          onComplete: () => setGone(true), // unmount loader
+          onComplete: () => setGone(true),
         })
-        // slide the loader up (reveal video)
         .to(loader, {
           clipPath: "inset(100% 0 0 0)",
           duration: 1.2,
           ease: "hop",
         })
-        // headline chars
-        .from(
-          split.chars,
+        .to(
+          lines,
           {
-            yPercent: 100,
-            rotationX: -90,
-            stagger: 0.02,
-            duration: 0.9,
-            ease: "power2.out",
-            transformOrigin: "center center -200px",
+            y: "0%",
+            duration: 1,
+            stagger: 0.1,
+            ease: "power4.out",
           },
           "-=0.6"
         )
-        // body text + buttons
         .from(`.${classes.rest}`, { y: 40, opacity: 0, duration: 0.6, ease: "power2.out" }, "-=0.6");
     };
 
     video.addEventListener("canplaythrough", onReady, { once: true });
-    video.load(); // fire download
+    video.load();
 
     return () => video.removeEventListener("canplaythrough", onReady);
   }, []);
@@ -69,7 +69,7 @@ export default function Hero() {
       {/*  LOADING PANEL  */}
       {!gone && (
         <div ref={loaderRef} className={classes.loader}>
-          <span className={classes.loadingText}>Loading…</span>
+          <p className={classes.loadingText}>Loading…</p>
         </div>
       )}
 

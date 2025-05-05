@@ -51,7 +51,6 @@
   left: 50%;
   transform: translateX(-50%);
   font-weight: 600;
-  font-size: 2.25rem;
   color: var(--color-white);
   width: 100%;
   padding: 0 2rem;
@@ -59,7 +58,6 @@
   z-index: 1;
 }
 .subTitle {
-  font-size: 0.875rem;
   margin: 0 0 0.75rem;
   color: #6f6e6c;
 }
@@ -79,6 +77,5 @@
 
   .title {
     color: var(--color-white);
-    font-size: 2.25rem;
   }
 }

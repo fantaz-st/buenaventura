@@ -1,13 +1,13 @@
 "use client";
 
 import gsap from "gsap";
-import SplitType from "split-type";
-import classes from "./AboutUs.module.css";
-import { useRef } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SplitText } from "gsap/SplitText";
+import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
+import classes from "./AboutUs.module.css";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const AboutUs = () => {
   const scrollContainerRef = useRef(null);
@@ -15,25 +15,20 @@ const AboutUs = () => {
 
   useGSAP(
     () => {
-      const text = new SplitType(scrollTextRef.current, { types: "words, chars" });
+      const split = new SplitText(scrollTextRef.current, { type: "words,chars" });
 
       gsap.fromTo(
-        text.chars,
-        {
-          opacity: 0.3,
-        },
+        split.chars,
+        { opacity: 0.3 },
         {
           opacity: 1,
           duration: 0.3,
           stagger: 0.02,
           scrollTrigger: {
             trigger: scrollTextRef.current,
-            /* start: "top 80%",
-            end: "top 20%", */
             start: "top 80%",
             end: "bottom 30%",
             scrub: true,
-            markers: false,
             toggleActions: "play play reverse reverse",
           },
         }
@@ -41,10 +36,11 @@ const AboutUs = () => {
     },
     { scope: scrollContainerRef }
   );
+
   return (
     <div className={classes.container} ref={scrollContainerRef} data-header='dark'>
       <div className={classes.inner}>
-        <h2 ref={scrollTextRef}>
+        <h3 ref={scrollTextRef}>
           We believe in living fully — feeling the salt in your hair, the sun on your face, and good company by your side.
           <br />
           We craft experiences where the sea is a companion, not a destination.
@@ -54,7 +50,7 @@ const AboutUs = () => {
           Every journey is personal.
           <br />
           Every wave, a new memory.
-        </h2>
+        </h3>
       </div>
     </div>
   );

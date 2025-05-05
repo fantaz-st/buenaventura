@@ -19,35 +19,43 @@
   --overlay-ease: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+:root {
+  --fs-h1: clamp(2.5rem, 7.5vw, 7.5rem);
+  --fs-h2: clamp(1.5rem, 4.5vw, 3.65rem);
+  --fs-h3: clamp(1.25rem, 3vw, 2.75rem);
+  --fs-p: clamp(1rem, 2.25vw, 1.125rem);
+  --fs-small: clamp(0.875rem, 2vw, 1rem);
+}
+
 /* Tablets */
 @media (min-width: 600px) {
   :root {
-    --fs-h1: 3.75vw;
-    --fs-h2: 2rem;
-    --fs-h3: 1.25vw;
-    --fs-p: 3vw;
-    --fs-small: 0.9375rem;
+    --fs-h1: clamp(3rem, 5vw, 6rem);
+    --fs-h2: clamp(1.75rem, 3.5vw, 3rem);
+    --fs-h3: clamp(1.5rem, 2.5vw, 2rem);
+    --fs-p: clamp(1rem, 2vw, 1.125rem);
+    --fs-small: clamp(0.9rem, 1.75vw, 1rem);
   }
 }
 
 /* Laptops */
 @media (min-width: 900px) {
   :root {
-    --fs-h1: 3.75vw;
-    --fs-h2: 2.5vw;
-    --fs-h3: 1.25vw;
-    --fs-p: 3vw;
-    --fs-small: 1rem;
+    --fs-h1: clamp(4rem, 4vw, 7rem);
+    --fs-h2: clamp(2rem, 3vw, 3.5rem);
+    --fs-h3: clamp(1.75rem, 2vw, 2.5rem);
+    --fs-p: clamp(1rem, 1.75vw, 1.125rem);
+    --fs-small: clamp(0.95rem, 1.5vw, 1rem);
   }
 }
 
 /* Desktops */
 @media (min-width: 1200px) {
   :root {
-    --fs-h1: 3.75vw;
-    --fs-h2: 2.5vw;
-    --fs-h3: 1.25vw;
-    --fs-p: 1vw;
+    --fs-h1: 7.5rem;
+    --fs-h2: clamp(2.75rem, 3.65vi + 1rem, 4.5rem);
+    --fs-h3: 2.75rem;
+    --fs-p: 1.125rem;
     --fs-small: 1.0625rem;
   }
 }
@@ -66,7 +74,7 @@ body {
 h1 {
   font-family: var(--font-inter), sans-serif;
   font-size: var(--fs-h1);
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.1;
 }
 
@@ -74,7 +82,7 @@ h1 {
 h2,
 h3 {
   font-family: var(--font-inter), sans-serif;
-  font-weight: 400;
+  font-weight: 600;
 }
 
 h2 {

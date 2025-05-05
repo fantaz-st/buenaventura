@@ -1,6 +1,5 @@
 "use client";
 import { useRef, useState } from "react";
-import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -9,7 +8,7 @@ import slides from "../../settings/slides";
 import VideoCard from "../../Components/Cards/VideoCard/VideoCard";
 
 import "swiper/css";
-import SplitType from "split-type";
+import AnimatedText from "@/Components/AnimatedText/AnimatedText";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -18,7 +17,7 @@ const Tours = () => {
   const swiperRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
-  useGSAP(
+  /* useGSAP(
     () => {
       const splitTitle = new SplitType(`.${classes.title}`, { types: "words", tagName: "span" });
       const splitSub = new SplitType(`.${classes.subTitle}`, { types: "lines", tagName: "span" });
@@ -54,17 +53,21 @@ const Tours = () => {
         );
     },
     { scope: sectionRef }
-  );
+  ); */
 
   return (
     <div ref={sectionRef} className={classes.container} data-header='dark'>
       <div className={classes.header}>
-        <h1 className={classes.title}>
-          Tailored Journeys.
-          <br />
-          Island by Island.
-        </h1>
-        <p className={classes.subTitle}>No two days on the Adriatic should ever be the same. Choose your path — hidden coves, sunlit harbors, secret beaches. We design each journey around you, your pace, your spirit.</p>
+        <AnimatedText>
+          <h2 className={classes.title}>
+            Tailored Journeys.
+            <br />
+            Island by Island.
+          </h2>
+        </AnimatedText>
+        <AnimatedText delay={0.35}>
+          <p className={classes.subTitle}>No two days on the Adriatic should ever be the same. Choose your path — hidden coves, sunlit harbors, secret beaches. We design each journey around you, your pace, your spirit.</p>
+        </AnimatedText>
       </div>
 
       <div className={classes.nav}>

@@ -13,7 +13,8 @@
   flex-wrap: wrap;
 }
 
-.inner > div {
+.inner > div,
+.inner .nav {
   flex: 1;
   min-width: 200px;
 }

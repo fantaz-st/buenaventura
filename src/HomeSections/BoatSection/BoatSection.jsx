@@ -52,11 +52,18 @@ export default function BoatSection() {
   return (
     <section className={classes.section} ref={containerRef}>
       <div ref={imageWrapperRef} className={classes.imageWrapper}>
-        <Image src='/assets/images/boat/boat1.jpg' alt='Rebelde boats Buenaventura about the boat' sizes='100vw' fill className={classes.image} priority />
+        <Image
+          src='/assets/images/boat/boat1.jpg'
+          alt='Rebelde boats Buenaventura about the boat'
+          sizes='(min-width: 2060px) 1854px, (min-width: 1940px) 1746px, (min-width: 1220px) 1098px, (min-width: 1100px) 990px, (min-width: 840px) 756px, (min-width: 760px) 684px, (min-width: 660px) 594px, 270px'
+          fill
+          className={classes.image}
+          priority
+        />
       </div>
 
       <div ref={contentRef} className={classes.content}>
-        <h1 className={classes.title}>Built for Good Living.</h1>
+        <h2 className={classes.title}>Built for Good Living.</h2>
         <p className={classes.subTitle}>Comfort you can sink into. Performance that carries you farther. Space designed for shared smiles, spontaneous dives, and long, slow lunches under the sun. Buenaventura isn&apos;t just a boat — it&apos;s your floating sanctuary.</p>
         <TheButton variant='light' href='/our-boat'>
           Explore the Boat

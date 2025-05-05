@@ -8,7 +8,7 @@ import testimonials from "@/settings/testimonials";
 import TheButton from "../../Components/TheButton/TheButton";
 import classes from "./Testimonials.module.css";
 import TestimonialCard from "../../Components/Cards/TestimonialCard/TestimonialCard";
-import SplitType from "split-type";
+import AnimatedText from "@/Components/AnimatedText/AnimatedText";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,39 +17,6 @@ export default function Testimonials() {
 
   useGSAP(
     () => {
-      const splitTitle = new SplitType(`.${classes.title}`, { types: "words", tagName: "span" });
-      const splitSub = new SplitType(`.${classes.subTitle}`, { types: "lines", tagName: "span" });
-
-      gsap.set(splitTitle.words, { yPercent: 100, opacity: 0 });
-      gsap.set(splitSub.lines, { yPercent: 100, opacity: 0 });
-
-      gsap
-        .timeline({
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: "top 80%",
-            once: true,
-          },
-        })
-        .to(splitTitle.words, {
-          yPercent: 0,
-          opacity: 1,
-          duration: 0.8,
-          stagger: 0.075,
-          ease: "power2.out",
-        })
-        .to(
-          splitSub.lines,
-          {
-            yPercent: 0,
-            opacity: 1,
-            duration: 0.6,
-            stagger: 0.15,
-            ease: "power2.out",
-          },
-          "-=0.6"
-        );
-
       gsap.utils.toArray(`.${classes.testimonialWrap}`, containerRef.current).forEach((card) => {
         card.style.overflow = "hidden";
         const img = card.querySelector(".cardImg");
@@ -74,8 +41,12 @@ export default function Testimonials() {
     <section className={classes.container} ref={containerRef}>
       <div className={classes.inner}>
         <div className={classes.header}>
-          <h1 className={classes.title}>Good Times Travel Far.</h1>
-          <p className={classes.subTitle}>When the journey is unforgettable, the stories last forever. Here&apos;s how our guests describe their time aboard Buenaventura: joyful, effortless, unforgettable.</p>
+          <AnimatedText>
+            <h2 className={classes.title}>Good Times Travel Far.</h2>
+          </AnimatedText>
+          <AnimatedText delay={0.35}>
+            <p className={classes.subTitle}>When the journey is unforgettable, the stories last forever. Here&apos;s how our guests describe their time aboard Buenaventura: joyful, effortless, unforgettable.</p>
+          </AnimatedText>
         </div>
         <div className={classes.testimonials}>
           {testimonials.map((t) => (

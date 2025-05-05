@@ -13,7 +13,6 @@
 .subTitle {
   max-width: 65ch;
   margin: 0 auto 4rem;
-  font-size: clamp(1rem, 2.5vw, 1.25rem);
   text-align: center;
   padding: 0 1rem;
   line-height: 1.5;
@@ -37,7 +36,6 @@
 }
 
 .navItem {
-  font-size: 1rem;
   font-weight: 500;
   color: var(--color-black);
   background-color: var(--color-white);
@@ -64,7 +62,6 @@
     gap: 0.5rem;
   }
   .navItem {
-    font-size: 0.8rem;
     padding: 0.4rem 0.6rem;
   }
   .title {

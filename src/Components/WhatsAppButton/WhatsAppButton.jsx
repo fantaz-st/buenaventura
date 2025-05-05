@@ -32,7 +32,7 @@ export default function WhatsAppButton() {
   return (
     <a className={`${classes.container} ${show ? classes.visible : ""}`} target='_blank' href='https://wa.me/385997973959' rel='noopener noreferrer' aria-label='Chat on WhatsApp'>
       <Image src='/assets/whatsappicon2.svg' width={24} height={24} sizes='24px' className={classes.icon} alt='Chat on WhatsApp' />
-      <span>Chat On WhatsApp</span>
+      <p>Chat On WhatsApp</p>
     </a>
   );
 }

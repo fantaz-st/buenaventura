@@ -1,13 +1,18 @@
 import Image from "next/image";
 import classes from "./MiniContact.module.css";
 import TheButton from "@/Components/TheButton/TheButton";
+import AnimatedText from "@/Components/AnimatedText/AnimatedText";
 
 const MiniContact = () => {
   return (
     <section className={classes.container}>
       <div className={classes.inner}>
-        <h1 className={classes.title}>Want to make it special? Didn&apos;t find what you were looking for?</h1>
-        <p className={classes.subTitle}>Reach out and let us turn your time in Split into something truly special.? </p>
+        <AnimatedText>
+          <h2 className={classes.title}>Want to make it special?</h2>
+        </AnimatedText>
+        <AnimatedText delay={0.35}>
+          <p className={classes.subTitle}>Reach out and let us turn your time in Split into something truly special.</p>
+        </AnimatedText>
         <div className={classes.buttons}>
           <TheButton href='tel:+385953933125'>
             <div style={{ display: "flex" }}>
@@ -58,7 +63,7 @@ const MiniContact = () => {
         </div>
       </div>
       <div className={classes.imageWrapper}>
-        <Image src='/assets/images/contact.jpg' alt='Rebelde boats contact photo featuring sunset from boat sundeck' fill className={classes.image} />
+        <Image src='/assets/images/contact.jpg' sizes='100vw' alt='Rebelde boats contact photo featuring sunset from boat sundeck' fill className={classes.image} />
       </div>
     </section>
   );

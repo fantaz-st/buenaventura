@@ -11,7 +11,7 @@ const VideoCard = ({ tour }) => {
         </video>
 
         <div className={classes.slideText}>
-          <h2>{tour.title}</h2>
+          <h3>{tour.title}</h3>
           <TheButton variant='lite'>Explore</TheButton>
         </div>
       </div>
