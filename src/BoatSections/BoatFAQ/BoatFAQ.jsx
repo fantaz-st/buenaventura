@@ -2,9 +2,9 @@ import TheButton from "../../Components/TheButton/TheButton";
 import AnimatedText from "@/Components/AnimatedText/AnimatedText";
 import FAQ from "@/Components/FAQ/FAQ";
 import faqs from "@/settings/faqs";
-import classes from "./HomeFAQ.module.css";
+import classes from "./BoatFAQ.module.css";
 
-export default function HomeFAQ() {
+export default function BoatFAQ() {
   return (
     <div className={classes.container}>
       <div className={classes.inner}>

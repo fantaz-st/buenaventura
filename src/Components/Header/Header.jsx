@@ -62,11 +62,21 @@ export default function Header() {
           </Link>
         </div>
         <nav className={classes.nav}>
-          {["Home", "Our Boat", "Our Tours", "FAQ", "Contact"].map((item) => (
-            <div key={item} className={classes.navItem}>
-              <AnimatedLink href={`${item.toLowerCase().replace(/ /g, "-")}`}>{item}</AnimatedLink>
-            </div>
-          ))}
+          <div className={classes.navItem}>
+            <AnimatedLink href='/'>Home</AnimatedLink>
+          </div>
+          <div className={classes.navItem}>
+            <AnimatedLink href='/our-boat'>Our Boat</AnimatedLink>
+          </div>
+          <div className={classes.navItem}>
+            <AnimatedLink href='/our-tours'>Our Tours</AnimatedLink>
+          </div>
+          <div className={classes.navItem}>
+            <AnimatedLink href='/faq'>FAQ-s</AnimatedLink>
+          </div>
+          <div className={classes.navItem}>
+            <AnimatedLink href='/contact'>Contact</AnimatedLink>
+          </div>
 
           {/* Language switcher */}
           <div className={classes.langSwitcher} onClick={() => setLangOpen((open) => !open)} onBlur={() => setLangOpen(false)} tabIndex={0}>

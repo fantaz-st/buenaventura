@@ -10,7 +10,7 @@ import classes from "./Testimonials.module.css";
 import TestimonialCard from "../../Components/Cards/TestimonialCard/TestimonialCard";
 import AnimatedText from "@/Components/AnimatedText/AnimatedText";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export default function Testimonials() {
   const containerRef = useRef(null);
@@ -19,7 +19,7 @@ export default function Testimonials() {
     () => {
       gsap.utils.toArray(`.${classes.testimonialWrap}`, containerRef.current).forEach((card) => {
         card.style.overflow = "hidden";
-        const img = card.querySelector(".cardImg");
+        const img = card.querySelector(".testImage"); //image class in the TestimonialCard
         const R = 20;
 
         const tl = gsap
