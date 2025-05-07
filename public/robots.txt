@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.rebelde.hr/
+
+# Sitemaps
+Sitemap: https://www.rebelde.hr/sitemap.xml
