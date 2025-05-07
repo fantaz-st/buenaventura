@@ -6,7 +6,7 @@ import Link from "next/link";
 import TheButton from "../TheButton/TheButton";
 import classes from "./Header.module.css";
 import Image from "next/image";
-
+import { useRouter } from "next/navigation";
 const LANGUAGES = [
   { code: "en", label: "English" },
   { code: "fr", label: "Français" },
@@ -22,6 +22,13 @@ export default function Header() {
   const [currentLang, setCurrentLang] = useState(LANGUAGES[0]);
   const [langOpen, setLangOpen] = useState(false);
   const prevY = useRef(0);
+
+  const router = useRouter();
+
+  useEffect(() => {
+    router.prefetch("/");
+    router.prefetch("/our-boat");
+  }, [router]);
 
   useEffect(() => {
     const onScroll = () => {
