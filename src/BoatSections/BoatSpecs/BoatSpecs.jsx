@@ -32,7 +32,7 @@ export default function BoatSpecs() {
           <h1 className={classes.title}>Specs</h1>
         </AnimatedText>
         <AnimatedText>
-          <p className={classes.subTitle}>Here's how to measure awesome.</p>
+          <p className={classes.subTitle}>Here&apos;s how to measure awesome.</p>
         </AnimatedText>
         <div className={classes.tableWrapper}>
           <table className={classes.table}>
