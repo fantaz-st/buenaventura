@@ -3,14 +3,25 @@
   color: var(--color-white);
   padding: 4rem 8rem 2rem;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  overflow: hidden;
+  height: 350px;
+  position: relative;
+}
+.fixed {
+  position: fixed;
+  height: 320px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
 }
 
 .inner {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   gap: 3rem;
   flex-wrap: wrap;
+  padding: 1rem 2rem;
 }
 
 .inner > div,
@@ -45,9 +56,12 @@
 
 .madeBy {
   margin-top: 2rem;
-  font-size: 0.75rem;
   text-align: center;
   color: var(--color-white);
+}
+
+.madeBy p {
+  font-size: 0.75rem;
 }
 
 .madeBy a {
@@ -58,8 +72,11 @@
 @media only screen and (max-width: 640px) {
   .container {
     padding: 2rem 1rem;
+    height: 650px;
   }
-
+  .fixed {
+    height: 600px;
+  }
   .inner {
     flex-direction: column;
     align-items: center;

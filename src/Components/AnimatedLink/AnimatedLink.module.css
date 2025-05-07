@@ -33,3 +33,9 @@
 .linkButton:hover::after {
   transform: translateY(0);
 }
+
+@media (max-width: 640px) {
+  .linkButton {
+    font-size: 0.75rem;
+  }
+}

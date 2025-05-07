@@ -39,3 +39,9 @@
   display: flex;
   justify-content: center;
 }
+
+@media only screen and (max-width: 640px) {
+  .container {
+    padding: 1rem 0.5rem;
+  }
+}
