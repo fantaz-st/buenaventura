@@ -57,7 +57,7 @@ export default function Header() {
         <nav className={classes.nav}>
           {["Home", "Our Boat", "Our Tours", "FAQ", "Contact"].map((item) => (
             <div key={item} className={classes.navItem}>
-              <AnimatedLink href={`#${item.toLowerCase().replace(/ /g, "-")}`}>{item}</AnimatedLink>
+              <AnimatedLink href={`${item.toLowerCase().replace(/ /g, "-")}`}>{item}</AnimatedLink>
             </div>
           ))}
 
