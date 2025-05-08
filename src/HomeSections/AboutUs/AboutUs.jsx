@@ -27,7 +27,7 @@ const AboutUs = () => {
           scrollTrigger: {
             trigger: scrollTextRef.current,
             start: "top 80%",
-            end: "bottom 30%",
+            end: "bottom 50%",
             scrub: true,
             toggleActions: "play play reverse reverse",
           },
@@ -40,7 +40,7 @@ const AboutUs = () => {
   return (
     <div className={classes.container} ref={scrollContainerRef} data-header='dark'>
       <div className={classes.inner}>
-        <h3 ref={scrollTextRef}>
+        <h2 ref={scrollTextRef}>
           We believe in living fully — feeling the salt in your hair, the sun on your face, and good company by your side.
           <br />
           We craft experiences where the sea is a companion, not a destination.
@@ -50,7 +50,7 @@ const AboutUs = () => {
           Every journey is personal.
           <br />
           Every wave, a new memory.
-        </h3>
+        </h2>
       </div>
     </div>
   );

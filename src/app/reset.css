@@ -52,5 +52,11 @@ select {
 /* Helper class for animated line reveals */
 .line {
   overflow: hidden;
+  line-height: 1.5;
+}
+
+h1 .line,
+h2 .line {
+  overflow: hidden;
   line-height: 1.1;
 }

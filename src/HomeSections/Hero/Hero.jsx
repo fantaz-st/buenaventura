@@ -28,15 +28,21 @@ export default function Hero() {
 
         gsap.set(`.${classes.inner}`, { autoAlpha: 1 });
 
-        const split = new SplitText(`.${classes.title}`, {
+        const splitTitle = new SplitText(`.${classes.title}`, {
+          type: "lines",
+          mask: "lines",
+          linesClass: "line++",
+          lineThreshold: 0.1,
+        });
+        const splitSubtitle = new SplitText(`.${classes.description}`, {
           type: "lines",
           mask: "lines",
           linesClass: "line++",
           lineThreshold: 0.1,
         });
 
-        const lines = split.lines;
-        gsap.set(lines, { y: "100%" });
+        gsap.set(splitTitle.lines, { y: "100%" });
+        gsap.set(splitSubtitle.lines, { y: "100%" });
 
         gsap
           .timeline({
@@ -48,7 +54,7 @@ export default function Hero() {
             ease: "hop",
           })
           .to(
-            lines,
+            splitTitle.lines,
             {
               y: "0%",
               duration: 1,
@@ -57,7 +63,17 @@ export default function Hero() {
             },
             "-=0.6"
           )
-          .from(`.${classes.rest}`, { y: 40, opacity: 0, duration: 0.6, ease: "power2.out" }, "-=0.6");
+          .to(
+            splitSubtitle.lines,
+            {
+              y: "0%",
+              duration: 1,
+              stagger: 0.1,
+              ease: "power4.out",
+            },
+            "-=0.6"
+          )
+          .from(`.${classes.buttons}`, { y: 40, opacity: 0, duration: 0.6, ease: "power2.out" }, "-=0.6");
       };
 
       video.addEventListener("canplaythrough", onReady, { once: true });
@@ -84,6 +100,10 @@ export default function Hero() {
 
       {/*  TEXT / BUTTONS  */}
       <div className={classes.inner}>
+        {/* <h1 className={classes.title}>
+          Private Boat Tours from Split
+          <br />— Sail the Adriatic in Style
+        </h1> */}
         <h1 className={classes.title}>
           Private.
           <br />
@@ -93,7 +113,7 @@ export default function Hero() {
         </h1>
 
         <div className={classes.rest}>
-          <p className={classes.description}>Discover the Adriatic in style aboard REBELDE — your luxury boat tour.</p>
+          <p className={classes.description}>Step onto our Felix 37 speedboat for an exclusive and bespoke private boat trip from Split that blends prestige with adventure — crystal coves, five-island hopping, and Blue Cave magic all wrapped in effortless Mediterranean style.</p>
           <div className={classes.buttons}>
             <TheButton variant='dark'>Book&nbsp;Now</TheButton>
             <TheButton variant='lite'>Play&nbsp;Video</TheButton>

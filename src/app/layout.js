@@ -14,6 +14,9 @@ export const metadata = {
   title: "Rebelde Boats",
   description: "Private boat tours in Split, Croatia. Rebelde boats offers luxury island-hopping experiences.",
   keywords: ["Rebelde", "Boat Tours Split", "Croatia Private Tour", "Island Hopping", "Hvar", "Blue Cave", "Blue lagoon"],
+};
+
+export const viewport = {
   themeColor: "#ffffff",
 };
 
