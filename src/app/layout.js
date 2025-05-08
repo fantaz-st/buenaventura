@@ -1,11 +1,12 @@
 import { Inter } from "next/font/google";
-import Header from "../components/Header/Header";
-import Footer from "../components/Footer/Footer";
+
 import { ReactLenis } from "lenis/react";
 import { Analytics } from "@vercel/analytics/react";
 import "./reset.css";
 import "./globals.css";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
+import Header from "@/Components/Header/Header";
+import Footer from "@/Components/Footer/Footer";
 
 const inter = Inter({ subsets: ["latin"], style: "normal", variable: "--font-inter" });
 
