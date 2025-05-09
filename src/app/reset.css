@@ -55,8 +55,12 @@ select {
   line-height: 1.5;
 }
 
-h1 .line,
+h1 .line:not(#hero h1 .line),
 h2 .line {
   overflow: hidden;
   line-height: 1.1;
+}
+
+#hero h1 .line {
+  line-height: 1.2;
 }

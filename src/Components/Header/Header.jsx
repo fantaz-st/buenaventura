@@ -1,12 +1,11 @@
-// components/Header.js
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import AnimatedLink from "../AnimatedLink/AnimatedLink";
 import Link from "next/link";
-import TheButton from "../TheButton/TheButton";
 import classes from "./Header.module.css";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+
 const LANGUAGES = [
   { code: "en", label: "English" },
   { code: "fr", label: "Français" },
@@ -18,32 +17,51 @@ const LANGUAGES = [
 
 export default function Header() {
   const [show, setShow] = useState(true);
-  const [opaque, setOpaque] = useState(false);
+  const [opaque, setOpaque] = useState(false); // also used as "compact"
   const [currentLang, setCurrentLang] = useState(LANGUAGES[0]);
   const [langOpen, setLangOpen] = useState(false);
+
   const prevY = useRef(0);
+  const heroBottomRef = useRef(0);
 
   const router = useRouter();
 
+  /* Prefetch core routes */
   useEffect(() => {
     router.prefetch("/");
     router.prefetch("/our-boat");
   }, [router]);
 
+  /* Measure hero height on load + resize */
+  useEffect(() => {
+    const calcHeroBottom = () => {
+      const hero = document.getElementById("hero");
+      heroBottomRef.current = hero ? hero.offsetTop + hero.offsetHeight : 0;
+    };
+
+    calcHeroBottom();
+    window.addEventListener("resize", calcHeroBottom);
+    return () => window.removeEventListener("resize", calcHeroBottom);
+  }, []);
+
+  /* Scroll behaviour */
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY;
-      if (y <= 0) {
-        setShow(true);
-        setOpaque(false);
-      } else if (y > prevY.current) {
+
+      // hide on downward scroll, show on upward scroll
+      if (y > prevY.current) {
         setShow(false);
       } else {
         setShow(true);
-        setOpaque(true);
       }
+
+      // compact / opaque header only after hero
+      setOpaque(y > heroBottomRef.current);
+
       prevY.current = y;
     };
+
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -53,33 +71,39 @@ export default function Header() {
   const containerClasses = ["container-xxl", classes.container, opaque ? classes.opaqueContainer : classes.transparentContainer].join(" ");
 
   return (
-    <header className={headerClasses}>
+    <header className={headerClasses} id='header'>
       <div className={containerClasses}>
-        <div className={classes.logo}>
+        {/* Left nav */}
+        <nav className={`${classes.nav} ${classes.navLeft}`}>
+          <div className={classes.navItem}>
+            <AnimatedLink href='/'>HOME</AnimatedLink>
+          </div>
+          <div className={classes.navItem}>
+            <AnimatedLink href='/our-boat'>OUR BOAT</AnimatedLink>
+          </div>
+          <div className={classes.navItem}>
+            <AnimatedLink href='/our-tours'>OUR TOURS</AnimatedLink>
+          </div>
+        </nav>
+
+        {/* Logo */}
+        <div className={classes.logo} id='main-logo'>
           <Link href='/' aria-label='Rebelde boats home'>
-            <Image src={opaque ? "/logo/break-vect-blue.svg" : "/logo/break-vect-white.svg"} priority height={77} width={160} alt='Rebelde boats logo' className={classes.logoDesktop} />
-            <Image src={opaque ? "/logo/break-vect-blue-mobile.svg" : "/logo/break-vect-white-mobile.svg"} priority height={40} width={178} alt='Rebelde boats mobile logo' className={classes.logoMobile} />
+            <Image src={opaque ? "/logo/break-vect-blue.svg" : "/logo/break-vect-white.svg"} priority height={77} width={160} alt='Rebelde boats logo' className={classes.logo} />
           </Link>
         </div>
-        <nav className={classes.nav}>
-          <div className={classes.navItem}>
-            <AnimatedLink href='/'>Home</AnimatedLink>
-          </div>
-          <div className={classes.navItem}>
-            <AnimatedLink href='/our-boat'>Our Boat</AnimatedLink>
-          </div>
-          <div className={classes.navItem}>
-            <AnimatedLink href='/our-tours'>Our Tours</AnimatedLink>
-          </div>
+
+        {/* Right nav */}
+        <nav className={`${classes.nav} ${classes.navRight}`}>
           <div className={classes.navItem}>
             <AnimatedLink href='/faq'>FAQ-s</AnimatedLink>
           </div>
           <div className={classes.navItem}>
-            <AnimatedLink href='/contact'>Contact</AnimatedLink>
+            <AnimatedLink href='/contact'>CONTACT</AnimatedLink>
           </div>
 
           {/* Language switcher */}
-          <div className={classes.langSwitcher} onClick={() => setLangOpen((open) => !open)} onBlur={() => setLangOpen(false)} tabIndex={0}>
+          <div className={classes.langSwitcher} onMouseEnter={() => setLangOpen(true)} onMouseLeave={() => setLangOpen(false)} onFocus={() => setLangOpen(true)} onBlur={() => setLangOpen(false)} tabIndex={0}>
             {currentLang.code.toUpperCase()}
             {langOpen && (
               <ul className={classes.langDropdown}>
@@ -88,7 +112,6 @@ export default function Header() {
                     <button
                       onClick={() => {
                         setCurrentLang(lang);
-                        setLangOpen(false);
                         // TODO: hook into i18n/router
                       }}
                     >
@@ -100,20 +123,6 @@ export default function Header() {
             )}
           </div>
         </nav>
-        <div className={classes.contact}>
-          <TheButton variant='dark'>Contact Us</TheButton>
-        </div>
-        <button
-          className={classes.hamburger}
-          aria-label='Toggle menu'
-          onClick={() => {
-            /* mobile toggle logic */
-          }}
-        >
-          <span />
-          <span />
-          <span />
-        </button>
       </div>
     </header>
   );

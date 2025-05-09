@@ -1,19 +1,21 @@
+/* Hero.tsx — or Hero.jsx */
 "use client";
 
 import { useRef, useState } from "react";
 import gsap from "gsap";
-import { CustomEase, SplitText } from "gsap/all";
-import TheButton from "../../Components/TheButton/TheButton";
-import classes from "./Hero.module.css";
+import { CustomEase, SplitText, ScrollTrigger } from "gsap/all";
 import { useGSAP } from "@gsap/react";
 
-gsap.registerPlugin(CustomEase);
+import TheButton from "../../Components/TheButton/TheButton";
+import classes from "./Hero.module.css";
+
+gsap.registerPlugin(CustomEase, SplitText, ScrollTrigger);
 
 export default function Hero() {
   const containerRef = useRef(null);
-  const loaderRef = useRef(null); // black panel with “Loading…”
+  const loaderRef = useRef(null);
   const videoRef = useRef(null);
-  const [gone, setGone] = useState(false); // removes loader after anim
+  const [gone, setGone] = useState(false); // hides the loader after the intro
 
   useGSAP(
     () => {
@@ -21,6 +23,7 @@ export default function Hero() {
       const loader = loaderRef.current;
       if (!video || !loader) return;
 
+      /** ---------- INTRO ANIMATION ---------- */
       const onReady = () => {
         video.classList.add(classes.videoVisible);
 
@@ -45,65 +48,77 @@ export default function Hero() {
         gsap.set(splitSubtitle.lines, { y: "100%" });
 
         gsap
-          .timeline({
-            onComplete: () => setGone(true),
-          })
-          .to(loader, {
-            clipPath: "inset(100% 0 0 0)",
-            duration: 1.2,
-            ease: "hop",
-          })
-          .to(
-            splitTitle.lines,
-            {
-              y: "0%",
-              duration: 1,
-              stagger: 0.1,
-              ease: "power4.out",
-            },
-            "-=0.6"
-          )
-          .to(
-            splitSubtitle.lines,
-            {
-              y: "0%",
-              duration: 1,
-              stagger: 0.1,
-              ease: "power4.out",
-            },
-            "-=0.6"
-          )
+          .timeline({ onComplete: () => setGone(true) })
+          .to(loader, { clipPath: "inset(100% 0 0 0)", duration: 1.2, ease: "hop" })
+          .to(splitTitle.lines, { y: "0%", duration: 1, stagger: 0.1, ease: "power4.out" }, "-=0.6")
+          .to(splitSubtitle.lines, { y: "0%", duration: 1, stagger: 0.1, ease: "power4.out" }, "-=0.6")
           .from(`.${classes.buttons}`, { y: 40, opacity: 0, duration: 0.6, ease: "power2.out" }, "-=0.6");
+
+        /** ---------- PARALLAX SCROLL ---------- */
+        ScrollTrigger.matchMedia({
+          // Desktop
+          "(min-width: 769px)": () =>
+            gsap.fromTo(
+              video,
+              { yPercent: -12 },
+              {
+                yPercent: 12,
+                ease: "none",
+                scrollTrigger: {
+                  trigger: containerRef.current,
+                  start: "top top",
+                  end: "bottom top",
+                  scrub: true,
+                },
+              }
+            ),
+
+          // Phones / tablets – subtler shift
+          "(max-width: 768px)": () =>
+            gsap.fromTo(
+              video,
+              { yPercent: -4 },
+              {
+                yPercent: 4,
+                ease: "none",
+                scrollTrigger: {
+                  trigger: containerRef.current,
+                  start: "top top",
+                  end: "bottom top",
+                  scrub: true,
+                },
+              }
+            ),
+        });
       };
 
       video.addEventListener("canplaythrough", onReady, { once: true });
       video.load();
 
-      return () => video.removeEventListener("canplaythrough", onReady);
+      return () => {
+        video.removeEventListener("canplaythrough", onReady);
+        ScrollTrigger.kill(); // tidy up on unmount
+      };
     },
     { scope: containerRef }
   );
 
   return (
     <section ref={containerRef} className={classes.container} id='hero'>
-      {/*  LOADING PANEL  */}
+      {/* LOADING PANEL */}
       {!gone && (
         <div ref={loaderRef} className={classes.loader}>
           <p className={classes.loadingText}>Loading…</p>
         </div>
       )}
 
-      {/*  VIDEO  */}
+      {/* VIDEO */}
       <video ref={videoRef} className={classes.video} playsInline muted loop autoPlay preload='auto' fetchPriority='high' poster='/video-poster.webp'>
         <source src='felix37.mp4' type='video/mp4' />
       </video>
 
-      {/*  TEXT / BUTTONS  */}
+      {/* COPY + CTA */}
       <div className={classes.inner}>
-        {/* <h1 className={classes.title}>
-          Private Boat Tours from Split
-          <br />— Sail the Adriatic in Style
-        </h1> */}
         <h1 className={classes.title}>
           Private.
           <br />
@@ -114,10 +129,11 @@ export default function Hero() {
 
         <div className={classes.rest}>
           <p className={classes.description}>Step onto our Felix 37 speedboat for an exclusive and bespoke private boat trip from Split that blends prestige with adventure — crystal coves, five-island hopping, and Blue Cave magic all wrapped in effortless Mediterranean style.</p>
-          <div className={classes.buttons}>
+
+          {/* <div className={classes.buttons}>
             <TheButton variant='dark'>Book&nbsp;Now</TheButton>
             <TheButton variant='lite'>Play&nbsp;Video</TheButton>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
