@@ -7,6 +7,7 @@ import "./globals.css";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
 import Header from "@/Components/Header/Header";
 import Footer from "@/Components/Footer/Footer";
+import HamburgerMenu from "@/Components/HamburgerMenu/HamburgerMenu";
 
 const inter = Inter({ subsets: ["latin"], style: "normal", variable: "--font-inter" });
 
@@ -33,6 +34,7 @@ export default function RootLayout({ children }) {
           {children}
           <Analytics />
           <Footer />
+          <HamburgerMenu />
         </ReactLenis>
       </body>
     </html>
