@@ -75,7 +75,7 @@ const ToursHero = () => {
       </div>
 
       <div className={classes.imageContainer}>
-        <Image src='/assets/images/boat/boat2.jpg' alt='Rebelde boats - Felix 37 - Buenaventura' fill className={classes.image} />
+        <Image src='/assets/images/boat/boat2.jpg' alt='Rebelde boats - Felix 37 - Buenaventura' fill className={classes.image} priority sizes='100vw' />
       </div>
     </section>
   );

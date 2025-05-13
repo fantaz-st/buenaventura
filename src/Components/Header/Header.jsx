@@ -4,7 +4,6 @@ import AnimatedLink from "../AnimatedLink/AnimatedLink";
 import Link from "next/link";
 import classes from "./Header.module.css";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 
 const LANGUAGES = [
   { code: "en", label: "English" },
@@ -23,14 +22,6 @@ export default function Header() {
 
   const prevY = useRef(0);
   const heroBottomRef = useRef(0);
-
-  const router = useRouter();
-
-  /* Prefetch core routes */
-  useEffect(() => {
-    router.prefetch("/");
-    router.prefetch("/our-boat");
-  }, [router]);
 
   /* Measure hero height on load + resize */
   useEffect(() => {

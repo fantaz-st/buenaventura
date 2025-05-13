@@ -51,8 +51,8 @@ export default function Hero() {
           .timeline({ onComplete: () => setGone(true) })
           .to(loader, { clipPath: "inset(100% 0 0 0)", duration: 1.2, ease: "hop" })
           .to(splitTitle.lines, { y: "0%", duration: 1, stagger: 0.1, ease: "power4.out" }, "-=0.6")
-          .to(splitSubtitle.lines, { y: "0%", duration: 1, stagger: 0.1, ease: "power4.out" }, "-=0.6")
-          .from(`.${classes.buttons}`, { y: 40, opacity: 0, duration: 0.6, ease: "power2.out" }, "-=0.6");
+          .to(splitSubtitle.lines, { y: "0%", duration: 1, stagger: 0.1, ease: "power4.out" }, "-=0.6");
+        // .from(`.${classes.buttons}`, { y: 40, opacity: 0, duration: 0.6, ease: "power2.out" }, "-=0.6");
 
         /** ---------- PARALLAX SCROLL ---------- */
         ScrollTrigger.matchMedia({
@@ -97,7 +97,6 @@ export default function Hero() {
 
       return () => {
         video.removeEventListener("canplaythrough", onReady);
-        ScrollTrigger.kill(); // tidy up on unmount
       };
     },
     { scope: containerRef }

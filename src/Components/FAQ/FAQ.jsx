@@ -82,7 +82,7 @@ export default function FAQ({ faqs }) {
   );
 
   return (
-    <div className={classes.container}>
+    <div className={classes.container} ref={containerRef}>
       <ul className={classes.list}>{renderedFaqs}</ul>
     </div>
   );
