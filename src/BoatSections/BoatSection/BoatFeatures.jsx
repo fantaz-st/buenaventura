@@ -1,18 +1,14 @@
 "use client";
 
 import classes from "./BoatFeatures.module.css";
-import { useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/all";
 import BoatFeaturesCard from "../../Components/Cards/BoatFeaturesCard/BoatFeaturesCard";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import boatFeatures from "@/settings/boatFeatures";
-
-import "swiper/css";
 import AnimatedText from "@/Components/AnimatedText/AnimatedText";
 
-gsap.registerPlugin(ScrollTrigger);
+import "swiper/css";
+import { useRef } from "react";
 
 const Chevron = () => {
   return (
@@ -25,10 +21,10 @@ const Chevron = () => {
 };
 
 const BoatFeatures = () => {
-  const containerRef = useRef(null);
-
+  const prevRef = useRef(null);
+  const nextRef = useRef(null);
   return (
-    <section className={classes.container} ref={containerRef}>
+    <section className={classes.container}>
       <div className={classes.header}>
         <AnimatedText>
           <h2 className={classes.title}>Built for Good Living.</h2>
@@ -42,10 +38,11 @@ const BoatFeatures = () => {
 
       <Swiper
         modules={[Navigation]}
-        navigation={{
-          prevEl: `.${classes.left}`,
-          nextEl: `.${classes.right}`,
+        onBeforeInit={(swiper) => {
+          swiper.params.navigation.prevEl = prevRef.current;
+          swiper.params.navigation.nextEl = nextRef.current;
         }}
+        navigation={{ prevEl: prevRef.current, nextEl: nextRef.current }}
         breakpoints={{
           1600: {
             slidesPerView: 3,
