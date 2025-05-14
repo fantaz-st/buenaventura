@@ -1,12 +1,13 @@
 const slides = [
   {
     id: "slide-1",
-    title: "Blue Lagoon, Trogir, Island Šolta",
+    title: "Blue Lagoon, Trogir, Šolta",
     description1: "Hidden beaches & local secrets around island Šolta and Trogir",
     description2: "Perfect for those short on time but big on adventure.",
     poster: "/posters/1.jpg",
     video: "/videos/1.mp4",
     type: "Half day tour",
+    price: "700",
   },
   {
     id: "slide-3",
@@ -16,6 +17,7 @@ const slides = [
     poster: "/posters/3.jpg",
     video: "/videos/3.mp4",
     type: "Full day tour",
+    price: "1400",
   },
   {
     id: "slide-2",
@@ -25,6 +27,7 @@ const slides = [
     poster: "/posters/2.jpg",
     video: "/videos/2.mp4",
     type: "VIP Private tour",
+    price: "1200",
   },
 ];
 

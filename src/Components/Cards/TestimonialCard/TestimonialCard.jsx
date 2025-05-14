@@ -5,7 +5,7 @@ const TestimonialCard = ({ t }) => {
   return (
     <figure className={classes.testimonial} aria-label={`Testimonial by ${t.name}: ${t.title}`}>
       <div className={classes.imageContainer}>
-        <Image src={t.image} alt={t.name} fill sizes='(min-width: 1340px) calc(33.31vw - 106px), 316px' className={`${classes.image} testImage`} />
+        <Image src={t.image} alt={t.name} fill sizes='(min-width: 1160px) calc(33.32vw - 42px), 314px' className={`${classes.image} testImage`} />
       </div>
 
       <div className={classes.footerContent}>

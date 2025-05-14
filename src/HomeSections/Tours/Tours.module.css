@@ -2,6 +2,7 @@
   height: 100%;
   width: 100vw;
   padding: 10rem 0 12rem;
+  position: relative;
 }
 
 .title {
@@ -24,55 +25,69 @@
 .subTitle {
   color: var(--color-black);
 }
-.nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  margin: 4rem auto 3rem auto; /* centers the nav container horizontally */
-  background-color: white;
-  padding: 0.5rem 0.5rem;
-  border-radius: 2rem;
-  width: fit-content;
+
+.wrapper {
+  padding: 0 5rem;
 }
 
-.navItem {
-  font-weight: 500;
-  color: var(--color-black);
-  background-color: var(--color-white);
-  border: none;
-  cursor: pointer;
-  padding: 0.5rem 1.25rem;
-  border-radius: 2rem;
-  transition: all 0.3s ease;
-}
-
-.navItem:hover {
-  background-color: #e0e0e0; /* light gray on hover */
-}
-
-.active {
-  background-color: #000;
-  color: white;
-}
 @media only screen and (max-width: 640px) {
   .container {
     padding: 6rem 0 9rem;
   }
-  .nav {
-    gap: 0.5rem;
-  }
-  .navItem {
-    padding: 0.4rem 0.6rem;
-    font-size: 0.875rem;
-  }
+
   .title {
     margin-bottom: 3rem;
   }
+  .wrapper {
+    padding: 0 0.5rem;
+  }
+  .arrow {
+    margin: 0;
+    z-index: 9;
+  }
 }
 
-@media only screen and (max-width: 360px) {
-  .navItem {
-    padding: 0.4rem 0.6rem;
-    font-size: 0.75rem;
-  }
+.navigation {
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+  background-color: var(--color-black);
+  border-radius: 9999px;
+  padding: 0.5rem;
+}
+
+/* ---------- arrow buttons ---------- */
+.arrow {
+  --size: 42px;
+  inline-size: var(--size);
+  block-size: var(--size);
+  border-radius: 50%;
+  background: var(--color-white);
+  box-shadow: 0 0 10px rgb(0 0 0 / 0.25);
+  border: none;
+  cursor: pointer;
+  display: grid; /* centres inner SVG */
+  place-items: center;
+  transition: transform 0.2s ease;
+  color: var(--color-black);
+}
+
+.arrow:hover {
+  transform: scale(1.1);
+}
+.arrow:active {
+  transform: scale(0.95);
+}
+
+.arrow svg {
+  width: 40%;
+  height: 40%;
+  fill: currentColor;
+}
+
+.left svg {
+  transform: rotate(180deg);
 }

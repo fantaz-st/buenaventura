@@ -38,11 +38,10 @@ const BoatFeatures = () => {
 
       <Swiper
         modules={[Navigation]}
-        onBeforeInit={(swiper) => {
-          swiper.params.navigation.prevEl = prevRef.current;
-          swiper.params.navigation.nextEl = nextRef.current;
+        navigation={{
+          prevEl: `.left`,
+          nextEl: `.right`,
         }}
-        navigation={{ prevEl: prevRef.current, nextEl: nextRef.current }}
         breakpoints={{
           1600: {
             slidesPerView: 3,
@@ -61,7 +60,6 @@ const BoatFeatures = () => {
             spaceBetween: 10,
           },
         }}
-        slideToClickedSlide
         watchOverflow={false}
         grabCursor
         className={classes.swiper}
@@ -74,10 +72,10 @@ const BoatFeatures = () => {
       </Swiper>
 
       <div className={classes.navigation}>
-        <button className={`${classes.arrow} ${classes.left}`} aria-label='Previous slide'>
+        <button className={`${classes.arrow} ${classes.left} left`} aria-label='Previous slide'>
           <Chevron aria-hidden='true' />
         </button>
-        <button className={`${classes.arrow} ${classes.right}`} aria-label='Next slide'>
+        <button className={`${classes.arrow} ${classes.right} right`} aria-label='Next slide'>
           <Chevron aria-hidden='true' />
         </button>
       </div>

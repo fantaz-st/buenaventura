@@ -1,59 +1,68 @@
 .btn {
   display: inline-flex;
-  flex-direction: row;
   align-items: center;
   justify-content: center;
-  border-radius: 4rem;
-  border: none;
   padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 4rem;
   font-weight: 500;
   cursor: pointer;
-
   min-height: 56px;
   min-width: 160px;
-  width: auto;
-  max-width: 100%;
-
-  flex: 0 0 auto;
   text-decoration: none;
   transition: background-color 0.3s;
 }
 
-.btn.dark {
-  background-color: var(--color-black);
-  color: var(--color-white);
-}
-
-.btn.lite {
-  background-color: var(--color-white);
-  color: var(--color-black);
-}
-
-.btn.dark:hover {
-  color: var(--color-black);
-  background-color: var(--color-white);
-}
-
-.btn.lite:hover {
-  background-color: var(--color-black);
-  color: var(--color-white);
-}
-
-.small {
+.btnText.small {
   font-size: 0.75rem;
 }
-
-.medium {
+.btnText.medium {
   font-size: 1rem;
 }
-
-.large {
+.btnText.large {
   font-size: 1.25rem;
 }
 
-@media only screen and (max-width: 360px) {
+.dark {
+  background: var(--color-black);
+  color: var(--color-white);
+}
+.lite {
+  background: var(--color-white);
+  color: var(--color-black);
+}
+
+.dark:hover {
+  background: var(--color-white);
+  color: var(--color-black);
+}
+.lite:hover {
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
+@media (max-width: 360px) {
   .btn {
     min-width: auto;
     min-height: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .switch.dark {
+    background: var(--color-white);
+    color: var(--color-black);
+  }
+  .switch.lite {
+    background: var(--color-black);
+    color: var(--color-white);
+  }
+  .switch.dark:hover {
+    background: var(--color-black);
+    color: var(--color-white);
+  }
+  .switch.lite:hover {
+    background: var(--color-white);
+    color: var(--color-black);
   }
 }

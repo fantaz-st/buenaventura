@@ -55,7 +55,7 @@ export default function BoatSection() {
         <Image
           src='/assets/images/boat/boat1.jpg'
           alt='Rebelde boats Buenaventura about the boat'
-          sizes='(min-width: 2060px) 1854px, (min-width: 1940px) 1746px, (min-width: 1220px) 1098px, (min-width: 1100px) 990px, (min-width: 840px) 756px, (min-width: 760px) 684px, (min-width: 660px) 594px, 270px'
+          sizes='(min-width: 2820px) 2538px, (min-width: 2580px) 2322px, (min-width: 2240px) 2016px, (min-width: 2060px) 1854px, (min-width: 1940px) 1746px, (min-width: 1100px) 990px, (min-width: 840px) 756px, (min-width: 760px) calc(30vw + 456px), (min-width: 660px) 594px, 270px'
           fill
           className={classes.image}
           priority
