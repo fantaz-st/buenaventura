@@ -112,3 +112,8 @@ small {
   opacity: 0.2;
   pointer-events: none;
 }
+
+[class^="line"] {
+  display: inline-block;
+  overflow: hidden;
+}
