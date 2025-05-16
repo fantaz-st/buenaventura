@@ -34,7 +34,7 @@ export default function RootLayout({ children }) {
           {children}
           <Analytics />
           <Footer />
-          <HamburgerMenu />
+          {/* <HamburgerMenu /> */}
         </ReactLenis>
       </body>
     </html>

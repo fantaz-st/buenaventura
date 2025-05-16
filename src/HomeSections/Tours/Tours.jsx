@@ -40,11 +40,13 @@ const Tours = () => {
           slidesOffsetBefore={80} // 5 rem → 5×16px = 80px
           slidesOffsetAfter={80}
           breakpoints={{
-            /*  1600: { slidesPerView: 1.5, spaceBetween: 30 },
-            1200: {
+            /*              1600: { slidesPerView: 1.5, spaceBetween: 30 },
+             */ 1400: {
               slidesPerView: 1.5,
               spaceBetween: 30,
-            }, */
+              slidesOffsetBefore: 80,
+              slidesOffsetAfter: 80,
+            },
             768: {
               slidesPerView: 1.5,
               spaceBetween: 30,
