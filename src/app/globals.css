@@ -113,7 +113,9 @@ small {
   pointer-events: none;
 }
 
-[class^="line"] {
+.split-mask-line-mask,
+.split-line {
   display: inline-block;
+  vertical-align: top;
   overflow: hidden;
 }

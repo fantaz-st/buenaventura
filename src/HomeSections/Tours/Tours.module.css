@@ -26,10 +26,6 @@
   color: var(--color-black);
 }
 
-.wrapper {
-  padding: 0 5rem;
-}
-
 @media only screen and (max-width: 640px) {
   .container {
     padding: 6rem 0 9rem;
@@ -38,9 +34,7 @@
   .title {
     margin-bottom: 3rem;
   }
-  .wrapper {
-    padding: 0 0.5rem;
-  }
+
   .arrow {
     margin: 0;
     z-index: 9;

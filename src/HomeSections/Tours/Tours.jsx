@@ -37,6 +37,8 @@ const Tours = () => {
 
       <div>
         <Swiper
+          slidesOffsetBefore={80} // 5 rem → 5×16px = 80px
+          slidesOffsetAfter={80}
           breakpoints={{
             /*  1600: { slidesPerView: 1.5, spaceBetween: 30 },
             1200: {
@@ -46,8 +48,10 @@ const Tours = () => {
             768: {
               slidesPerView: 1.5,
               spaceBetween: 30,
+              slidesOffsetBefore: 50,
+              slidesOffsetAfter: 50,
             },
-            360: { slidesPerView: 1.1, spaceBetween: 10 },
+            360: { slidesPerView: 1.1, spaceBetween: 10, slidesOffsetBefore: 10, slidesOffsetAfter: 10 },
           }}
           modules={[Navigation]}
           centeredSlides={false}
