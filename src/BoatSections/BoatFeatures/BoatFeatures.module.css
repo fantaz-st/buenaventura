@@ -1,8 +1,7 @@
-/* ---------- layout & copy ---------- */
 .container {
   position: relative;
   width: 100vw;
-  padding: 10rem 5rem 12rem;
+  padding: 6rem 5rem 12rem;
   background: #131211;
   text-align: center;
 }

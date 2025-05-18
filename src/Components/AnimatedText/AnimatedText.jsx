@@ -35,6 +35,9 @@ export default function AnimatedText({ children, animateOnScroll = true, delay =
       lines.current.push(...split.lines);
 
       // start state
+      gsap.set(containerRef.current, {
+        autoAlpha: 1,
+      });
       gsap.set(lines.current, { y: "100%" });
 
       const animationProps = {
@@ -77,7 +80,7 @@ export default function AnimatedText({ children, animateOnScroll = true, delay =
 
     return React.cloneElement(child, {
       ref: containerRef,
-      className: `${child.props.className || ""} ${className}`.trim(),
+      className: `${child.props.className || ""} ${className} animated`.trim(),
       role: "group",
       "aria-label": text,
       "aria-hidden": "true",
@@ -88,7 +91,7 @@ export default function AnimatedText({ children, animateOnScroll = true, delay =
   const aggregatedText = safe.map((c) => (typeof c === "string" ? c : "")).join("");
 
   return (
-    <div ref={containerRef} className={className} role='group' aria-label={aggregatedText} aria-hidden='true'>
+    <div ref={containerRef} className={className} role='group' aria-label={aggregatedText} aria-hidden='true' s>
       {children}
     </div>
   );

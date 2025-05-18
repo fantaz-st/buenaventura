@@ -2,6 +2,7 @@ import Link from "next/link";
 import classes from "./Footer.module.css";
 import AnimatedLink from "../AnimatedLink/AnimatedLink";
 import Image from "next/image";
+import pageLinks from "@/settings/pageLinks";
 
 const Footer = () => {
   return (
@@ -21,10 +22,10 @@ const Footer = () => {
 
           <nav className={classes.nav} aria-label='Footer navigation'>
             <ul>
-              {["Home", "Our Boat", "Our Tours", "FAQ", "Contact"].map((item) => (
-                <li key={item} className={classes.navItem}>
-                  <AnimatedLink href={`#${item.toLowerCase().replace(/ /g, "-")}`}>{item}</AnimatedLink>
-                </li>
+              {pageLinks.map(({ href, label }) => (
+                <div key={href} className={classes.navItem}>
+                  <AnimatedLink href={href}>{label.toUpperCase()}</AnimatedLink>
+                </div>
               ))}
             </ul>
           </nav>

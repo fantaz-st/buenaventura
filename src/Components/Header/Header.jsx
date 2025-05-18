@@ -7,6 +7,7 @@ import { gsap } from "gsap";
 import { CustomEase } from "gsap/CustomEase";
 import AnimatedLink from "../AnimatedLink/AnimatedLink";
 import classes from "./Header.module.css";
+import pageLinks from "@/settings/pageLinks";
 
 const LANGUAGES = [
   { code: "en", label: "English" },
@@ -15,14 +16,6 @@ const LANGUAGES = [
   { code: "hr", label: "Hrvatski" },
   { code: "de", label: "Deutsch" },
   { code: "it", label: "Italiano" },
-];
-
-const LINKS = [
-  { href: "/", label: "Home" },
-  { href: "/our-boat", label: "Our Boat" },
-  { href: "/our-tours", label: "Our Tours" },
-  { href: "/faq", label: "FAQ-s" },
-  { href: "/contact", label: "Contact" },
 ];
 
 export default function Header() {
@@ -68,7 +61,6 @@ export default function Header() {
     if (tl.current) menuOpen ? tl.current.play() : tl.current.reverse();
   }, [menuOpen]);
 
-  /* logo / burger colour: turn dark as soon as the button is pressed, stay dark until close-animation done */
   const darkNow = opaque || menuOpen || menuActive;
   const headerCls = `${classes.header} ${show ? classes.visible : classes.hidden} ${menuActive ? classes.menuActive : ""}`;
   const containerCls = `container-xxl ${classes.container} ${opaque ? classes.opaqueContainer : classes.transparentContainer}`;
@@ -86,7 +78,7 @@ export default function Header() {
           </div>
 
           <nav className={classes.nav}>
-            {LINKS.map(({ href, label }) => (
+            {pageLinks.map(({ href, label }) => (
               <div key={href} className={classes.navItem}>
                 <AnimatedLink href={href}>{label.toUpperCase()}</AnimatedLink>
               </div>
@@ -122,7 +114,7 @@ export default function Header() {
       <div ref={panelRef} className={`${classes.menu} ${menuOpen ? classes.menuOpen : ""}`}>
         <nav>
           <ul ref={listRef} className={classes.navList}>
-            {LINKS.map(({ href, label }) => (
+            {pageLinks.map(({ href, label }) => (
               <li key={href}>
                 <Link href={href} onClick={() => setMenuOpen(false)}>
                   {label}

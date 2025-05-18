@@ -119,3 +119,8 @@ small {
   /* vertical-align: top; */
   overflow: hidden;
 }
+
+.animated {
+  visibility: hidden;
+  opacity: 0;
+}

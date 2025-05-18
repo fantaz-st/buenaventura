@@ -8,7 +8,6 @@ import boatFeatures from "@/settings/boatFeatures";
 import AnimatedText from "@/Components/AnimatedText/AnimatedText";
 
 import "swiper/css";
-import { useRef } from "react";
 
 const Chevron = () => {
   return (
@@ -21,12 +20,10 @@ const Chevron = () => {
 };
 
 const BoatFeatures = () => {
-  const prevRef = useRef(null);
-  const nextRef = useRef(null);
   return (
     <section className={classes.container}>
       <div className={classes.header}>
-        <AnimatedText>
+        <AnimatedText animateOnScroll={false} delay={1.5}>
           <h2 className={classes.title}>Built for Good Living.</h2>
         </AnimatedText>
         <AnimatedText>

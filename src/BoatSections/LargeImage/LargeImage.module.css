@@ -1,0 +1,23 @@
+.container {
+  height: 80vh;
+  width: 100vw;
+  position: relative;
+}
+
+.imageWrapper {
+  width: 90%;
+  max-width: 2550px;
+  height: 90%;
+  border-radius: 5vh;
+  overflow: hidden;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}

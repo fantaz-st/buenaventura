@@ -41,6 +41,20 @@ const boatImages = [
     title: "Lorem ipsum dolor",
     subTitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
   },
+  {
+    id: "boat-image-7",
+    alt: "Rebelde boats - Felix 37 motor boat, speedboat",
+    src: "/assets/images/boat/boat1.jpg",
+    title: "Lorem ipsum dolor",
+    subTitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+  },
+  {
+    id: "boat-image-8",
+    alt: "Rebelde boats - Felix 37 motor boat, speedboat",
+    src: "/assets/images/boat/boat2.jpg",
+    title: "Lorem ipsum dolor",
+    subTitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+  },
 ];
 
 export default boatImages;
