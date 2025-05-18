@@ -115,7 +115,7 @@ small {
 
 .split-mask-line-mask,
 .split-line {
-  display: inline-block;
-  vertical-align: top;
+  display: block;
+  /* vertical-align: top; */
   overflow: hidden;
 }
