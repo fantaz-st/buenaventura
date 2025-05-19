@@ -11,9 +11,9 @@ import AnimatedText from "@/Components/AnimatedText/AnimatedText";
 
 const Chevron = () => {
   return (
-    <svg width='800px' height='800px' viewBox='0 0 16 16' id='svg2' version='1.1'>
-      <g id='layer1' transform='rotate(45 1254.793 524.438)'>
-        <path d='M11.532 1048.341H9.536v-9h-9v-2h11z' id='path4179' />
+    <svg width="800px" height="800px" viewBox="0 0 16 16" id="svg2" version="1.1">
+      <g id="layer1" transform="rotate(45 1254.793 524.438)">
+        <path d="M11.532 1048.341H9.536v-9h-9v-2h11z" id="path4179" />
       </g>
     </svg>
   );
@@ -21,7 +21,7 @@ const Chevron = () => {
 
 const Tours = () => {
   return (
-    <div className={classes.container} data-header='dark'>
+    <div className={classes.container} data-header="dark">
       <div className={classes.header}>
         <AnimatedText>
           <h2 className={classes.title}>
@@ -63,6 +63,7 @@ const Tours = () => {
             prevEl: `.left`,
             nextEl: `.right`,
           }}
+          loop={false}
         >
           {slides.map((slide) => (
             <SwiperSlide key={slide.id}>
@@ -71,11 +72,11 @@ const Tours = () => {
           ))}
         </Swiper>
         <div className={classes.navigation}>
-          <button className={`${classes.arrow} ${classes.left} left`} aria-label='Previous slide'>
-            <Chevron aria-hidden='true' />
+          <button className={`${classes.arrow} ${classes.left} left`} aria-label="Previous slide">
+            <Chevron aria-hidden="true" />
           </button>
-          <button className={`${classes.arrow} ${classes.right} right`} aria-label='Next slide'>
-            <Chevron aria-hidden='true' />
+          <button className={`${classes.arrow} ${classes.right} right`} aria-label="Next slide">
+            <Chevron aria-hidden="true" />
           </button>
         </div>
       </div>
