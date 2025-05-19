@@ -1,5 +1,5 @@
-/* components/Header/Header.jsx */
 "use client";
+
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -72,8 +72,8 @@ export default function Header() {
       <header className={headerCls}>
         <div className={containerCls}>
           <div className={classes.logo}>
-            <Link href='/' aria-label='Rebelde Boats home'>
-              <Image src={darkNow ? "/logo/break-vect-blue-mobile.svg" : "/logo/break-vect-white-mobile.svg"} height={44} width={180} priority alt='Rebelde Boats logo' />
+            <Link href="/" aria-label="Rebelde Boats home">
+              <Image src={darkNow ? "/logo/break-vect-blue-mobile.svg" : "/logo/break-vect-white-mobile.svg"} height={44} width={180} priority alt="Rebelde Boats logo" />
             </Link>
           </div>
 
@@ -98,7 +98,7 @@ export default function Header() {
             </div>
           </nav>
 
-          <button className={burgerCls} onClick={() => setMenuOpen((p) => !p)} aria-label='Toggle menu' aria-expanded={menuOpen}>
+          <button className={burgerCls} onClick={() => setMenuOpen((p) => !p)} aria-label="Toggle menu" aria-expanded={menuOpen}>
             <p>{menuOpen ? "Close" : "Menu"}</p>
             <div className={burgerIcon}>
               <span />
