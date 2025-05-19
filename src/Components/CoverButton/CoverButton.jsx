@@ -1,22 +1,13 @@
 import React from "react";
 import styles from "./CoverButton.module.css";
+import Image from "next/image";
 
 const CoverButton = () => (
   <div className={styles.coverButton}>
     {/* Thumbnail */}
     <div className={styles.thumbnailWrapper}>
       <figure className={styles.thumbnail}>
-        <img
-          src="https://quechua-lookbook.com/ss25/wp-content/uploads/2025/01/Image-tracking-1-480x302.jpg"
-          srcSet="
-            https://quechua-lookbook.com/ss25/wp-content/uploads/2025/01/Image-tracking-1-480x302.jpg 480w,
-            https://quechua-lookbook.com/ss25/wp-content/uploads/2025/01/Image-tracking-1-768x484.jpg 768w,
-            https://quechua-lookbook.com/ss25/wp-content/uploads/2025/01/Image-tracking-1-1200x756.jpg 1200w,
-            https://quechua-lookbook.com/ss25/wp-content/uploads/2025/01/Image-tracking-1.jpg 1600w,
-            https://quechua-lookbook.com/ss25/wp-content/uploads/2025/01/Image-tracking-1.jpg 1920w"
-          sizes="(max-width: 1023px) 100vw, 10vw"
-          alt="Hero-teaser"
-        />
+        <Image src="/video-poster.png" sizes="(max-width: 1023px) 100vw, 10vw" fill alt="Hero-teaser" />
       </figure>
     </div>
 

@@ -1,13 +1,9 @@
 .coverButton {
-  position: absolute;
-  bottom: 2rem;
-  right: 2.5rem;
   width: 20rem;
   height: 9rem;
   display: flex;
   gap: 1rem;
   padding: 0.4rem;
-  margin-left: auto;
   background: #fff;
   border-radius: 12px;
   cursor: pointer;
@@ -27,6 +23,7 @@
   height: 100%;
   overflow: hidden;
   border-radius: 0.8rem;
+  position: relative;
 }
 
 .thumbnail img {
