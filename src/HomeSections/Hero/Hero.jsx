@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { CustomEase, SplitText, ScrollTrigger } from "gsap/all";
 import { useGSAP } from "@gsap/react";
 import classes from "./Hero.module.css";
+// import CoverButton from "@/Components/CoverButton/CoverButton";
 
 gsap.registerPlugin(CustomEase, SplitText, ScrollTrigger);
 
@@ -118,6 +119,7 @@ export default function Hero() {
           <p className={classes.description}>Step onto our Felix 37 speedboat for an exclusive and bespoke private boat trip from Split that blends prestige with adventure—crystal coves, five-island hopping, and Blue Cave magic all wrapped in effortless Mediterranean style.</p>
         </div>
       </div>
+      {/* <CoverButton /> */}
     </section>
   );
 }
