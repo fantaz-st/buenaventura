@@ -1,18 +1,10 @@
-/* Hero.module.css */
-/* —————————————————— TOKENS —————————————————— */
-:root {
-  --black: #000;
-  --white: #fff;
-  --sand-600: #c2a483;
-}
-
 /* —————————————————— HERO CONTAINER —————————————————— */
 .container {
   position: relative;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  background: var(--black);
+  background: var(--color-black);
   border-radius: 0; /* start for GSAP */
   will-change: transform; /* smooth scaling */
 }
@@ -26,7 +18,7 @@
   width: 100vw;
   height: 100vh;
   object-fit: cover;
-  background: var(--black);
+  background: var(--color-black);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -49,14 +41,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--black);
+  background: var(--color-black);
   clip-path: inset(0 0 0 0);
   z-index: 2;
 }
 .loadingText {
   font: 1.25rem/1.4 system-ui, sans-serif;
   letter-spacing: 0.1em;
-  color: var(--white);
+  color: var(--color-white);
 }
 
 /* —————————————————— TITLE / COPY —————————————————— */
@@ -71,7 +63,7 @@
   align-items: center;
   gap: 1.5rem;
   text-align: center;
-  color: var(--white);
+  color: var(--color-white);
   visibility: hidden; /* revealed by GSAP */
   opacity: 0;
 }
@@ -103,9 +95,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: var(--sand-600);
+  background: #c2a483;
   border-radius: 50%;
-  color: var(--white);
+  color: var(--color-white);
 }
 .mobilePlay svg {
   width: 0.8rem;
@@ -127,7 +119,7 @@
     left: 0;
     width: 100%;
     padding: 0 2rem 2rem;
-    color: var(--white);
+    color: var(--color-white);
     transform: translateY(100%);
   }
   .mobileCta {
