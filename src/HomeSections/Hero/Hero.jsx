@@ -92,8 +92,8 @@ export default function Hero() {
       /* cleanup */
       return () => {
         video.removeEventListener("canplaythrough", onReady);
-        ScrollTrigger.killTweensOf(container);
-        ScrollTrigger.killTweensOf(copy);
+        /*  ScrollTrigger.killTweensOf(container);
+        ScrollTrigger.killTweensOf(copy); */
       };
     },
     { scope: containerRef }
@@ -115,7 +115,7 @@ export default function Hero() {
       {/* no-script fallback for crawlers */}
       <noscript>
         <picture>
-          <img src="/video-poster.webp" alt="Aerial view of Felix 37 speedboat cruising the Adriatic" className={classes.noscriptPoster} width="1920" height="1080" fetchpriority="high" />
+          <img src="/video-poster.webp" alt="Aerial view of Felix 37 speedboat cruising the Adriatic" className={classes.noscriptPoster} width="1920" height="1080" fetchPriority="high" />
         </picture>
       </noscript>
 

@@ -46,7 +46,7 @@
   z-index: 2;
 }
 .loadingText {
-  font: 1.25rem/1.4 system-ui, sans-serif;
+  font-size: 1.25rem;
   letter-spacing: 0.1em;
   color: var(--color-white);
 }
@@ -54,9 +54,9 @@
 /* —————————————————— TITLE / COPY —————————————————— */
 .copy {
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-40%, -50%);
   will-change: transform;
   display: flex;
   flex-direction: column;
