@@ -15,10 +15,10 @@ const ToursFaq = () => {
             <p className={classes.subTitle}>Wondering what to pack? When to arrive? What&apos;s included? We&apos;re here to keep it simple — because your only job should be to enjoy the ride.</p>
           </AnimatedText>
         </div>
-        <FAQ faqs={faqs?.home} />
+        <FAQ faqs={faqs[2].qa} />
         <p>Find answers to all your questions about the tours, the boat, pricing, what&apos;s included, the meeting point, and more on our dedicated FAQ page.</p>
         <div className={classes.buttonWrap}>
-          <TheButton variant='dark'>Read more FAQs</TheButton>
+          <TheButton variant="dark">Read more FAQs</TheButton>
         </div>
       </div>
     </div>

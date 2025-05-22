@@ -38,7 +38,8 @@ export default function FAQ({ faqs }) {
       const isOpening = openIndex !== id;
       setOpenIndex(isOpening ? id : null);
       Object.entries(answerRefs.current).forEach(([key, node]) => {
-        const isCurrent = +key === id;
+        // const isCurrent = +key === id;
+        const isCurrent = key === id;
         gsap.to(node, {
           height: isCurrent && isOpening ? node.querySelector("p").scrollHeight : 0,
           opacity: isCurrent && isOpening ? 1 : 0,
@@ -65,8 +66,8 @@ export default function FAQ({ faqs }) {
               <div className={classes.iconWrap}>
                 <div className={classes.iconScale}>
                   <div ref={(el) => (iconRefs.current[faq.id] = el)} className={classes.iconTransition}>
-                    <svg width='18' height='18' viewBox='0 0 18 18' fill='none'>
-                      <path d='M10.152 17.5H7.848V9.994H0V7.972H7.848V0.5H10.152V7.972H18V9.994H10.152V17.5Z' fill='currentColor' />
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                      <path d="M10.152 17.5H7.848V9.994H0V7.972H7.848V0.5H10.152V7.972H18V9.994H10.152V17.5Z" fill="currentColor" />
                     </svg>
                   </div>
                 </div>
