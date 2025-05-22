@@ -7,10 +7,29 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  background-color: transparent;
 }
 
-.item {
+.list.lite .item {
   background-color: #fff;
+}
+.list.dark .item {
+  background-color: #f9f7f4;
+}
+
+.list.lite .iconWrap {
+  background-color: #f9f7f4;
+}
+.list.dark .iconWrap {
+  background-color: #fff;
+}
+.list.lite .answer {
+  background-color: #fff;
+}
+.list.dark .answer {
+  background-color: #f9f7f4;
+}
+.item {
   border-radius: 33px;
   overflow: hidden;
 }
@@ -29,7 +48,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 1rem;
+  padding: 0 0.75rem 0 1rem;
 }
 @media (min-width: 1024px) {
   .qinner {
@@ -52,7 +71,6 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background-color: #f9f7f4;
 }
 
 .iconScale {
@@ -75,7 +93,6 @@
   padding: 1rem 1.5rem;
   line-height: 1.6;
   color: #6f6e6c;
-  background-color: #fff;
 }
 
 @media only screen and (max-width: 640px) {

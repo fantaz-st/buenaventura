@@ -20,7 +20,7 @@ export default function Home() {
         <div className={classes.gradient}>
           <Tours />
           <section className={classes.largeImage}>
-            <Image src={"/assets/tall-bg.png"} alt='Tall background' fill className={classes.image} priority />
+            <Image src={"/assets/tall-bg.png"} alt="Tall background" fill className={classes.image} loading="lazy" />
           </section>
         </div>
         <HomeFAQ />

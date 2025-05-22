@@ -7,7 +7,7 @@ import classes from "./FAQ.module.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function FAQ({ faqs }) {
+export default function FAQ({ faqs, variant = "lite" }) {
   const [openIndex, setOpenIndex] = useState(null);
   const answerRefs = useRef({});
   const iconRefs = useRef({});
@@ -82,9 +82,12 @@ export default function FAQ({ faqs }) {
     [toggle]
   );
 
+  const variantClass = variant === "dark" ? classes.dark : classes.lite;
+  const classNames = `${classes.list} ${variantClass}`.trim();
+
   return (
     <div className={classes.container} ref={containerRef}>
-      <ul className={classes.list}>{renderedFaqs}</ul>
+      <ul className={classNames}>{renderedFaqs}</ul>
     </div>
   );
 }

@@ -28,7 +28,7 @@ const AllFAQs = () => {
               <h3>{group.title}</h3>
             </div>
             <div className={classes.faqGroupQuestions}>
-              <FAQ faqs={group.qa} />
+              <FAQ faqs={group.qa} variant="dark" />
             </div>
           </div>
         ))}
