@@ -58,9 +58,9 @@ export default function Hero() {
         /* Title parallax */
         gsap.fromTo(
           copy,
-          { yPercent: -15 },
+          { yPercent: 0 },
           {
-            yPercent: 15,
+            yPercent: -30,
             ease: "none",
             scrollTrigger: {
               trigger: container,
@@ -142,8 +142,10 @@ export default function Hero() {
 
       {/* desktop footer */}
       <div className={classes.footer}>
-        <p>Keep&nbsp;scrolling</p>
-        <CoverButton />
+        <p className={classes.keepScrolling}>Keep&nbsp;scrolling</p>
+        <div className={classes.coverButton}>
+          <CoverButton />
+        </div>
       </div>
     </section>
   );
