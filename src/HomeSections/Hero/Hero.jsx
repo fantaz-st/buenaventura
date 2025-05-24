@@ -109,7 +109,8 @@ export default function Hero() {
       )}
 
       <video ref={videoRef} className={classes.video} playsInline muted loop autoPlay preload="auto" fetchPriority="high" poster="/video-poster.webp">
-        <source src="/felix37.mp4" type="video/mp4" />
+        <source src="/felix37-crf32-noaudio.webm" type="video/webm" />
+        <source src="/felix37-crf32-noaudio.mp4" type="video/mp4" />
       </video>
 
       {/* no-script fallback for crawlers */}
