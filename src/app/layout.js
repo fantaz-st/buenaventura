@@ -1,7 +1,7 @@
 import { Inter } from "next/font/google";
 
 import { ReactLenis } from "lenis/react";
-import { Analytics } from "@vercel/analytics/react";
+import { Analytics } from "@vercel/analytics/next";
 import "./reset.css";
 import "./globals.css";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
@@ -22,10 +22,10 @@ export const viewport = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang='en'>
+    <html lang="en">
       <head>
-        <link rel='manifest' href='/site.webmanifest' />
-        <link rel='preload' as='image' href='/logo/break-vect-white-mobile.svg' type='image/svg+xml' />
+        <link rel="manifest" href="/site.webmanifest" />
+        <link rel="preload" as="image" href="/logo/break-vect-white-mobile.svg" type="image/svg+xml" />
       </head>
       <body className={inter.variable}>
         <ReactLenis root>
