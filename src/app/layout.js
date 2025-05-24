@@ -5,7 +5,7 @@ import { Analytics } from "@vercel/analytics/next";
 import "./reset.css";
 import "./globals.css";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
-import Header from "@/Components/Header/index";
+import Header from "@/Components/Header/Header";
 import Footer from "@/Components/Footer/Footer";
 
 const inter = Inter({ subsets: ["latin"], style: "normal", variable: "--font-inter" });

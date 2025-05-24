@@ -2,12 +2,12 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { gsap } from "gsap";
 import { CustomEase } from "gsap/CustomEase";
 import AnimatedLink from "../AnimatedLink/AnimatedLink";
 import classes from "./Header.module.css";
 import pageLinks from "@/settings/pageLinks";
+import Logo from "./Logo";
 
 const LANGUAGES = [
   { code: "en", label: "English" },
@@ -73,7 +73,7 @@ export default function Header() {
         <div className={containerCls}>
           <div className={classes.logo}>
             <Link href="/" aria-label="Rebelde Boats home">
-              <Image src={darkNow ? "/logo/break-vect-blue-mobile.svg" : "/logo/break-vect-white-mobile.svg"} height={44} width={180} priority alt="Rebelde Boats logo" />
+              <Logo variant={darkNow ? "blue" : "white"} />
             </Link>
           </div>
 
