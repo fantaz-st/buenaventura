@@ -19,8 +19,9 @@
 
 /* Thumbnail */
 .thumbnailWrapper {
-  width: 14.5rem;
-  height: 100%;
+  width: 100%;
+  max-width: 14.5rem;
+  aspect-ratio: 256 / 125;
   overflow: hidden;
   border-radius: 0.8rem;
   position: relative;
@@ -49,8 +50,8 @@
   font-size: 1rem;
   line-height: 1.25rem;
   text-align: right;
-  color:var(--color-black);
-  color:var(--color-black);
+  color: var(--color-black);
+  color: var(--color-black);
 }
 
 .playButton {

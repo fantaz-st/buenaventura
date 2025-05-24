@@ -6,7 +6,7 @@ const CoverButton = () => (
   <div className={styles.coverButton}>
     {/* Thumbnail */}
     <div className={styles.thumbnailWrapper}>
-      <Image src="/video-poster.png" sizes="256px" fill alt="Hero-teaser" priority />
+      <Image src="/video-poster.png" alt="Hero teaser" fill style={{ objectFit: "cover", objectPosition: "center" }} priority />
     </div>
 
     {/* CTA */}
