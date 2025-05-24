@@ -7,7 +7,7 @@ const CoverButton = () => (
     {/* Thumbnail */}
     <div className={styles.thumbnailWrapper}>
       <figure className={styles.thumbnail}>
-        <Image src="/video-poster.png" sizes="(max-width: 1023px) 100vw, 10vw" fill alt="Hero-teaser" />
+        <Image src="/video-poster.png" sizes="274px" fill alt="Hero-teaser" />
       </figure>
     </div>
 
