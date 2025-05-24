@@ -1,7 +1,7 @@
 import { Inter } from "next/font/google";
 
 import { ReactLenis } from "lenis/react";
-import { Analytics } from "@vercel/analytics/next";
+// import { Analytics } from "@vercel/analytics/next";
 import "./reset.css";
 import "./globals.css";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
@@ -31,7 +31,7 @@ export default function RootLayout({ children }) {
         <Header />
         <ReactLenis root>
           {children}
-          <Analytics />
+          {/* <Analytics /> */}
           <Footer />
         </ReactLenis>
       </body>
