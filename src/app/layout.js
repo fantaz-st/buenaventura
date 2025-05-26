@@ -1,3 +1,5 @@
+import Header from "@/Components/Header/Header";
+import Footer from "@/Components/Footer/Footer";
 import { Inter } from "next/font/google";
 
 import { ReactLenis } from "lenis/react";
@@ -5,8 +7,6 @@ import { Analytics } from "@vercel/analytics/next";
 import "./reset.css";
 import "./globals.css";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
-import Header from "@/Components/Header/Header";
-import Footer from "@/Components/Footer/Footer";
 
 const inter = Inter({ subsets: ["latin"], style: "normal", variable: "--font-inter" });
 
@@ -25,7 +25,6 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         <link rel="manifest" href="/site.webmanifest" />
-        <link rel="preload" as="image" href="/logo/break-vect-white-mobile.svg" type="image/svg+xml" />
       </head>
       <body className={inter.variable}>
         <Header />
