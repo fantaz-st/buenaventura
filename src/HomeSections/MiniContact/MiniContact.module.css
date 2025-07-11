@@ -20,13 +20,13 @@
 
 .image {
   object-fit: cover;
-  filter: brightness(0.4);
+  filter: brightness(0.6);
 }
 
 .inner {
   position: relative;
   z-index: 1;
-  max-width: 900px;
+  max-width: 1000px;
   text-align: center;
   padding: 2rem;
 }

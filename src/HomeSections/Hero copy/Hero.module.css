@@ -1,0 +1,132 @@
+/* —————————————————— HERO CONTAINER —————————————————— */
+.container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--color-black);
+  border-radius: 0; /* start for GSAP */
+  will-change: transform; /* smooth scaling */
+}
+
+/* —————————————————— VIDEO —————————————————— */
+.video {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  background: var(--color-black);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.videoVisible {
+  opacity: 1;
+}
+
+.noscriptPoster {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* —————————————————— LOADER —————————————————— */
+.loader {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-black);
+  clip-path: inset(0 0 0 0);
+  z-index: 2;
+}
+.loadingText {
+  font-size: 1.25rem;
+  letter-spacing: 0.1em;
+  color: var(--color-white);
+}
+
+/* —————————————————— TITLE / COPY —————————————————— */
+.copy {
+  will-change: transform;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: stretch;
+  gap: 1.5rem;
+  text-align: center;
+  color: var(--color-white);
+  visibility: hidden; /* revealed by GSAP */
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+}
+.title {
+  margin: 0;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  line-height: 1;
+  font-weight: 600;
+  overflow: hidden;
+  text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* —————————————————— MOBILE / TABLET CTA —————————————————— */
+.mobileCta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+.mobileLabel {
+  color: var(--color-white);
+}
+.mobilePlay {
+  width: 2.8rem;
+  height: 2.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #c2a483;
+  border-radius: 50%;
+  color: var(--color-white);
+}
+.mobilePlay svg {
+  width: 0.8rem;
+  margin-left: 0.2rem;
+}
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 0 2rem 2rem;
+  color: var(--color-white);
+  transform: translateY(100%);
+}
+
+/* —————————————————— DESKTOP FOOTER (CoverButton) —————————————————— */
+.coverButton {
+  display: none;
+} /* hidden by default */
+
+@media (min-width: 1024px) {
+  .mobileCta {
+    display: none;
+  }
+  .coverButton {
+    display: block;
+  } /* hidden by default */
+}

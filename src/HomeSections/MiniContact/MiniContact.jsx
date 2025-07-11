@@ -14,7 +14,7 @@ const MiniContact = () => {
           <p className={classes.subTitle}>Reach out and let us turn your time in Split into something truly special.</p>
         </AnimatedText>
         <div className={classes.buttons}>
-          <TheButton href='tel:+385953933125'>
+          <TheButton href="tel:+385953933125">
             <div style={{ display: "flex" }}>
               {/*  <svg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
                 <g id='SVGRepo_bgCarrier' strokeWidth='0'></g>
@@ -29,7 +29,7 @@ const MiniContact = () => {
               <p>+ 385 95 393 3125</p>
             </div>
           </TheButton>
-          <TheButton href='mailto:rebeldeboats@gmail.com'>
+          <TheButton href="mailto:rebeldeboats@gmail.com">
             <div style={{ display: "flex" }}>
               {/*  <svg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
                 <g id='SVGRepo_bgCarrier' strokeWidth='0'></g>
@@ -47,7 +47,7 @@ const MiniContact = () => {
               <p>rebeldeboats@gmail.com</p>
             </div>
           </TheButton>
-          <TheButton href='https://g.co/kgs/Am2SfKF'>
+          <TheButton href="https://g.co/kgs/Am2SfKF">
             <div style={{ display: "flex" }}>
               {/*  <svg viewBox='0 0 25 25' fill='none' xmlns='http://www.w3.org/2000/svg'>
                 <g id='SVGRepo_bgCarrier' strokeWidth='0'></g>
@@ -63,7 +63,7 @@ const MiniContact = () => {
         </div>
       </div>
       <div className={classes.imageWrapper}>
-        <Image src='/assets/images/contact.jpg' sizes='100vw' alt='Rebelde boats contact photo featuring sunset from boat sundeck' fill className={classes.image} />
+        <Image src="/assets/images/felix 37 Rebelde boats contact section.jpg" sizes="100vw" alt="Rebelde boats contact photo featuring sunset from boat sundeck" fill className={classes.image} />
       </div>
     </section>
   );
