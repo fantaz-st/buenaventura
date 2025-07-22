@@ -8,6 +8,7 @@ import Script from "next/script";
 import "./reset.css";
 import "./globals.css";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
+import WhatsAppButton from "@/Components/WhatsAppButton/WhatsAppButton";
 
 const inter = Inter({ subsets: ["latin"], style: "normal", variable: "--font-inter" });
 
@@ -59,6 +60,7 @@ export default function RootLayout({ children }) {
           {children}
           <Footer />
         </ReactLenis>
+        <WhatsAppButton />
       </body>
     </html>
   );

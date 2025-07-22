@@ -15,9 +15,11 @@
     "gsap": "^3.13.0",
     "lenis": "^1.2.3",
     "next": "15.2.4",
+    "nodemailer": "^7.0.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "swiper": "^11.2.6"
+    "swiper": "^11.2.6",
+    "zod": "^4.0.5"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

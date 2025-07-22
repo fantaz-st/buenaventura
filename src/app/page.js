@@ -1,7 +1,6 @@
 import Image from "next/image";
 import AboutUs from "../HomeSections/AboutUs/AboutUs";
 import Hero from "../HomeSections/Hero/Hero";
-import WhatsAppButton from "../Components/WhatsAppButton/WhatsAppButton";
 
 import classes from "./page.module.css";
 import BoatSection from "../HomeSections/BoatSection/BoatSection";
@@ -26,7 +25,6 @@ export default function Home() {
         <HomeFAQ />
         <Testimonials />
         <MiniContact />
-        <WhatsAppButton />
       </main>
     </div>
   );

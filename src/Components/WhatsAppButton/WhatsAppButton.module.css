@@ -29,7 +29,8 @@
 
 .container .icon {
   height: 40px;
-  height: auto;
+  width: auto;
+  /* height: auto; */
 }
 .container p {
   font-size: 0.875rem;
@@ -52,5 +53,7 @@
 
   .container {
     border-radius: 20px 20px 5px 20px;
+    bottom: 2rem;
+    right: 1rem;
   }
 }
