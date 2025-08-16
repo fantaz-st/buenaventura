@@ -1,3 +1,4 @@
+/* Sections/Home/Hero/Hero.module.css */
 .container {
   position: relative;
   width: 100vw;
@@ -11,152 +12,137 @@
     height: 100dvh;
   }
 }
-
 @supports not (height: 100dvh) {
   .container {
     height: calc(var(--fixvh, 1vh) * 100);
   }
 }
-
-/* Video & Loader */
-.video {
-  position: absolute;
+.bg {
+  position: absolute !important;
   inset: 0;
-  width: 100%;
-  height: 100%;
   object-fit: cover;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-.videoVisible {
-  opacity: 1;
+  object-position: 64% center;
+  filter: brightness(0.8);
 }
 
-.loader {
+@media (min-width: 768px) {
+  .bg {
+    object-position: 25% center;
+  }
+}
+
+@media (min-width: 1280px) {
+  .bg {
+    object-position: 20% center;
+  }
+}
+
+.copy {
   position: absolute;
   inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #000;
-  clip-path: inset(0);
-  z-index: 2;
-}
-.loadingText {
-  font-size: 1.25rem;
-  letter-spacing: 0.1em;
-  color: #fff;
-}
-
-/* Copy & Marquee */
-.copy {
-  position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: flex-end;
-  gap: 1.5rem;
-  width: 100%;
-  height: 100%;
+  align-items: flex-start;
+  gap: 1.25rem;
+  padding: 0 1.25rem;
+  padding-bottom: calc(2rem + env(safe-area-inset-bottom));
+  max-width: 1100px;
+  margin-left: 0;
   visibility: hidden;
   opacity: 0;
 }
-.marqueeWrapper {
-  width: 100%;
-  overflow: hidden;
-  white-space: nowrap;
+
+/* .copy::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 25svh;
+  pointer-events: none;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.45), transparent);
+  translate: 0 0; 
+} */
+
+@media (min-width: 1024px) {
+  .copy {
+    justify-content: center;
+    padding: 0 2rem;
+    padding-bottom: 0;
+    margin-left: 2rem;
+  }
 }
-.marqueeInner {
-  display: inline-flex;
-  user-select: none;
-}
+
 .title {
   color: #fff;
-  display: inline-block;
-  margin: 0 2rem 0 0;
-  font-size: clamp(4rem, 10vw, 18rem);
-  line-height: 1;
-  font-weight: 600;
-  white-space: nowrap;
-  text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.5);
-  margin-bottom: 7rem;
+  margin: 0;
+  font-size: clamp(2.5rem, 7vw, 7rem);
+  line-height: 0.95;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.45);
+
+  word-break: normal;
+  overflow-wrap: normal;
+  hyphens: none;
 }
+
+.word {
+  display: inline-block;
+  white-space: nowrap;
+}
+
 .char {
   display: inline-block;
 }
 
-/* Subtitle Split */
 .subTitle {
   color: #fff;
   margin: 0;
-  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  max-width: 60ch;
+  font-size: clamp(1rem, 2.2vw, 1.5rem);
   font-weight: 300;
   font-style: italic;
   overflow: hidden;
+  opacity: 0.95;
 }
 .subline {
   display: block;
   overflow: hidden;
 }
 
-/* Footer */
-.footer {
-  position: absolute;
-  bottom: 2rem;
-  left: 0;
-  right: 0;
-  margin: 0 1rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: stretch;
-  max-width: 100vw;
+.micro {
+  color: #eee;
+  font-size: clamp(0.85rem, 1.8vw, 1.1rem);
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin: 0 0 0.5rem 0;
+  opacity: 0.85;
 }
 
-.keepScrolling {
-  display: block;
-  margin: 0;
-  width: 24px;
-  height: auto;
+.cta {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.9rem 2rem;
+  background: #fff;
+  color: #000;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 9999px;
+  transition: background 0.3s ease, color 0.3s ease;
+  transform-origin: 50% 60%;
+}
+.cta:hover {
+  background: #000;
+  color: #fff;
 }
 
-.mouse {
-  height: 42px;
-  width: 24px;
-  border-radius: 14px;
-  transform: none;
-  border: 2px solid white;
-}
-
-.wheel {
-  display: block;
-  margin: 5px auto;
-  background: white;
-  position: relative;
-  height: 4px;
-  width: 4px;
-  border: 2px solid #fff;
-  border-radius: 8px;
-  animation: mouse-wheel 0.6s linear infinite;
-}
-
-@keyframes mouse-wheel {
-  0% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-}
-
-@media (min-width: 1024px) {
-  .footer {
-    left: 0;
-    right: 0;
-    max-width: 50vw;
-    margin: 0 2rem 0 auto;
-    gap: 2rem;
-    justify-content: flex-end;
-  }
+.trust {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: #f0f0f0;
+  opacity: 0.9;
+  font-style: italic;
 }

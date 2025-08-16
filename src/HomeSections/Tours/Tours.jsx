@@ -21,7 +21,7 @@ const Chevron = () => {
 
 const Tours = () => {
   return (
-    <div className={classes.container} data-header="dark">
+    <div className={classes.container} data-header="dark" id="tours">
       <div className={classes.header}>
         <AnimatedText>
           <h2 className={classes.title}>
