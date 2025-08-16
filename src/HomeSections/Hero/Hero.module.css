@@ -17,6 +17,7 @@
     height: calc(var(--fixvh, 1vh) * 100);
   }
 }
+
 .bg {
   position: absolute !important;
   inset: 0;
@@ -24,17 +25,31 @@
   object-position: 64% center;
   filter: brightness(0.8);
 }
-
 @media (min-width: 768px) {
   .bg {
     object-position: 25% center;
   }
 }
-
 @media (min-width: 1280px) {
   .bg {
     object-position: 20% center;
   }
+}
+
+.loader {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+  clip-path: inset(0);
+  z-index: 2;
+}
+.loadingText {
+  font-size: 1.25rem;
+  letter-spacing: 0.1em;
+  color: #fff;
 }
 
 .copy {
@@ -52,19 +67,6 @@
   visibility: hidden;
   opacity: 0;
 }
-
-/* .copy::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 25svh;
-  pointer-events: none;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.45), transparent);
-  translate: 0 0; 
-} */
-
 @media (min-width: 1024px) {
   .copy {
     justify-content: center;
@@ -82,19 +84,13 @@
   font-weight: 700;
   letter-spacing: -0.02em;
   text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.45);
-
   word-break: normal;
   overflow-wrap: normal;
   hyphens: none;
 }
-
-.word {
-  display: inline-block;
-  white-space: nowrap;
-}
-
-.char {
-  display: inline-block;
+.tline {
+  display: block;
+  overflow: hidden;
 }
 
 .subTitle {
