@@ -1,7 +1,6 @@
 import Header from "@/Components/Header/Header";
 import Footer from "@/Components/Footer/Footer";
 import { Inter } from "next/font/google";
-
 import { ReactLenis } from "lenis/react";
 import Script from "next/script";
 
@@ -23,38 +22,27 @@ export const viewport = {
 };
 
 export default function RootLayout({ children }) {
-  const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
-
   return (
     <html lang="en">
       <head>
         <link rel="manifest" href="/site.webmanifest" />
 
-        {/* GTM script */}
+        {/* Google Ads gtag.js */}
+        <Script src="https://www.googletagmanager.com/gtag/js?id=AW-17322617143" strategy="afterInteractive" />
         <Script
-          id="gtm-script"
+          id="google-ads"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
-              (function(w,d,s,l,i){
-                w[l]=w[l]||[];
-                w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
-                var f=d.getElementsByTagName(s)[0],
-                    j=d.createElement(s), dl=l!='dataLayer'?'&l='+l:'';
-                j.async=true;
-                j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-                f.parentNode.insertBefore(j,f);
-              })(window,document,'script','dataLayer','${GTM_ID}');
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'AW-17322617143');
             `,
           }}
         />
       </head>
       <body className={inter.variable}>
-        {/* GTM no‑script fallback */}
-        <noscript>
-          <iframe src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`} height="0" width="0" style={{ display: "none", visibility: "hidden" }} />
-        </noscript>
-
         <Header />
         <ReactLenis root>
           {children}
