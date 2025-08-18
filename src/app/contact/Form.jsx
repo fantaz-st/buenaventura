@@ -1,7 +1,7 @@
 "use client";
 
 import { useActionState } from "react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { sendInquiry } from "./actions";
 import classes from "./Form.module.css";
 
@@ -10,13 +10,18 @@ const initialState = { status: "idle", errors: {}, message: "" };
 export default function Form({ tourSlug }) {
   const [state, formAction, isPending] = useActionState(sendInquiry, initialState);
   const [subject, setSubject] = useState(tourSlug || "General");
+  const firedRef = useRef(false);
+
+  useEffect(() => {
+    if (state.status === "success" && !firedRef.current && typeof window !== "undefined" && window.gtag) {
+      window.gtag("event", "conversion", { send_to: "AW-17322617143/fhd7CMSZ04gbELfSiMRA" });
+      firedRef.current = true;
+    }
+  }, [state.status]);
 
   return (
     <form action={formAction} className={classes.form}>
-      {/* Honeypot */}
       <input type="text" name="honey" className={classes.honeypot} tabIndex={-1} autoComplete="off" />
-
-      {/* Hidden context */}
       <input type="hidden" name="sourceUrl" value={typeof window !== "undefined" ? window.location.href : ""} />
       {tourSlug && <input type="hidden" name="subject" value={tourSlug} />}
 
@@ -24,7 +29,19 @@ export default function Form({ tourSlug }) {
       <Field label="Email *" name="email" type="email" error={state.errors?.email} />
       <Field label="Phone / WhatsApp" name="phone" />
 
-      {!tourSlug && <Select label="Subject *" name="subject" error={state.errors?.subject} options={["General", "Pricing", "Availability", "Tour Specific", "Boat Specific"]} value={subject} onChange={(e) => setSubject(e.target.value)} />}
+      {!tourSlug && (
+        <Select
+          label="Subject *"
+          name="subject"
+          error={state.errors?.subject}
+          options={["General", "Pricing", "Availability", "Tour Specific", "Boat Specific"]}
+          value={subject}
+          onChange={(e) => {
+            setSubject(e.target.value);
+            firedRef.current = false;
+          }}
+        />
+      )}
 
       {subject === "Availability" && (
         <>
