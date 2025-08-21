@@ -49,16 +49,33 @@ export default function Hero() {
         gsap.set(splitSub.lines, { y: "100%", opacity: 0 });
         gsap.set(ctaEl, { autoAlpha: 0, y: 16, scale: 0.98 });
 
+        // set bg scale 1.1
+        gsap.set(`.${styles.bg}`, { scale: 1.3 });
+
         gsap
           .timeline({ onComplete: () => setIntroDone(true) })
           .to(loader, { clipPath: "inset(100% 0 0 0)", duration: 1.2, ease: "hop" })
-          .to(microEl, { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" }, "-=0.8")
+          .to(`.${styles.bg}`, { scale: 1, duration: 1.5, ease: "power3.out" }, "-=0.7") // animate bg
+          .to(microEl, { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" }, "-=0.5")
           .to(splitTitle.lines, { y: 0, opacity: 1, duration: 0.9, stagger: 0.18, ease: "power3.out" }, "-=0.5")
-          .to(splitSub.lines, { y: 0, opacity: 1, duration: 0.8, stagger: 0.2, ease: "power3.out" }, "-=0.4")
-          .to(ctaEl, { autoAlpha: 1, y: 0, scale: 1, duration: 0.6, ease: "power3.out" }, "-=0.2");
+          .to(splitSub.lines, { y: 0, opacity: 1, duration: 0.8, stagger: 0.2, ease: "power3.out" }, "-=0.7")
+          .to(ctaEl, { autoAlpha: 1, y: 0, scale: 1, duration: 0.6, ease: "power3.out" }, "-=0.7");
 
         if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
-          gsap.fromTo(copy, { yPercent: 0 }, { yPercent: -10, ease: "none", scrollTrigger: { trigger: container, start: "top top", end: "bottom top", scrub: true } });
+          gsap.fromTo(
+            copy,
+            { yPercent: 0 },
+            {
+              yPercent: -15,
+              ease: "none",
+              scrollTrigger: {
+                trigger: container,
+                start: "top top",
+                end: "bottom top",
+                scrub: true,
+              },
+            }
+          );
         }
       };
 
@@ -114,17 +131,17 @@ export default function Hero() {
         />
       )}
 
-      {imgUrl && <Image src={imgUrl} alt="Felix 37 luxury speedboat cruising the Adriatic near Split, Croatia" fill priority sizes="100vw" className={styles.bg} onLoadingComplete={() => setProgress(100)} />}
+      {imgUrl && <Image src={imgUrl} alt="Felix 37 luxury speedboat cruising the Adriatic near Split, Croatia" fill priority sizes="100vw" className={styles.bg} onLoad={() => setProgress(100)} />}
 
       <div ref={copyRef} className={styles.copy}>
         <p ref={microRef} className={styles.micro}>
-          Private • Luxury • Adriatic
+          Escape • Indulge • Belong
         </p>
         <h1 ref={titleRef} className={styles.title}>
-          Luxury Private Boat Tours from Split
+          Your Private Adriatic Escape
         </h1>
         <h3 ref={subtitleRef} className={styles.subTitle}>
-          Unhurried Adriatic escapes aboard Felix 37 — bespoke island-hopping day trips and private charters to Hvar, Vis, the Blue Cave & secluded bays.
+          Set your own rhythm aboard Felix 37 — private day trips and charters from Split to Hvar, Vis, the Blue Cave, and hidden bays.
         </h3>
         <a
           ref={ctaRef}
