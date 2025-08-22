@@ -1,0 +1,155 @@
+.wrap {
+  position: relative;
+  width: 100%;
+}
+
+.carousel {
+  position: relative;
+  width: 100vw;
+  height: 100svh;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.project {
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  height: 100svh;
+  clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
+  will-change: clip-path;
+  contain: paint;
+}
+
+.projectBg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.projectBg img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.heroImgGradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.heroImgOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgb(255 255 255 / 0.035), rgb(255 255 255 / 0.035) 4px, transparent 4px, transparent 9px);
+  background-size: 100% 9px;
+  animation: panOverlay 22s infinite linear;
+}
+
+@keyframes panOverlay {
+  from {
+    background-position: 0% 0%;
+  }
+  to {
+    background-position: 0% -100%;
+  }
+}
+
+.projectMain {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 25%;
+  aspect-ratio: 1;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.projectMain img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.projectHeader {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+  padding: 2em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1em;
+}
+
+.projectHeader > div {
+  flex: 1;
+}
+
+.projectHeader h2,
+.projectUrl a {
+  color: var(--color-white);
+}
+
+.projectHeader h2 {
+  text-transform: none;
+  font-size: 2rem;
+  letter-spacing: -0.15rem;
+}
+
+.projectId {
+  text-align: center;
+}
+
+.projectWhitespace {
+  min-width: 1rem;
+}
+
+.projectUrl {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.projectOverlayLink {
+  position: absolute;
+  inset: 0;
+}
+
+@media (max-width: 900px) {
+  .projectMain {
+    width: 50%;
+    top: 50%;
+    left: 50%;
+  }
+
+  .projectHeader {
+    width: 100%;
+    top: 75%;
+    left: 0;
+    text-align: center;
+    flex-direction: column;
+  }
+
+  .projectHeader h2 {
+    font-size: 1.25rem;
+    letter-spacing: -0.1rem;
+  }
+
+  .projectId h2,
+  .projectTitle h2 {
+    letter-spacing: -0.1rem;
+  }
+
+  .projectUrl {
+    top: 50%;
+  }
+}

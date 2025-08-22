@@ -8,6 +8,7 @@ const slides = [
     video: "/videos/lagoon.mp4",
     type: "Half day tour",
     price: "700",
+    url: "/tours/blue-lagoon-trogir-solta",
   },
   {
     id: "slide-3",
@@ -18,6 +19,7 @@ const slides = [
     video: "/videos/blue-cave.mp4",
     type: "Full day tour",
     price: "1400",
+    url: "/tours/blue-cave-five-islands",
   },
   {
     id: "slide-2",
@@ -26,8 +28,9 @@ const slides = [
     description2: "A full day of vibrant culture, hidden coves, and effortless elegance on the Adriatic.",
     poster: "/posters/2.jpg",
     video: "/videos/hvar.mp4",
-    type: "VIP Private tour",
+    type: "Full day tour",
     price: "1200",
+    url: "/tours/hvar-and-pakleni-islands",
   },
 ];
 

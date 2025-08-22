@@ -101,7 +101,7 @@ export default function Hero() {
           height={1}
           priority
           style={{ position: "absolute", opacity: 0, pointerEvents: "none" }}
-          onLoadingComplete={async () => {
+          onLoad={async () => {
             try {
               const res = await fetch("/assets/images/boat/rebelde%20boats%20felix%2037%20hero.png");
               const len = Number(res.headers.get("content-length")) || 0;
