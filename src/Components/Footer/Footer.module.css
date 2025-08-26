@@ -120,7 +120,7 @@
   list-style: none;
   padding: 0;
   margin: 0;
-  min-width: 220px;
+  /* min-width: 220px; */
 }
 .navItem {
   line-height: 1.45;
@@ -228,7 +228,6 @@
     margin-top: 1.5rem;
   }
   .nav {
-    flex-direction: column;
     gap: 1rem;
   }
   .navCol {
@@ -239,13 +238,23 @@
 
 @media (max-width: 640px) {
   .container {
-    padding-inline: 2rem;
+    padding: 2rem 1rem;
   }
   .main {
     padding: 1.25rem;
     border-radius: 24px;
+    align-items: center;
+    text-align: center;
+  }
+  .info {
+    padding: 4rem 0;
   }
   .linkButton {
-    font-size: 0.75rem;
+    font-size: 1.5rem;
+  }
+
+  .company {
+    align-items: center;
+    gap: 2rem;
   }
 }

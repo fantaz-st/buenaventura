@@ -30,7 +30,7 @@ export default function Testimonials() {
         .timeline({
           scrollTrigger: {
             trigger: pin,
-            start: "top top",
+            start: "bottom top",
             end: () => `+=${getDelta()}`,
             pin: inner,
             scrub: true,
@@ -46,14 +46,14 @@ export default function Testimonials() {
   return (
     <section className={classes.container} ref={root}>
       <div className={classes.inner}>
-        <div className={classes.header}>
+        <div className={classes.header} ref={pinRef}>
           <MarqueePill title="Testimonials" />
           <AnimatedText>
             <h2 className={classes.title}>Good Times Travel Far.</h2>
           </AnimatedText>
         </div>
 
-        <div className={classes.flex} ref={pinRef}>
+        <div className={classes.flex}>
           <div className={classes.left}>
             <div className={classes.viewport}>
               <div className={classes.list}>
@@ -82,7 +82,7 @@ export default function Testimonials() {
                   <Image src="/assets/images/testimonials/avatar-3.jpg" alt="Avatar 3" width={50} height={50} className={classes.avatar} />
                 </div>
                 <div className={classes.badgeStars}>★★★★★</div>
-                <p className={classes.badgeNote}>50+ satisfied guests</p>
+                <p className={classes.badgeNote}>200+ satisfied guests</p>
               </div>
             </div>
           </div>

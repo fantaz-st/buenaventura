@@ -4,11 +4,11 @@ import Image from "next/image";
 import classes from "./Footer.module.css";
 import AnimatedLink from "../AnimatedLink/AnimatedLink";
 import AnimatedText from "../AnimatedText/AnimatedText";
-import pageLinks from "@/settings/pageLinks";
+import footerLinks from "@/settings/footerLinks";
 
 const Footer = () => {
-  const mid = Math.ceil(pageLinks.length / 2);
-  const rows = [pageLinks.slice(0, mid), pageLinks.slice(mid)];
+  const mid = Math.ceil(footerLinks.length / 2);
+  const rows = [footerLinks.slice(0, mid), footerLinks.slice(mid)];
 
   return (
     <footer className={classes.container}>
@@ -41,7 +41,7 @@ const Footer = () => {
           </div>
 
           <nav className={classes.nav} aria-label="Footer navigation">
-            {[pageLinks.slice(0, Math.ceil(pageLinks.length / 2)), pageLinks.slice(Math.ceil(pageLinks.length / 2))].map((col, i) => (
+            {[footerLinks.slice(0, Math.ceil(footerLinks.length / 2)), footerLinks.slice(Math.ceil(footerLinks.length / 2))].map((col, i) => (
               <ul key={i} className={classes.navCol}>
                 {col.map(({ href, label }) => (
                   <li key={href} className={classes.navItem}>

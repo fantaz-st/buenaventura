@@ -8,6 +8,7 @@ import AnimatedLink from "../AnimatedLink/AnimatedLink";
 import classes from "./Header.module.css";
 import pageLinks from "@/settings/pageLinks";
 import Logo from "./Logo";
+import TheButton from "../TheButton/TheButton";
 
 const LANGUAGES = [
   { code: "en", label: "English" },
@@ -78,13 +79,39 @@ export default function Header() {
           </div>
 
           <nav className={classes.nav}>
-            {pageLinks.map(({ href, label }) => (
-              <div key={href} className={classes.navItem}>
-                <AnimatedLink href={href}>{label.toUpperCase()}</AnimatedLink>
-              </div>
-            ))}
+            {pageLinks.map((item) => {
+              if (!item.children) {
+                return (
+                  <div key={item.href} className={classes.navItem}>
+                    <AnimatedLink href={item.href}>{item.label.toUpperCase()}</AnimatedLink>
+                  </div>
+                );
+              }
+              return (
+                <div key={item.href} className={`${classes.navItem} ${classes.hasDropdown}`}>
+                  <AnimatedLink href={item.href} className={classes.dropdownToggle}>
+                    {item.label.toUpperCase()}
+                  </AnimatedLink>
 
-            <div className={classes.langSwitcher} onMouseEnter={() => setLangOpen(true)} onMouseLeave={() => setLangOpen(false)} onFocus={() => setLangOpen(true)} onBlur={() => setLangOpen(false)} tabIndex={0}>
+                  <div className={classes.dropdown} role="menu">
+                    <ul className={classes.dropdownList}>
+                      {item.children.map((c) => (
+                        <li key={c.href} className={classes.dropdownItem}>
+                          <Link href={c.href} className={classes.dropdownLink}>
+                            <span className={classes.thumbWrap}>
+                              <img src={c.image} alt="" className={classes.thumb} />
+                            </span>
+                            <span className={classes.dropdownLabel}>{c.label}</span>
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              );
+            })}
+
+            {/* <div className={classes.langSwitcher} onMouseEnter={() => setLangOpen(true)} onMouseLeave={() => setLangOpen(false)} onFocus={() => setLangOpen(true)} onBlur={() => setLangOpen(false)} tabIndex={0}>
               {currLang.code.toUpperCase()}
               {langOpen && (
                 <ul className={classes.langDropdown}>
@@ -95,8 +122,17 @@ export default function Header() {
                   ))}
                 </ul>
               )}
-            </div>
+            </div> */}
           </nav>
+
+          <div className={classes.contact}>
+            <p>
+              Call Us: <a href="tel:+385953933125">+385 95 393 3125</a>
+            </p>
+            <TheButton href="/contact" variant="lite">
+              Get in touch
+            </TheButton>
+          </div>
 
           <button className={burgerCls} onClick={() => setMenuOpen((p) => !p)} aria-label="Toggle menu" aria-expanded={menuOpen}>
             <p>{menuOpen ? "Close" : "Menu"}</p>

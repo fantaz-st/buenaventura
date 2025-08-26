@@ -7,6 +7,7 @@ import classes from "./BoatSection.module.css";
 import TheButton from "@/Components/TheButton/TheButton";
 import Image from "next/image";
 import { useGSAP } from "@gsap/react";
+import AnimatedText from "@/Components/AnimatedText/AnimatedText";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -14,40 +15,6 @@ export default function BoatSection() {
   const containerRef = useRef(null);
   const imageWrapperRef = useRef(null);
   const contentRef = useRef(null);
-
-  useGSAP(
-    () => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top top",
-          end: "+=100%",
-          scrub: true,
-          pin: true,
-        },
-      });
-
-      tl.to(
-        imageWrapperRef.current,
-        {
-          width: "100%",
-          height: "100%",
-          borderRadius: "0vh",
-          ease: "power2.inOut",
-        },
-        0
-      ).to(
-        contentRef.current,
-        {
-          opacity: 1,
-          y: 0,
-          ease: "power2.out",
-        },
-        0.1
-      );
-    },
-    { scope: containerRef }
-  );
 
   return (
     <section className={classes.section} ref={containerRef}>
@@ -63,11 +30,19 @@ export default function BoatSection() {
       </div>
 
       <div ref={contentRef} className={classes.content}>
-        <h2 className={classes.title}>Built for Good Living.</h2>
-        <p className={classes.subTitle}>Comfort you can sink into. Performance that carries you farther. Space designed for shared smiles, spontaneous dives, and long, slow lunches under the sun. Buenaventura isn&apos;t just a boat — it&apos;s your floating sanctuary.</p>
-        <TheButton variant="light" href="/our-boat">
-          Explore the Boat
-        </TheButton>
+        <AnimatedText>
+          <h2 className={classes.title}>Built for Good Living.</h2>
+        </AnimatedText>
+        <div className={classes.footer}>
+          <AnimatedText>
+            <p className={classes.subTitle}>Comfort you can sink into. Performance that carries you farther. Space designed for shared smiles, spontaneous dives, and long, slow lunches under the sun. Buenaventura isn&apos;t just a boat — it&apos;s your floating sanctuary.</p>
+          </AnimatedText>
+          <div>
+            <TheButton variant="light" href="/our-boat">
+              Explore the Boat
+            </TheButton>
+          </div>
+        </div>
       </div>
     </section>
   );

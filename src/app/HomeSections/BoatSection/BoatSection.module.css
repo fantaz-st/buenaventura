@@ -1,27 +1,26 @@
 .section {
-  height: 100vh;
+  height: 90vh;
   background: var(--color-black);
   position: relative;
   overflow: hidden;
 
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
-  text-align: center;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  align-items: center;
+  align-content: stretch;
   z-index: 1;
 }
 
 .imageWrapper {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 90%;
+  top: 0%;
+  left: 0%;
+  width: 100%;
   max-width: 2550px;
-  height: 60%;
-  border-radius: 100vh;
-  transform: translate(-50%, -50%);
-  overflow: hidden;
+  height: 100%;
+
   z-index: 0;
 }
 
@@ -32,26 +31,51 @@
 
 .content {
   z-index: 2;
-  opacity: 0;
-  transform: translateY(100px);
+  max-width: 1400px;
+  margin-bottom: 2rem;
 }
 
 .title {
   margin-bottom: 1rem;
+  font-size: 6rem;
   font-weight: 600;
   color: white;
 }
 
 .subTitle {
   margin-bottom: 2rem;
-  max-width: 600px;
-  margin-inline: auto;
   color: white;
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: stretch;
+  gap: 6rem;
+  padding-top: 2rem;
+  border-top: 1px solid #ffffff33;
 }
 
 @media (max-width: 640px) {
   .content {
     width: 100%;
     padding: 0 1rem;
+  }
+  .content {
+    margin-bottom: 4rem;
+  }
+
+  .title {
+    font-size: 3rem;
+  }
+
+  .footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding-top: 1rem;
   }
 }

@@ -22,6 +22,7 @@
   text-align: center;
   width: 100%;
   max-width: 1100px;
+  margin-bottom: 6rem;
 }
 
 .title {
@@ -40,7 +41,8 @@
   gap: 3rem;
   width: 100%;
   max-width: 1400px;
-  padding: 6rem 0 4rem;
+  padding: 0rem 0 4rem;
+  overflow: visible;
 }
 
 .left {
@@ -54,7 +56,7 @@
 .viewport {
   position: relative;
   height: 70vh;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .list {
@@ -198,7 +200,7 @@
     gap: 2rem;
   }
   .viewport {
-    height: 62vh;
+    height: 100vh;
   }
   .media {
     height: 62vh;
@@ -212,11 +214,18 @@
   }
   .flex {
     flex-direction: column;
+    padding-top: 0;
   }
   .right {
     width: 100%;
   }
   .media {
     height: 56vh;
+  }
+  .header {
+    margin-bottom: 1rem;
+  }
+  .quote {
+    font-size: 28px;
   }
 }

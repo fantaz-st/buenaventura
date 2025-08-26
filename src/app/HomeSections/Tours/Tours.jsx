@@ -54,7 +54,7 @@ export default function Tours() {
             centeredSlides={false}
             loop={false}
             breakpoints={{
-              1600: { slidesPerView: 4, spaceBetween: 24, slidesOffsetBefore: 360, slidesOffsetAfter: 0 },
+              1600: { slidesPerView: 4, spaceBetween: 24, slidesOffsetBefore: 270, slidesOffsetAfter: 0 },
               1200: { slidesPerView: 3, spaceBetween: 24, slidesOffsetBefore: 120, slidesOffsetAfter: 0 },
               768: { slidesPerView: 2, spaceBetween: 20, slidesOffsetBefore: 64, slidesOffsetAfter: 0 },
               0: { slidesPerView: 1.1, spaceBetween: 16, slidesOffsetBefore: 24, slidesOffsetAfter: 0 },

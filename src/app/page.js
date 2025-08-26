@@ -15,8 +15,8 @@ export default function Home() {
         <AboutUs />
         <BoatSection />
         <Tours />
-        <HomeFAQ />
         <Testimonials />
+        <HomeFAQ />
       </main>
     </div>
   );
