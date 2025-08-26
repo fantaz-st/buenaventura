@@ -1,4 +1,4 @@
-import TheButton from "../../Components/TheButton/TheButton";
+import TheButton from "../../../Components/TheButton/TheButton";
 import AnimatedText from "@/Components/AnimatedText/AnimatedText";
 import FAQ from "@/Components/FAQ/FAQ";
 import faqs from "@/settings/faqs";

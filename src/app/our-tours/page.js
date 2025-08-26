@@ -1,4 +1,4 @@
-import Tours from "@/HomeSections/ToursParallax/Tours";
+import Tours from "@/app/HomeSections/ToursParallax/Tours";
 import ToursFaq from "@/OurToursSections/ToursFAQ/ToursFaq";
 import ToursHero from "@/OurToursSections/ToursHero/ToursHero";
 

@@ -6,7 +6,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import classes from "./Tours.module.css";
-import { toursItems } from "../../settings/toursItems";
+import { toursItems } from "../../../settings/toursItems";
 import slides from "@/settings/slides";
 import Image from "next/image";
 

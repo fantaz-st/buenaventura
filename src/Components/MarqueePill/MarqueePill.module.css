@@ -1,0 +1,42 @@
+.container {
+  overflow: hidden;
+  position: relative;
+  border: 1px solid orange;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  border-radius: 4rem;
+  font-weight: 500;
+  max-height: 30px;
+  max-width: 160px;
+  text-decoration: none;
+}
+
+.inner {
+  position: relative;
+  overflow: hidden;
+  border-radius: 3rem;
+  padding: 0.5rem;
+}
+
+.marqueeInner {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  position: relative;
+  padding: 0;
+  user-select: none;
+  z-index: 9;
+}
+
+.title {
+  display: flex;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+.title::after {
+  content: " • ";
+  margin: 0 0.5rem;
+}

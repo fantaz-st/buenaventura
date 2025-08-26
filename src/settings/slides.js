@@ -32,6 +32,17 @@ const slides = [
     price: "1200",
     url: "/tours/hvar-and-pakleni-islands",
   },
+  {
+    id: "slide-4",
+    title: "Bol And Golden Horn",
+    description1: "From Split to Bol,Hvar Town and the secluded Pakleni archipelago",
+    description2: "A full day of vibrant culture, hidden coves, and effortless elegance on the Adriatic.",
+    poster: "/posters/2.jpg",
+    video: "/videos/hvar.mp4",
+    type: "Full day tour",
+    price: "1200",
+    url: "/tours/hvar-and-pakleni-islands",
+  },
 ];
 
 export default slides;

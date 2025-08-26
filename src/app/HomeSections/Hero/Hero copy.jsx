@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 import gsap from "gsap";
 import { SplitText, CustomEase, ScrollTrigger } from "gsap/all";
 import { useGSAP } from "@gsap/react";
-import horizontalLoop from "../../../helpers/horizontalScroll";
+import horizontalLoop from "../../../../helpers/horizontalScroll";
 import styles from "./Hero.module.css";
 import useFix100vh from "@/hooks/useFix100vh";
 

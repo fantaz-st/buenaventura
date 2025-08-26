@@ -1,6 +1,6 @@
 import ContactHero from "@/ContactSections/ContactHero/ContactHero";
 import Form from "./Form";
-import MiniContact from "@/HomeSections/MiniContact/MiniContact";
+import MiniContact from "@/app/HomeSections/MiniContact/MiniContact";
 import classes from "./page.module.css";
 import Image from "next/image";
 
