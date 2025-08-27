@@ -1,0 +1,151 @@
+.container {
+  padding: clamp(48px, 7vw, 96px) 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.intro {
+  max-width: 780px;
+  margin: 0 auto 36px;
+  text-align: center;
+}
+
+.intro h2 {
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 0 0 8px;
+}
+.intro p {
+  color: #566174;
+  margin: 0;
+  line-height: 1.7;
+}
+
+/* Stack wrappers naturally in the document flow */
+.cardsContainer {
+  /* no special positioning */
+}
+
+/* Each wrapper: 70vh tall with 15vh top padding, centered width */
+.cardWrapper {
+  height: 70vh;
+  padding-top: 15vh;
+  position: relative;
+  width: clamp(320px, 85vw, 1100px);
+  margin: 0 auto;
+}
+
+/* Last wrapper gets extra bottom padding + taller to keep the same card height */
+.cardWrapper:last-of-type {
+  height: 85vh; /* 70 + 15 */
+  padding-bottom: 15vh; /* matches the top padding of others */
+}
+
+/* Card fills wrapper width and the remaining height (55vh) */
+.card {
+  width: 100%;
+  height: calc(70vh - 15vh); /* 55vh visible area */
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 12px 28px rgba(10, 24, 46, 0.1), 0 4px 12px rgba(10, 24, 46, 0.06);
+  position: relative;
+}
+
+/* In the last wrapper, keep the same 55vh card height */
+.cardWrapper:last-of-type .card {
+  height: calc(85vh - 30vh); /* 85 - (15 top + 15 bottom) = 55vh */
+}
+
+/* Photo fills card */
+.media {
+  position: absolute;
+  inset: 0;
+}
+.media :global(img),
+.media img {
+  object-fit: cover;
+}
+
+/* Floating info panel (from your previous design) */
+.panel {
+  --pad: clamp(14px, 2.2vw, 22px);
+  --radius: 26px;
+  position: absolute;
+  right: clamp(12px, 4vw, 46px);
+  top: clamp(14px, 6vh, 64px);
+  width: min(520px, 62%);
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 3rem 2rem;
+  box-shadow: 0 20px 60px rgba(10, 24, 46, 0.14);
+  color: #0e1a2b;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  background: #e8fb67;
+  color: #182107;
+  font: 700 0.78rem/1 system-ui, -apple-system, Segoe UI, Roboto, Inter, sans-serif;
+  letter-spacing: 0.02em;
+  box-shadow: 0 4px 10px rgba(157, 220, 60, 0.25);
+}
+.panelTitle {
+  margin: 0.8rem 0 0.2rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  font-size: clamp(1.6rem, 3.4vw, 2.25rem);
+}
+.rule {
+  height: 1px;
+  background: #e9eef6;
+  margin: 0.6rem 0 0.8rem;
+}
+.panelDesc {
+  margin: 0 0 1rem;
+  color: #4b5563;
+  font-size: 1rem;
+  line-height: 1.7;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #111827;
+}
+.pinIcon {
+  width: 18px;
+  height: 18px;
+  color: #7e980c;
+}
+
+/* Outro */
+.outro {
+  max-width: 780px;
+  margin: 42px auto 0;
+  text-align: center;
+}
+.outro h3 {
+  margin: 0 0 8px;
+  font-size: clamp(1.4rem, 2.8vw, 1.9rem);
+  font-weight: 800;
+}
+.outro p {
+  margin: 0;
+  color: #566174;
+  line-height: 1.7;
+}
+
+.media :global(img),
+.media img {
+  will-change: transform;
+  transform: translateZ(0);
+}

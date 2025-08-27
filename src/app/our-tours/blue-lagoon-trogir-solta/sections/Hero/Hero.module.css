@@ -1,0 +1,92 @@
+.header {
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.destinations {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.destinations img {
+  color: #e4ed64;
+}
+
+.title {
+  font-size: clamp(45px, 5.5vmax, 70px);
+  line-height: 1;
+  letter-spacing: -2px;
+  font-weight: 700;
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.icon {
+  flex: 1;
+  min-width: 160px;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.iconImage {
+  height: 64px;
+  width: 64px;
+  border-radius: 50%;
+  background: #f5f7fa;
+  color: #0056d2;
+  position: relative;
+}
+
+.iconImage svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 42px;
+  width: 42px;
+}
+
+.iconText {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.95rem;
+}
+
+.iconText p:first-child {
+  color: #666;
+  font-weight: 500;
+  margin: 0;
+}
+
+.iconText p:last-child {
+  font-weight: 600;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.iconText p:last-child {
+  white-space: pre-line;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 520px;
+  margin-top: 2rem;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.image {
+  object-fit: cover;
+}

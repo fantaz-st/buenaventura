@@ -1,0 +1,54 @@
+.loader {
+  position: absolute;
+  inset: 0;
+  background: var(--color-black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  clip-path: inset(0 0 0 0); /* start fully visible */
+  z-index: 2;
+}
+
+.loadingText {
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.container {
+  padding: 2rem 1.5rem;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.hero {
+  width: 100vw;
+  height: 60vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero .imageContainer {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.hero .image {
+  object-fit: cover;
+}
+
+.spacer {
+  height: 50px;
+  width: 100%;
+  background-color: var(--color-white);
+  position: absolute;
+  content: "";
+  display: block;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+}

@@ -1,0 +1,122 @@
+.wrap {
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 28px rgba(12, 27, 53, 0.1);
+}
+
+.map {
+  width: 100%;
+  height: 420px;
+}
+
+.pin {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #e6eef9;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #1f6ed4;
+  box-shadow: 0 0 0 6px rgba(31, 110, 212, 0.14);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.start .dot {
+  background: #16a34a;
+  box-shadow: 0 0 0 6px rgba(22, 163, 74, 0.14);
+}
+
+.end .dot {
+  background: #ef4444;
+  box-shadow: 0 0 0 6px rgba(239, 68, 68, 0.14);
+}
+
+.popup {
+  text-align: center;
+}
+.popup img {
+  width: 300px;
+  border-radius: 8px;
+  margin-bottom: 6px;
+}
+.popup p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #0e1a2b;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.18);
+    opacity: 0.92;
+  }
+}
+
+@media (min-width: 1200px) {
+  .map {
+    height: 520px;
+  }
+}
+
+.bigPopup :global(.leaflet-popup-content-wrapper) {
+  padding: 0;
+  border-radius: 14px;
+  overflow: hidden;
+}
+.bigPopup :global(.leaflet-popup-content) {
+  margin: 0;
+}
+.bigPopup :global(.leaflet-popup-close-button) {
+  top: 8px;
+  right: 8px;
+}
+
+.popup {
+  width: 360px;
+}
+.popup img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+.popup p {
+  margin: 0;
+  padding: 10px 12px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #0e1a2b;
+}
+
+@media (max-width: 480px) {
+  .popup {
+    width: 280px;
+  }
+  .popup img {
+    height: 180px;
+  }
+}
+
+.routeAnim {
+  animation: dash 120s linear infinite;
+}
+@keyframes dash {
+  to {
+    stroke-dashoffset: -2000;
+  }
+}

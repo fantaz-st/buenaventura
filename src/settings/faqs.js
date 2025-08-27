@@ -81,14 +81,14 @@ const faqs = [
     title: "Blue Lagoon, Trogir, Šolta related",
     qa: [
       {
-        id: "bluelagoon-faq-q4",
-        question: "Any beach bars or cafés around?",
-        answer: "There are a couple of laid-back beach bars right in the bay—great for a coffee or a cold drink between swims.",
-      },
-      {
         id: "bluelagoon-faq-q1",
         question: "How long is the ride to the Blue Lagoon?",
         answer: "Plan on roughly 25–30 minutes from Split with our boat. Sea conditions can nudge that a few minutes either way.",
+      },
+      {
+        id: "bluelagoon-faq-q4",
+        question: "Any beach bars or cafés around?",
+        answer: "There are a couple of laid-back beach bars right in the bay—great for a coffee or a cold drink between swims.",
       },
       {
         id: "bluelagoon-faq-q7",

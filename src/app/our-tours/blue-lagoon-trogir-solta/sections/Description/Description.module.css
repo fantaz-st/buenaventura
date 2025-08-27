@@ -1,0 +1,71 @@
+.container {
+  width: 100%;
+  background: #fff;
+}
+
+.inner {
+  padding: 3rem 0 2.5rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 420px;
+  gap: 3rem;
+  align-items: start;
+}
+
+.description h2 {
+  font-weight: 600;
+  letter-spacing: -1px;
+  line-height: 1.05;
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  margin: 0 0 1.25rem;
+}
+
+.description p {
+  color: #555;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin: 0 0 1.25rem;
+}
+
+/* Right column */
+.details h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 1rem;
+}
+
+.details ul {
+  margin: 0;
+  padding: 0 0 0 1.15rem; /* indent for bullets */
+  list-style: disc;
+}
+
+.details li {
+  color: #444;
+  font-size: 0.98rem;
+  line-height: 1.7;
+  margin: 0 0 0.85rem;
+}
+
+/* Soft lime bullets like the screenshot */
+.details li::marker {
+  color: #b5e27a; /* tweak to your brand */
+}
+
+/* Label + value */
+.details li span {
+  font-weight: 700;
+  color: #111;
+  margin-right: 0.35rem;
+}
+
+/* Responsive */
+@media (max-width: 980px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .details {
+    border-top: 1px solid #eee;
+    padding-top: 1.25rem;
+  }
+}
