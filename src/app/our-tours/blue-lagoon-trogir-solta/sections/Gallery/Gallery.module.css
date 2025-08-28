@@ -1,0 +1,154 @@
+.container {
+  padding: 4rem 0rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.headerRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  justify-content: space-between;
+  margin-bottom: clamp(12px, 2.5vw, 20px);
+}
+
+.title {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  font-size: clamp(1.8rem, 3.8vw, 3rem);
+  margin: 0;
+}
+
+/* ---------- Tabs ---------- */
+.tabs {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 44px;
+  padding: 0 16px;
+  border-radius: 999px;
+  border: 1px solid #e6e9f0;
+  background: #fff;
+  color: #0f172a;
+  font-weight: 700;
+  font-size: 0.95rem;
+  box-shadow: 0 2px 8px rgba(16, 24, 40, 0.06);
+}
+.tab:disabled {
+  opacity: 0.85;
+  cursor: default;
+}
+.tabActive {
+  background: #e8fb67;
+  border-color: #e8fb67;
+  box-shadow: 0 10px 22px rgba(157, 220, 60, 0.28);
+}
+.tabIcon {
+  font-size: 1rem;
+}
+
+/* ---------- Carousel ---------- */
+.carousel {
+  position: relative;
+}
+
+/* Let slides size themselves */
+.slide {
+  width: clamp(260px, 46vw, 980px);
+}
+
+/* Swiper base */
+:global(.swiper) {
+  overflow: visible;
+  padding: 8px 0; /* small breathing room */
+}
+
+/* Card look */
+.figure {
+  margin: 0;
+}
+
+.imageWrap {
+  position: relative;
+  height: clamp(220px, 46vw, 560px);
+  border-radius: 28px;
+  overflow: hidden;
+  background: #f4f6fb;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.1), 0 3px 10px rgba(15, 23, 42, 0.06);
+}
+
+.image {
+  object-fit: cover;
+}
+
+/* Fade/soften neighbors; highlight active */
+:global(.swiper-slide) .imageWrap {
+  transform: scale(0.94);
+  transition: transform 0.35s ease, filter 0.35s ease, opacity 0.35s ease;
+  filter: grayscale(15%) saturate(0.9) brightness(1.05);
+  opacity: 0.45;
+}
+:global(.swiper-slide-active) .imageWrap {
+  transform: scale(1);
+  filter: none;
+  opacity: 1;
+}
+
+/* soft inner gradient edge (like the mock) */
+.fade {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(120% 120% at 15% 50%, rgba(255, 255, 255, 0.65) 0, transparent 40%), radial-gradient(120% 120% at 85% 50%, rgba(255, 255, 255, 0.65) 0, transparent 40%);
+  opacity: 0.6;
+}
+:global(.swiper-slide-active) .fade {
+  opacity: 0; /* no fade on the focused image */
+}
+
+/* Small screens: make slide height a bit taller for nicer feel */
+@media (max-width: 640px) {
+  .imageWrap {
+    height: 58vh;
+    border-radius: 22px;
+  }
+}
+
+/* A11y helper */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.imageLink {
+  position: absolute;
+  inset: 0;
+  display: block;
+  cursor: zoom-in;
+}
+
+.image {
+  object-fit: cover;
+}
+
+/* fallback skeleton while the map JS loads */
+.mapFallback {
+  width: clamp(260px, 46vw, 980px);
+  height: clamp(220px, 46vw, 560px);
+  border-radius: 28px;
+  background: #f4f6fb;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.1), 0 3px 10px rgba(15, 23, 42, 0.06);
+  margin: 0 auto;
+}

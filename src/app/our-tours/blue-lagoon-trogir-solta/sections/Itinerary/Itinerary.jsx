@@ -56,24 +56,12 @@ export default function Itinerary() {
   useGSAP(
     () => {
       gsap.registerPlugin(ScrollTrigger);
-      const intro = document.querySelector(`.${classes.intro}`);
-      const cardsContainer = document.querySelector(`.${classes.cardsContainer}`);
-
-      ScrollTrigger.create({
-        trigger: cardsContainer,
-        start: "top 25%",
-        end: "bottom top",
-        pin: intro,
-        pinSpacing: false,
-        anticipatePin: 1,
-      });
 
       const wrappers = gsap.utils.toArray(`.${classes.cardWrapper}`);
       wrappers.forEach((wrapper, idx) => {
         const card = wrapper.querySelector(`.${classes.card}`);
         const isLast = idx === wrappers.length - 1;
 
-        // last card scrolls normally (no pin)
         if (isLast) {
           gsap.set(card, { opacity: 1, scale: 1 });
           return;
@@ -91,7 +79,7 @@ export default function Itinerary() {
             },
           })
           .set(card, { opacity: 1, scale: 1 })
-          .to(card, { opacity: 0, scale: 0.8, ease: "none", duration: 1 - FADE_START }, FADE_START);
+          .to(card, { opacity: 0, scale: 0.8, ease: "none", duration: 1 });
       });
 
       return () => ScrollTrigger.getAll().forEach((t) => t.kill());
@@ -103,7 +91,6 @@ export default function Itinerary() {
     <section className={classes.container} ref={container}>
       <header className={classes.intro}>
         <h2>Itinerary</h2>
-        <p>Your day, perfectly paced — from Split’s waterfront to turquoise coves and UNESCO stone streets.</p>
       </header>
 
       <div className={classes.cardsContainer}>

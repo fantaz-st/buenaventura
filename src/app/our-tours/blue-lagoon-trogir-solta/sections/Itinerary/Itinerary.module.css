@@ -1,20 +1,19 @@
 .container {
-  padding: clamp(48px, 7vw, 96px) 16px;
-  max-width: 1200px;
+  padding: 0rem;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
 .intro {
-  max-width: 780px;
-  margin: 0 auto 36px;
-  text-align: center;
+  margin-bottom: 3rem;
 }
 
 .intro h2 {
-  font-size: clamp(2rem, 4.5vw, 3rem);
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  margin: 0 0 8px;
+  font-weight: 600;
+  letter-spacing: -1px;
+  line-height: 1.05;
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  margin: 0 0 1.25rem;
 }
 .intro p {
   color: #566174;
@@ -30,16 +29,15 @@
 /* Each wrapper: 70vh tall with 15vh top padding, centered width */
 .cardWrapper {
   height: 70vh;
-  padding-top: 15vh;
+  padding-top: 0vh;
   position: relative;
-  width: clamp(320px, 85vw, 1100px);
+  width: 100%;
   margin: 0 auto;
 }
 
 /* Last wrapper gets extra bottom padding + taller to keep the same card height */
 .cardWrapper:last-of-type {
-  height: 85vh; /* 70 + 15 */
-  padding-bottom: 15vh; /* matches the top padding of others */
+  padding-bottom: 2vh; /* matches the top padding of others */
 }
 
 /* Card fills wrapper width and the remaining height (55vh) */

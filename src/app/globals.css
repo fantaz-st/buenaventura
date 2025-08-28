@@ -124,3 +124,26 @@ small {
   visibility: hidden;
   opacity: 0;
 }
+
+.swiper-slide-active .imageLink {
+  cursor: zoom-in;
+}
+html.fancybox-lock,
+:root.is-locked {
+  overflow: hidden !important;
+  overscroll-behavior: contain; /* prevents iOS pull-to-refresh */
+}
+
+/* Make sure Fancybox always sits above the site header */
+.fancybox__container {
+  z-index: 99999 !important;
+}
+
+/* While lightbox is open, don't let the header capture pointer events */
+:root.lightbox-open header {
+  pointer-events: none;
+}
+
+.swiper-slide-active .fade {
+  opacity: 0; /* no fade on the focused image */
+}
